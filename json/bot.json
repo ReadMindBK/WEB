@@ -1,0 +1,270 @@
+{
+    "es": {
+        "tituloFAQ": "Preguntas Frecuentes",
+        "mensajeInicial": "¡Hola! ¿Te puedo ayudar en algo?",
+        "placeholderInput": "Escribí tu pregunta...",
+        "botonEnviar": "Enviar",
+        "btnVolver": "Volver al inicio",
+        "faqData": [
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿Para qué edades son los libros?",
+                "respuesta": "Generalmente de 4 a 10 años, igualmente cada libro indica un rango especifico."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿De qué tratan los libros?",
+                "respuesta": "Mitologías, Dinosaurios, Robots, Animales y muchos personajes más."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿Los libros son educativos?",
+                "respuesta": "Si, es la intensión de READMIND, que cada libro aporte conocimiento ademas de diversión."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿Los libros tienen ilustraciones?",
+                "respuesta": "Todos los libros cuentan con ilustraciones, algunos más que otros dependiendo de cada categoria."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿Puedo ver algunas páginas antes de comprar?",
+                "respuesta": "Desde nuestras redes sociales como @READMINDBK, puedes ver todo lo necesario."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿En qué idiomas están los libros?",
+                "respuesta": "Todos nuestros libros cuentan con 2 ediciones, en Español e Ingles."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿Los libros son digitales o impresos?",
+                "respuesta": "Todos son impresos por Amazon."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿Qué es el código QR que aparece en algunos libros?",
+                "respuesta": "Es opcional, si quieres escuchar la guia, sinopsis de los personajes, e incluso musica, puedes escanear el QR y disfrutar los audios."
+            },
+            {
+                "categoria": "Sobre los libros",
+                "pregunta": "¿Necesito una aplicación para escuchar los contenidos?",
+                "respuesta": "No es necesario, salvo excepciones, con cualquier camara de celular, detecta automaticamente el QR y te direccionará a una web de ReadMind con el audio especifico."
+            },
+            {
+                "categoria": "Sobre los álbumes musicales",
+                "pregunta": "¿Qué música tienen disponible?",
+                "respuesta": "Actualmente son 3 albumes con 10 temas cada uno."
+            },
+            {
+                "categoria": "Sobre los álbumes musicales",
+                "pregunta": "¿Para qué edades está pensada la música?",
+                "respuesta": "Son caciones infantiles que pueden abarcar un amplio rango de edades."
+            },
+            {
+                "categoria": "Sobre los álbumes musicales",
+                "pregunta": "¿Qué tipo de canciones incluye el álbum?",
+                "respuesta": "Son canciones alegres con un proposito de optimismo y superación, sobre las distintas etapas por las que pasan los niños mientras crecen."
+            },
+            {
+                "categoria": "Sobre los álbumes musicales",
+                "pregunta": "¿Puedo escuchar una muestra?",
+                "respuesta": "Puedes escuchar las canciones en una gran cantidad de plataformas, como Spotify, Apple Music, Amazon Music, YouTube Music, etc."
+            },
+            {
+                "categoria": "Sobre los álbumes musicales",
+                "pregunta": "¿La música está relacionada con los libros?",
+                "respuesta": "Los albumes musicales son totalmente independientes de los libros que publicamos."
+            },
+            {
+                "categoria": "Sobre los álbumes musicales",
+                "pregunta": "¿En qué idiomas están las canciones de los álbumes?",
+                "respuesta": "Solo en el caso de los albumes, todas las canciones estan en español."
+            },
+            {
+                "categoria": "Sobre los álbumes musicales",
+                "pregunta": "¿En qué plataformas está disponible la música?",
+                "respuesta": "Spotify, Apple Music, Amazon Music, YouTube Music, SoundCloud, TikTok, Instagram, Facebook, CapCut y más."
+            },
+            {
+                "categoria": "Compras",
+                "pregunta": "¿Cómo obtengo el libro?",
+                "respuesta": "Todos los enlaces de los libros te dirigirán a Amazon, donde alli puedes realizar la compra."
+            },
+            {
+                "categoria": "Compras",
+                "pregunta": "¿Cómo puedo pagar?",
+                "respuesta": "A travez de los distintos medios de pago que ofrece Amazon en su plataforma."
+            },
+            {
+                "categoria": "Compras",
+                "pregunta": "¿Cómo recibo mi compra?",
+                "respuesta": "Mediante el confiable sistema de envíos de la plataforma de Amazon."
+            },
+            {
+                "categoria": "Contacto",
+                "pregunta": "¿Dónde puedo hacer una consulta?",
+                "respuesta": "Puedes consultarle a nuestro bot lo que necesites saber."
+            },
+            {
+                "categoria": "Contacto",
+                "pregunta": "¿Cómo puedo recibir novedades?",
+                "respuesta": "Por medio de nuestras redes sociales por Instragam, Tiktok, Youtube y Pinterest."
+            },
+            {
+                "categoria": "Contacto",
+                "pregunta": "¿Dónde puedo seguirlos?",
+                "respuesta": "Buscanos en nuestras redes como @READMINDBK."
+            },
+            {
+                "categoria": "Sobre las apps",
+                "pregunta": "¿Para que son las Apps?",
+                "respuesta": "Contamos con Apps de utilidad para dispositivos moviles."
+            },
+            {
+                "categoria": "Sobre las apps",
+                "pregunta": "¿Como obtengo las Apps?",
+                "respuesta": "Busca dentro de la web la App que deseas y el link te enviará a PlayStore o AppleStore para iniciar la descarga e instalacion en tu dispositivo movil."
+            },
+            {
+                "categoria": "Sobre las apps",
+                "pregunta": "¿Son gratis las Apps?",
+                "respuesta": "Si son gratis y listas para utilizar."
+            }
+        ]
+    },
+    "en": {
+        "tituloFAQ": "Frequently Asked Questions",
+        "mensajeInicial": "Hello! Can I help you with anything?",
+        "placeholderInput": "Write your question...",
+        "botonEnviar": "Send",
+        "btnVolver": "Back to Home",
+        "faqData": [
+            {
+                "categoria": "About books",
+                "pregunta": "What age range are the books for?",
+                "respuesta": "Generally from 4 to 10 years old; each book indicates a specific range."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "What are the books about?",
+                "respuesta": "Mythologies, Dinosaurs, Robots, Animals, and many other characters."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "Are the books educational?",
+                "respuesta": "Yes, it is READMIND's intention that each book provides knowledge in addition to fun."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "Do the books have illustrations?",
+                "respuesta": "All books have illustrations, some more than others depending on the category."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "Can I see some pages before buying?",
+                "respuesta": "You can see everything necessary on our social networks, such as @READMINDBK."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "What languages are the books in?",
+                "respuesta": "All our books have 2 editions, in Spanish and English."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "Are the books digital or printed?",
+                "respuesta": "They are all printed by Amazon."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "What is the QR code that appears in some books?",
+                "respuesta": "It is optional. If you want to listen to the guide, character synopses, or even music, you can scan the QR code and enjoy the audio."
+            },
+            {
+                "categoria": "About books",
+                "pregunta": "Do I need an app to listen to the content?",
+                "respuesta": "It is not necessary, except in rare cases. With any mobile phone camera, it automatically detects the QR code and directs you to a ReadMind web page with the specific audio."
+            },
+            {
+                "categoria": "About musical albums",
+                "pregunta": "What music is available?",
+                "respuesta": "Currently, there are 3 albums with 10 tracks each."
+            },
+            {
+                "categoria": "About musical albums",
+                "pregunta": "What age range is the music intended for?",
+                "respuesta": "They are children's songs that can span a wide age range."
+            },
+            {
+                "categoria": "About musical albums",
+                "pregunta": "What type of songs does the album include?",
+                "respuesta": "They are upbeat songs with a purpose of optimism and overcoming challenges, about the different stages children go through as they grow."
+            },
+            {
+                "categoria": "About musical albums",
+                "pregunta": "Can I listen to a sample?",
+                "respuesta": "You can listen to the songs on many platforms, such as Spotify, Apple Music, Amazon Music, YouTube Music, etc."
+            },
+            {
+                "categoria": "About musical albums",
+                "pregunta": "Is the music related to the books?",
+                "respuesta": "The musical albums are completely independent of the books we publish."
+            },
+            {
+                "categoria": "About musical albums",
+                "pregunta": "What languages are the songs on the albums in?",
+                "respuesta": "Only in the case of the albums, all songs are in Spanish."
+            },
+            {
+                "categoria": "About musical albums",
+                "pregunta": "What platforms is the music available on?",
+                "respuesta": "Spotify, Apple Music, Amazon Music, YouTube Music, SoundCloud, TikTok, Instagram, Facebook, CapCut, and more."
+            },
+            {
+                "categoria": "Purchases",
+                "pregunta": "How do I get the book?",
+                "respuesta": "All book links will direct you to Amazon, where you can make the purchase."
+            },
+            {
+                "categoria": "Purchases",
+                "pregunta": "How can I pay?",
+                "respuesta": "Through the different payment methods offered by Amazon on their platform."
+            },
+            {
+                "categoria": "Purchases",
+                "pregunta": "How do I receive my purchase?",
+                "respuesta": "Through the reliable shipping system of the Amazon platform."
+            },
+            {
+                "categoria": "Contact",
+                "pregunta": "Where can I ask a question?",
+                "respuesta": "You can ask our bot whatever you need to know."
+            },
+            {
+                "categoria": "Contact",
+                "pregunta": "How can I receive updates?",
+                "respuesta": "Through our social media channels on Instagram, TikTok, YouTube, and Pinterest."
+            },
+            {
+                "categoria": "Contact",
+                "pregunta": "Where can I follow you?",
+                "respuesta": "Look for us on our social networks as @READMINDBK."
+            },
+            {
+                "categoria": "About the apps",
+                "pregunta": "What are apps for?",
+                "respuesta": "We offer useful apps for mobile devices."
+            },
+            {
+                "categoria": "About the apps",
+                "pregunta": "How do I get the apps?",
+                "respuesta": "Search the website for the app you want, and the link will take you to the Play Store or Apple Store to start the download and installation on your mobile device."
+            },
+            {
+                "categoria": "About the apps",
+                "pregunta": "Are the apps free?",
+                "respuesta": "Yes, they are free and ready to use."
+            }
+        ]
+    }
+}

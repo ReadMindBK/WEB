@@ -1,0 +1,62 @@
+{
+  "es": {
+    "menu_coloreables": "Libros Coloreables",
+    "menu_actividades": "Libros de Actividades",
+    "menu_audibles": "Libros Audibles",
+    "btn_volver": "Volver al inicio",
+
+    "titulo_col_1": "Título libro 1",
+    "desc_col_1": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_col_2": "Título libro 2",
+    "desc_col_2": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_col_3": "Título libro 3",
+    "desc_col_3": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+
+    "titulo_act_1": "Título libro 1",
+    "desc_act_1": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_act_2": "Título libro 2",
+    "desc_act_2": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_act_3": "Título libro 3",
+    "desc_act_3": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+
+    "titulo_aud_1": "Título libro 1",
+    "desc_aud_1": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_aud_2": "Título libro 2",
+    "desc_aud_2": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_aud_3": "Título libro 3",
+    "desc_aud_3": "Descripción del libro, características, diccionario, juegos, qr audio, música, etc.",
+
+    "btn_lang_es": "Español",
+    "btn_lang_en": "Inglés"
+  },
+  "en": {
+    "menu_coloreables": "Coloring Books",
+    "menu_actividades": "Activity Books",
+    "menu_audibles": "Audiobooks",
+    "btn_volver": "Back to home",
+
+    "titulo_col_1": "Book Title 1",
+    "desc_col_1": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_col_2": "Book Title 2",
+    "desc_col_2": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_col_3": "Book Title 3",
+    "desc_col_3": "Book description, features, dictionary, games, audio QR, music, etc.",
+
+    "titulo_act_1": "Book Title 1",
+    "desc_act_1": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_act_2": "Book Title 2",
+    "desc_act_2": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_act_3": "Book Title 3",
+    "desc_act_3": "Book description, features, dictionary, games, audio QR, music, etc.",
+
+    "titulo_aud_1": "Book Title 1",
+    "desc_aud_1": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_aud_2": "Book Title 2",
+    "desc_aud_2": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_aud_3": "Book Title 3",
+    "desc_aud_3": "Book description, features, dictionary, games, audio QR, music, etc.",
+
+    "btn_lang_es": "Spanish",
+    "btn_lang_en": "English"
+  }
+}

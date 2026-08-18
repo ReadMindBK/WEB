@@ -1,0 +1,58 @@
+{
+  "es": {
+    "btn_volver": "Volver al inicio",
+
+    "titulo_col_1": "Album Musical 1",
+    "desc_col_1": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_col_2": "Album Musical 2",
+    "desc_col_2": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_col_3": "Album Musical 3",
+    "desc_col_3": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+
+    "titulo_act_1": "Album Musical 1",
+    "desc_act_1": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_act_2": "Album Musical 2",
+    "desc_act_2": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_act_3": "Album Musical 3",
+    "desc_act_3": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+
+    "titulo_aud_1": "Album Musical 1",
+    "desc_aud_1": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_aud_2": "Album Musical 2",
+    "desc_aud_2": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+    "titulo_aud_3": "Album Musical 3",
+    "desc_aud_3": "Descripción del Album, características, diccionario, juegos, qr audio, música, etc.",
+
+    "btn_lang_es": "Español",
+    "btn_lang_en": "Inglés",
+    "btn_adquierelo": "ADQUIÉRELO!!"
+  },
+  "en": {
+    "btn_volver": "Back to home",
+
+    "titulo_col_1": "Music Album 1",
+    "desc_col_1": "Music Album description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_col_2": "Music Album 2",
+    "desc_col_2": "Music Album description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_col_3": "Music Album 3",
+    "desc_col_3": "Music Album description, features, dictionary, games, audio QR, music, etc.",
+
+    "titulo_act_1": "Music Album 1",
+    "desc_act_1": "Music Album description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_act_2": "Music Album 2",
+    "desc_act_2": "Music Album description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_act_3": "Music Album 3",
+    "desc_act_3": "Music Album description, features, dictionary, games, audio QR, music, etc.",
+
+    "titulo_aud_1": "Music Album 1",
+    "desc_aud_1": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_aud_2": "Music Album 2",
+    "desc_aud_2": "Book description, features, dictionary, games, audio QR, music, etc.",
+    "titulo_aud_3": "Music Album 3",
+    "desc_aud_3": "Music Album description, features, dictionary, games, audio QR, music, etc.",
+
+    "btn_lang_es": "Spanish",
+    "btn_lang_en": "English",
+    "btn_adquierelo": "GET IT!!"
+  }
+}
