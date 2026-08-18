@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadMind - ¡Bienvenidos!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlace a los estilos de SwiperJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        /* =======================================================
+            PANEL DE CONTROL DE DISTANCIAS VERTICALES, MARCOS 
+            Y BOTONES DE IDIOMA/AYUDA
+           ======================================================= */
+        :root {
+            /* --- VARIABLES PARA EL MARCO DE LOS VIDEOS --- */
+            --marco-grosor: 5px;
+            --marco-brillo: 0 0 20px rgba(255, 255, 255, 0.5);
+
+            --espacio-arriba-bienvenidos: -5px;  
+            --espacio-debajo-bienvenidos: 10px;  
+            --espacio-debajo-descripcion: 10px;  
+            --espacio-texto-y-cuadro: -15px;     
+            --espacio-entre-botones: 20px;       
+            --espacio-texto-y-redes: 5px;
+            --espacio-musica-y-texto: 5px; 
+
+            /* --- VARIABLES PARA EDITAR TAMAÑO Y UBICACIÓN DE BOTONES (Es, En, ?) --- */
+            --btn-idioma-tamanio: 30px;     /* Ancho y alto de los botones circulares */
+            --btn-idioma-fuente: 16px;       /* Tamaño del texto/icono dentro de los botones */
+            --grupo-idiomas-gap: 10px;       /* Separación entre el botón Es y En */
+            --footer-barra-max-width: 340px; /* Ancho máximo de la barra superior del footer */
+            --footer-barra-margin-bottom: 5px;/* Separación inferior de la barra superior */
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* --- FONDO ANIMADO --- */
+        body {
+            background: linear-gradient(-45deg, #3bb2ea, #76639c, #95455c, #3bb2ea);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 20px 10px;
+            position: relative;
+            overflow-x: hidden; 
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- ESTILOS DEL CARRUSEL 3D DE VIDEOS (HORIZONTAL) --- */
+        .swiper {
+            width: 100%;
+            max-width: 850px;
+            padding: 20px 0;
+            overflow: visible; 
+        }
+
+        /* Estilo base para todos los videos (los inactivos en los costados) */
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 270px; 
+            height: 480px; 
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            filter: brightness(0.4) scale(0.8); 
+            opacity: 0.4; 
+            transition: all 0.4s ease;
+        }
+
+        /* El video central totalmente destacado */
+        .swiper-slide-active {
+            filter: brightness(1) scale(1);
+            opacity: 1; 
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 20px 40px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        /* Ocultar botones de audio en los slides laterales */
+        .swiper-slide:not(.swiper-slide-active) .btnMuteVideo {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .swiper-slide-active .btnMuteVideo {
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        /* --- ANIMACIÓN DEGRADADO ARCOÍRIS PARA EL MARCO --- */
+        @keyframes marcoArcoiris {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .contenedor-video-vertical {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; 
+            border-radius: 25px; 
+            overflow: hidden; 
+            border: var(--marco-grosor) solid transparent;
+            background-image: linear-gradient(#111, #111), linear-gradient(-45deg, #3bb2ea, #76639c, #95455c, #3bb2ea);
+            background-size: 100% 100%, 400% 400%;
+            animation: marcoArcoiris 8s ease infinite;
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4), var(--marco-brillo);
+        }
+
+        .video-local {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: calc(25px - var(--marco-grosor));
+        }
+
+        /* --- BOTÓN DE AUDIO DE CADA VIDEO --- */
+        .btnMuteVideo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 20;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btnMuteVideo:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            border-color: #fff;
+        }
+
+        /* --- CORRECCIÓN PROPORCIONAL PARA CELULARES --- */
+        @media (max-width: 768px) {
+            .swiper { max-width: 100%; }
+            .swiper-slide { width: 60vw !important; height: 106vw !important; max-height: 480px; }
+        }
+
+        @media (max-width: 480px) {
+            .swiper-slide { width: 68vw !important; height: 121vw !important; max-height: 450px; }
+        }
+
+        /* --- PARTÍCULAS --- */
+        .area-particulas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            overflow: hidden;
+            pointer-events: none; 
+        }
+
+        .circulos {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circulos li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            background: rgba(255, 255, 255, 0.12); 
+            animation: subirParticulas linear infinite;
+            border-radius: 50%;
+        }
+
+        .circulos li:nth-child(1)  { left: 5%;  width: 50px; height: 50px; top: 10%;  animation-duration: 20s; animation-delay: -2s; }
+        .circulos li:nth-child(2)  { left: 10%; width: 20px; height: 20px; top: 60%;  animation-duration: 12s; animation-delay: -5s; }
+        .circulos li:nth-child(3)  { left: 15%; width: 60px; height: 60px; top: 30%;  animation-duration: 25s; animation-delay: -1s; }
+        .circulos li:nth-child(4)  { left: 20%; width: 25px; height: 25px; top: 80%;  animation-duration: 15s; animation-delay: -8s; }
+        .circulos li:nth-child(5)  { left: 25%; width: 40px; height: 40px; top: 20%;  animation-duration: 18s; animation-delay: -4s; }
+
+        @keyframes subirParticulas {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-800px) scale(0.5); opacity: 0; }
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .contenido-principal {
+            z-index: 1; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px; 
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* --- ANIMACIÓN LOGO Y BRILLO --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes brilloConstante {
+            0% { filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.3)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); }
+            50% { filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.4)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)); }
+            100% { filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.3)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); }
+        }
+
+        .logo {
+            width: 160px;
+            margin-top: 10px;
+            animation: float 3.5s ease-in-out infinite, brilloConstante 3s ease-in-out infinite;
+        }
+
+        /* --- TEXTOS --- */
+        h1 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-top: var(--espacio-arriba-bienvenidos);
+            margin-bottom: var(--espacio-debajo-bienvenidos);
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .descripcion-breve {
+            font-size: 15px;
+            max-width: 500px;
+            line-height: 1.4;
+            margin-bottom: var(--espacio-debajo-descripcion);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            font-weight: 300;
+        }
+
+        /* --- BOTONES LIBROS / MÚSICA --- */
+        .category-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espacio-entre-botones);
+            width: 100%;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .category-link {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .category-link:hover {
+            transform: scale(1.06);
+        }
+
+        .category-title {
+            font-size: 22px;
+            margin-bottom: var(--espacio-texto-y-cuadro);
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+
+        .category-box {
+            width: 220px;
+            height: auto;
+            object-fit: contain; 
+            transition: all 0.4s ease;
+            animation: pulsoBoton 3s ease-in-out infinite; 
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        @keyframes pulsoBoton {
+            0% { transform: scale(1); filter: drop-shadow(0 8px 15px rgba(0,0,0,0.2)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 12px 25px rgba(255,255,255,0.4)); }
+            100% { transform: scale(1); filter: drop-shadow(0 8px 15px rgba(0,0,0,0.2)); }
+        }
+
+        .musica-descripcion {
+            font-size: 14px;
+            max-width: 280px;
+            line-height: 1.3;
+            margin-top: var(--espacio-musica-y-texto);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            font-style: italic;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            margin-top: auto;
+            padding-top: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* --- BARRA SUPERIOR DEL FOOTER --- */
+        .footer-barra-superior {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            width: 100%;
+            max-width: var(--footer-barra-max-width);
+            margin-bottom: var(--footer-barra-margin-bottom);
+            padding: 0 10px;
+        }
+
+        .grupo-idiomas {
+            display: flex;
+            gap: var(--grupo-idiomas-gap);
+            justify-self: start;
+        }
+
+        .btn-circular {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: var(--btn-idioma-tamanio);
+            height: var(--btn-idioma-tamanio);
+            font-size: var(--btn-idioma-fuente);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            outline: none;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .btn-circular:hover, .btn-circular.activo {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+            border-color: #fff;
+        }
+
+        .handle {
+            font-size: 17px;
+            font-weight: bold;
+            justify-self: center;
+        }
+
+.btn-ayuda {
+            justify-self: end;
+            margin-right: 20px; /* Cambia este valor para alejarlo del borde derecho (mayor número = más hacia la  izquierda) */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 18px; 
+            margin-top: var(--espacio-texto-y-redes); 
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.15);
+        }
+        .social-icons .fa-instagram:hover { color: #E1306C; }
+        .social-icons .fa-tiktok:hover { color: #000000; text-shadow: 2px 2px 0px #00f2fe, -2px -2px 0px #fe0979;}
+        .social-icons .fa-youtube:hover { color: #FF0000; }
+        .social-icons .fa-pinterest:hover { color: #E60023; }
+
+    </style>
+</head>
+<body>
+
+    <!-- REPRODUCTOR DE MÚSICA DE FONDO OCULTO -->
+    <audio id="musicaFondo" src="musica_fondo.mp3" loop preload="auto"></audio>
+
+    <div class="area-particulas">
+        <ul class="circulos">
+            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+    </div>
+
+    <div class="contenido-principal">
+        
+        <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
+
+        <h1 data-key="bienvenidos">¡¡Bienvenidos!!</h1>
+        
+        <p class="descripcion-breve" data-key="descripcion">
+            Mucho más que libros para pintar: juegos, diccionarios, personajes increíbles y códigos QR con audios mágicos. ¡Únete a la aventura de usar menos pantallas y más lápices con crayón!
+        </p>
+
+        <!-- CARRUSEL 3D DE VIDEOS (HORIZONTAL) -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="contenedor-video-vertical">
+                        <video class="video-local" src="Videos/video3.mp4" muted playsinline preload="metadata"></video>
+                        <button class="btnMuteVideo" type="button" onclick="alternarAudio(this, event)">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="contenedor-video-vertical">
+                        <video class="video-local" src="Videos/video1.mp4" muted playsinline preload="metadata"></video>
+                        <button class="btnMuteVideo" type="button" onclick="alternarAudio(this, event)">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="contenedor-video-vertical">
+                        <video class="video-local" src="Videos/video2.mp4" muted playsinline preload="metadata"></video>
+                        <button class="btnMuteVideo" type="button" onclick="alternarAudio(this, event)">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="category-container">
+            
+            <!-- BOTÓN ORIGINAL DE LIBROS -->
+            <a href="libros.html" class="category-link">
+                <div class="category-title" data-key="LIBROS">LIBROS</div>
+                <img src="Imagenes/libros.png" alt="Libros" class="category-box">
+            </a>
+
+            <!-- BOTÓN ORIGINAL DE APPS -->
+            <a href="apps.html" class="category-link">
+                <div class="category-title" data-key="APPS"style="margin-bottom: 0px;">APPS</div>
+                <img src="Imagenes/app.png" alt="Libros" class="category-box">
+            </a>
+
+            <!-- BOTÓN ORIGINAL DE MÚSICA -->
+            <a href="musica.html" class="category-link">
+                <div class="category-title" data-key="MUSICA">MUSICA</div>
+                <img src="Imagenes/musica.png" alt="Musica" class="category-box">
+                <p class="musica-descripcion" data-key="musica_desc">
+                    ¡A cantar y bailar con el corazón! Melodías superadoras que acompañan las emociones y aventuras cotidianas de los más pequeños mientras descubren el mundo.
+                </p>
+            </a>
+            
+        </div>
+
+        <div class="footer">
+            <div class="footer-barra-superior">
+                <div class="grupo-idiomas">
+                    <button class="btn-circular" id="btnEs" type="button" onclick="cambiarIdioma('es')">Es</button>
+                    <button class="btn-circular" id="btnEn" type="button" onclick="cambiarIdioma('en')">En</button>
+                </div>
+                <div class="handle">@ReadMindBK</div>
+                <a href="bot.html" class="btn-circular btn-ayuda">
+                <i class="fa-solid fa-question" style="color: white;"></i>
+               </a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="LINK_DE_TU_INSTAGRAM" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="LINK_DE_TU_TIKTOK" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="LINK_DE_TU_YOUTUBE" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="LINK_DE_TU_PINTEREST" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script de SwiperJS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // VARIABLE GLOBAL PARA ALMACENAR LAS TRADUCCIONES DEL JSON
+        let traducciones = {};
+
+        // Función para aplicar el idioma seleccionado a los elementos del DOM
+        function aplicarIdioma(lang) {
+            const elementos = document.querySelectorAll('[data-key]');
+            elementos.forEach(elemento => {
+                const key = elemento.getAttribute('data-key');
+                if (traducciones[lang] && traducciones[lang][key]) {
+                    elemento.textContent = traducciones[lang][key];
+                }
+            });
+
+            // Actualizar estilo visual de los botones de idioma activos
+            const btnEs = document.getElementById('btnEs');
+            const btnEn = document.getElementById('btnEn');
+            if (btnEs && btnEn) {
+                if (lang === 'es') {
+                    btnEs.classList.add('activo');
+                    btnEn.classList.remove('activo');
+                } else {
+                    btnEn.classList.add('activo');
+                    btnEs.classList.remove('activo');
+                }
+            }
+        }
+
+        // Función que se ejecuta al presionar los botones Es / En
+        function cambiarIdioma(lang) {
+            localStorage.setItem('idioma', lang);
+            aplicarIdioma(lang);
+        }
+
+        // Lectura del archivo JSON externo utilizando fetch con .then()
+        fetch('json/index.json')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                traducciones = datos;
+                let idiomaGuardado = localStorage.getItem('idioma') || 'es';
+                cambiarIdioma(idiomaGuardado);
+            })
+            .catch(error => console.log("Nota: El JSON necesita un servidor/hosting para cargar correctamente.", error));
+
+        const musicaFondo = document.getElementById('musicaFondo');
+        musicaFondo.volume = 0.2; 
+        window.usuarioHizoClick = false;
+
+        document.body.addEventListener('click', function() {
+            window.usuarioHizoClick = true;
+            if (musicaFondo.paused) {
+                const activeVideo = document.querySelector('.swiper-slide-active .video-local');
+                if (activeVideo && activeVideo.muted) {
+                    musicaFondo.play().catch(e => console.log("Audio prevenido"));
+                }
+            }
+        }, { once: true });
+
+        const swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto", 
+            initialSlide: 1, 
+            loop: true,
+            loopedSlides: 3,        
+            watchOverflow: false,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2.5,
+                slideShadows: false,
+            },
+        });
+
+        const videos = document.querySelectorAll('.video-local');
+
+        function actualizarVideos() {
+            videos.forEach((video) => {
+                const slide = video.closest('.swiper-slide');
+                if (slide.classList.contains('swiper-slide-active')) {
+                    video.play().catch(e => console.log("Esperando interacción"));
+                } else {
+                    video.pause();
+                    video.currentTime = 0; 
+                    video.muted = true;
+                    const btn = slide.querySelector('.btnMuteVideo');
+                    if(btn) btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                }
+            });
+        }
+
+        videos.forEach((video) => {
+            video.addEventListener('ended', function() {
+               swiper.slidePrev();
+            });
+        });
+
+        swiper.on('slideChangeTransitionStart', function () {
+            videos.forEach((video) => {
+                const slide = video.closest('.swiper-slide');
+                if (!slide.classList.contains('swiper-slide-active')) {
+                    video.muted = true;
+                    video.pause();
+                    video.currentTime = 0;
+                    const btn = slide.querySelector('.btnMuteVideo');
+                    if(btn) btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                }
+            });
+        });
+
+        swiper.on('slideChangeTransitionEnd', function () {
+            actualizarVideos();
+        });
+
+        setTimeout(actualizarVideos, 400);
+
+        function alternarAudio(boton, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const slide = boton.closest('.swiper-slide');
+            if (!slide.classList.contains('swiper-slide-active')) return;
+
+            const video = slide.querySelector('.video-local');
+
+            if (video.muted) {
+                video.muted = false;
+                video.volume = 1.0;
+                video.play().catch(e => console.log("Error al reproducir audio:", e));
+                boton.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                if (!musicaFondo.paused) musicaFondo.pause();
+            } else {
+                video.muted = true;
+                boton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                if (musicaFondo.paused && window.usuarioHizoClick) {
+                    musicaFondo.play().catch(e => console.log("Error al reanudar música fondo:", e));
+                }
+            }
+        }
+    </script>
+</body>
+</html>

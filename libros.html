@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadMind - Libros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =======================================================
+            PANEL DE CONTROL (EDITA AQUÍ DISTANCIAS Y TAMAÑOS)
+            ======================================================= */
+        :root {
+            /* Fondo de libros */
+            --fondo-libros-opacidad: 0.25;  
+            --fondo-libros-tamano: 450px;     
+            --fondo-libros-posicion-y: 12%;   
+            --fondo-libros-posicion-x: 50%;   
+
+            /* ======================================================= */
+            /* CONTROL DEL CARTEL "ADQUIERELO YA!!" (FLECHA)           */
+            /* ======================================================= */
+            --longitud-cartel-flecha: 100px;  
+
+            /* ======================================================= */
+            /* CONTROLES FOOTER: Posicionamiento y Movimiento Libre    */
+            /* ======================================================= */
+            --distancia-volver-arriba: 35px;  
+            --distancia-volver-abajo: 10px;   
+
+            --distancia-footer-arriba: 20px;        
+            --footer-padding-lateral: 15px;        
+            --espacio-entre-idiomas: 8px;        
+
+            --desplazar-es: 25px;        
+            --desplazar-en: 30px;        
+            --desplazar-ayuda: -50px;    
+            
+            /* Tamaños Footer */
+            --tamano-boton-ayuda: 34px;          
+            --grosor-linea-ayuda: 1.5px;         
+            --tamano-signo-ayuda: 18px;          
+
+            --tamano-boton-idioma: 34px;         
+            --grosor-linea-idioma: 1.5px;        
+            --tamano-texto-idioma: 14px;         
+        }
+
+        /* --- ESTILOS GENERALES Y FONDO --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #3bb2ea, #76639c, #95455c, #3bb2ea);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 20px 10px;
+            position: relative;
+            overflow-x: hidden; 
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- PARTÍCULAS --- */
+        .area-particulas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            overflow: hidden;
+            pointer-events: none; 
+        }
+
+        .circulos {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circulos li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            background: rgba(255, 255, 255, 0.12); 
+            animation: subirParticulas linear infinite;
+            border-radius: 50%;
+            bottom: -100px; 
+        }
+
+        .circulos li:nth-child(1)  { left: 10%; width: 50px; height: 50px; animation-duration: 20s; animation-delay: -5s; }
+        .circulos li:nth-child(2)  { left: 25%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: -8s; }
+        .circulos li:nth-child(3)  { left: 45%; width: 60px; height: 60px; animation-duration: 25s; animation-delay: -12s; }
+        .circulos li:nth-child(4)  { left: 65%; width: 25px; height: 25px; animation-duration: 15s; animation-delay: -3s; }
+        .circulos li:nth-child(5)  { left: 85%; width: 40px; height: 40px; animation-duration: 18s; animation-delay: -15s; }
+        .circulos li:nth-child(6)  { left: 15%; width: 30px; height: 30px; animation-duration: 14s; animation-delay: -7s; }
+        .circulos li:nth-child(7)  { left: 35%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: -2s; }
+        .circulos li:nth-child(8)  { left: 55%; width: 45px; height: 45px; animation-duration: 22s; animation-delay: -18s; }
+        .circulos li:nth-child(9)  { left: 75%; width: 20px; height: 20px; animation-duration: 16s; animation-delay: -9s; }
+        .circulos li:nth-child(10) { left: 90%; width: 35px; height: 35px; animation-duration: 19s; animation-delay: -11s; }
+
+        @keyframes subirParticulas {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .contenido-principal {
+            z-index: 1; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px; 
+            flex-grow: 1;
+            position: relative;
+        }
+
+        /* --- ILUSTRACIÓN DE FONDO PRINCIPAL --- */
+        .fondo-ilustracion {
+            position: fixed; 
+            top: var(--fondo-libros-posicion-y);
+            left: var(--fondo-libros-posicion-x);
+            transform: translateX(-50%); 
+            width: 100%;
+            max-width: var(--fondo-libros-tamano);
+            opacity: var(--fondo-libros-opacidad);
+            z-index: -1; 
+            pointer-events: none; 
+        }
+
+        /* --- LOGO --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .logo {
+            width: 160px;
+            margin-bottom: 30px;
+            animation: float 3.5s ease-in-out infinite;
+            filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.3)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+        }
+
+        /* --- ACORDEÓN --- */
+        .accordion-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .accordion-item {
+            width: 100%;
+            position: relative; 
+            overflow: hidden;    
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            outline: none;
+        }
+
+        .accordion-header i {
+            font-size: 24px;
+            width: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes latidoLlamativo {
+            0% { transform: scale(1); text-shadow: 0 0 0px transparent; }
+            50% { transform: scale(1.4); color: #ff9de2; text-shadow: 0 0 15px rgba(255, 157, 226, 0.9); }
+            100% { transform: scale(1); text-shadow: 0 0 0px transparent; }
+        }
+
+        .accordion-header i.fa-plus {
+            animation: latidoLlamativo 1.8s infinite ease-in-out;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding-left: 10px; 
+        }
+
+        /* --- TARJETAS DE LIBROS --- */
+        .book-item {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+
+        .book-cover {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            object-fit: cover;
+            object-position: center;
+            cursor: pointer; 
+            transition: transform 0.3s ease;
+        }
+
+        .book-cover:hover {
+            transform: scale(1.05);
+        }
+
+        .book-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .book-desc {
+            font-size: 13px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .book-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center; 
+            flex-wrap: wrap; 
+        }
+
+        .btn-lang {
+            background-color: #d82b98; 
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-lang:hover {
+            transform: scale(1.05);
+            background-color: #f03eb1;
+        }
+
+        /* --- ESTILOS DEL CARTEL "ADQUIERELO!!" --- */
+        .cartel-adquierelo {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--longitud-cartel-flecha); 
+            height: 26px; 
+            border-top: 1.5px solid white;
+            border-bottom: 1.5px solid white;
+            background: transparent; 
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            font-style: italic; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            margin-left: 7px; 
+            box-sizing: border-box;
+            padding-right: 12px; 
+            animation: moverCartel 1.8s infinite ease-in-out;
+        }
+
+        .cartel-adquierelo::before,
+        .cartel-adquierelo::after {
+            content: '';
+            position: absolute;
+            width: 18.4px;  
+            height: 18.4px;
+            border-top: 1.5px solid white;
+            border-left: 1.5px solid white;
+            top: 50%;
+            margin-top: -9.2px; 
+            box-sizing: border-box;
+            transform: rotate(-45deg);
+        }
+
+        .cartel-adquierelo::before { left: -9.2px; }
+        .cartel-adquierelo::after { right: -9.2px; }
+
+        @keyframes moverCartel {
+            0% { transform: translateX(0); filter: drop-shadow(0 0 2px rgba(255,255,255,0.2)); }
+            50% { transform: translateX(7px); filter: drop-shadow(0 0 6px rgba(255,255,255,0.8)); }
+            100% { transform: translateX(0); filter: drop-shadow(0 0 2px rgba(255,255,255,0.2)); }
+        }
+
+        /* --- ESTILOS DEL MODAL (IMAGEN AMPLIADA) --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 9999; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            animation: aparecer 0.3s ease-out;
+            object-fit: contain;
+        }
+
+        @keyframes aparecer {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .modal-cerrar:hover {
+            color: #d82b98;
+        }
+
+        /* --- BOTÓN VOLVER --- */
+        .btn-volver {
+            margin-top: var(--distancia-volver-arriba);
+            margin-bottom: var(--distancia-volver-abajo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.15); 
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px); 
+        }
+
+        .btn-volver i { font-size: 14px; transition: transform 0.3s ease; }
+        .btn-volver:hover { background-color: white; color: #d82b98; border-color: white; transform: translateY(-2px); }
+        .btn-volver:hover i { transform: translateX(-4px); }
+
+        /* --- FOOTER / LÍNEA INFERIOR --- */
+        .footer {
+            margin-top: var(--distancia-footer-arriba);
+            padding-bottom: 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .fila-inferior {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr; 
+            align-items: center;
+            padding: 0 var(--footer-padding-lateral);
+            margin-bottom: 10px;
+        }
+
+        .banderas-idioma {
+            justify-self: start; 
+            display: flex;
+            gap: var(--espacio-entre-idiomas);
+            align-items: center;
+        }
+
+        .btn-bandera {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--tamano-boton-idioma);
+            height: var(--tamano-boton-idioma);
+            background: transparent; 
+            border: var(--grosor-linea-idioma) solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%; 
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: var(--tamano-texto-idioma);
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn-es { position: relative; left: var(--desplazar-es); }
+        .btn-en { position: relative; left: var(--desplazar-en); }
+
+        .btn-bandera:hover {
+            transform: scale(1.15);
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+
+        .handle {
+            justify-self: center; 
+            font-size: 17px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+
+        .btn-ayuda-bot {
+            justify-self: end; 
+            position: relative;
+            left: var(--desplazar-ayuda);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--tamano-boton-ayuda);
+            height: var(--tamano-boton-ayuda);
+            border: var(--grosor-linea-ayuda) solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        .btn-ayuda-bot:hover {
+            transform: scale(1.15);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-ayuda-bot i {
+            font-size: var(--tamano-signo-ayuda);
+            color: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        .social-icons { display: flex; gap: 18px; margin-top: -5px; }
+        .social-icons a { color: white; font-size: 30px; text-decoration: none; transition: transform 0.3s ease, color 0.3s ease; }
+        .social-icons a:hover { transform: scale(1.15); }
+        .social-icons .fa-instagram:hover { color: #E1306C; }
+        .social-icons .fa-tiktok:hover { color: #000000; text-shadow: 2px 2px 0px #00f2fe, -2px -2px 0px #fe0979;}
+        .social-icons .fa-youtube:hover { color: #FF0000; }
+        .social-icons .fa-pinterest:hover { color: #E60023; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Partículas de fondo -->
+    <div class="area-particulas">
+        <ul class="circulos">
+            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+    </div>
+
+    <div class="contenido-principal">
+        
+        <a href="index.html">
+            <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
+        </a>
+
+        <img src="Imagenes/fondo-libros.png" alt="" class="fondo-ilustracion">
+
+        <div class="accordion-container">
+            
+            <!-- SECCIÓN 1: LIBROS COLOREABLES -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <i class="fa-solid fa-plus"></i> <span data-i18n="menu_coloreables">Libros Coloreables</span>
+                </button>
+                <div class="accordion-content">
+                    
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle CON LA IMAGEN AMPLIADA -->
+                        <img src="Imagenes/libro.jpg" class="book-cover" alt="Portada 1" data-detalle="Imagenes/libro-detalle.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_col_1">Titulo libro 1</div>
+                            <div class="book-desc" data-i18n="desc_col_1">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="Imagenes/libro.jpg" class="book-cover" alt="Portada 2" data-detalle="Imagenes/libro-detalle.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_col_2">Titulo libro 2</div>
+                            <div class="book-desc" data-i18n="desc_col_2">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="Imagenes/libro.jpg" class="book-cover" alt="Portada 3" data-detalle="Imagenes/libro-detalle.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_col_3">Titulo libro 3</div>
+                            <div class="book-desc" data-i18n="desc_col_3">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: Libros de Actividades -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <i class="fa-solid fa-plus"></i> <span data-i18n="menu_actividades">Libros de Actividades</span>
+                </button>
+                <div class="accordion-content">
+                    
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="tu_imagen_4.jpg" class="book-cover" alt="Portada 4" data-detalle="ruta_de_tu_imagen_detallada_4.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_act_1">Titulo libro 1</div>
+                            <div class="book-desc" data-i18n="desc_act_1">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="tu_imagen_5.jpg" class="book-cover" alt="Portada 5" data-detalle="ruta_de_tu_imagen_detallada_5.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_act_2">Titulo libro 2</div>
+                            <div class="book-desc" data-i18n="desc_act_2">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="tu_imagen_6.jpg" class="book-cover" alt="Portada 6" data-detalle="ruta_de_tu_imagen_detallada_6.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_act_3">Titulo libro 3</div>
+                            <div class="book-desc" data-i18n="desc_act_3">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: Libros Audibles -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <i class="fa-solid fa-plus"></i> <span data-i18n="menu_audibles">Libros Audibles</span>
+                </button>
+                <div class="accordion-content">
+                    
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="tu_imagen_7.jpg" class="book-cover" alt="Portada 7" data-detalle="ruta_de_tu_imagen_detallada_7.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_aud_1">Titulo libro 1</div>
+                            <div class="book-desc" data-i18n="desc_aud_1">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="tu_imagen_8.jpg" class="book-cover" alt="Portada 8" data-detalle="ruta_de_tu_imagen_detallada_8.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_aud_2">Titulo libro 2</div>
+                            <div class="book-desc" data-i18n="desc_aud_2">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-item">
+                        <!-- AQUÍ SE AGREGA data-detalle -->
+                        <img src="tu_imagen_9.jpg" class="book-cover" alt="Portada 9" data-detalle="ruta_de_tu_imagen_detallada_9.jpg"> 
+                        <div class="book-info">
+                            <div class="book-title" data-i18n="titulo_aud_3">Titulo libro 3</div>
+                            <div class="book-desc" data-i18n="desc_aud_3">Descripcion del libro, caracteristicas, diccionario, juegos, qr audio, musica, etc.</div>
+                            <div class="book-buttons">
+                                <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Español</a>
+                                <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Ingles</a>
+                                <span class="cartel-adquierelo" data-i18n="cartel_adquierelo">ADQUIERELO!!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div> <!-- Fin de los acordeones -->
+
+        <a href="index.html" class="btn-volver">
+            <i class="fa-solid fa-chevron-left"></i> <span data-i18n="btn_volver">Volver al inicio</span>
+        </a>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="fila-inferior">
+                <div class="banderas-idioma">
+                    <button class="btn-bandera btn-es" onclick="cambiarIdioma('es')">Es</button>
+                    <button class="btn-bandera btn-en" onclick="cambiarIdioma('en')">En</button>
+                </div>
+                
+                <div class="handle">@ReadMindBK</div>
+
+                <a href="bot.html" class="btn-ayuda-bot">
+                    <i class="fa-solid fa-question"></i>
+                </a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="LINK_DE_TU_INSTAGRAM" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="LINK_DE_TU_TIKTOK" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="LINK_DE_TU_YOUTUBE" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="LINK_DE_TU_PINTEREST" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- HTML DEL MODAL DE IMAGEN -->
+    <div id="modalImagen" class="modal">
+        <span class="modal-cerrar">&times;</span>
+        <img class="modal-content" id="imagenAmpliada">
+    </div>
+
+    <script>
+        // Lógica original de idiomas y acordeón
+        let traducciones = {};
+
+        fetch('libros.json')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                traducciones = datos;
+                let idiomaGuardado = localStorage.getItem('idioma') || 'es';
+                cambiarIdioma(idiomaGuardado);
+            })
+            .catch(error => console.log("Nota: El JSON necesita un servidor/hosting para cargar correctamente.", error));
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem('idioma', idioma); 
+            
+            if(!traducciones[idioma]) return; 
+
+            document.querySelectorAll('[data-i18n]').forEach(elemento => {
+                let clave = elemento.getAttribute('data-i18n');
+                if(traducciones[idioma][clave]) {
+                    elemento.innerHTML = traducciones[idioma][clave];
+                }
+            });
+        }
+
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        }
+
+        // ==========================================
+        // NUEVA LÓGICA DEL MODAL (IMAGEN AMPLIADA)
+        // ==========================================
+        const modal = document.getElementById("modalImagen");
+        const imgAmpliada = document.getElementById("imagenAmpliada");
+        const spanCerrar = document.getElementsByClassName("modal-cerrar")[0];
+        const portadas = document.querySelectorAll('.book-cover');
+
+        // Al hacer clic en cualquier portada, abrir el modal
+        portadas.forEach(portada => {
+            portada.addEventListener('click', function() {
+                modal.style.display = "flex"; 
+                
+                // Lee el atributo "data-detalle". Si no existe, por las dudas usa la miniatura (this.src)
+                const imagenDetalle = this.getAttribute('data-detalle');
+                imgAmpliada.src = imagenDetalle ? imagenDetalle : this.src;  
+            });
+        });
+
+        // Al hacer clic en la X, cerrar el modal
+        spanCerrar.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Al hacer clic en cualquier parte fuera de la imagen (fondo oscuro), cerrar el modal
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

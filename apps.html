@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadMind - Apps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =======================================================
+            PANEL DE CONTROL (EDITA AQUÍ DISTANCIAS Y FONDOS)
+           ======================================================= */
+        :root {
+            /* Fondo de libros */
+            --fondo-libros-opacidad: 0.25;    
+            --fondo-libros-tamano: 450px;     
+            --fondo-libros-posicion-y: 15%;   
+            --fondo-libros-posicion-x: 50%;   
+
+            /* Distancias del botón VOLVER */
+            --distancia-volver-arriba: 35px;  
+            --distancia-volver-abajo: 10px;   
+
+            /* ======================================================= */
+            /* CONTROLES FOOTER: Posicionamiento y Movimiento Libre    */
+            /* ======================================================= */
+            --distancia-footer-arriba: 20px;        
+            --footer-padding-lateral: 15px;      
+            --espacio-entre-idiomas: 8px;        
+
+            /* NUEVO: Mueve cada botón horizontalmente de forma independiente */
+            --desplazar-es: 25px;       /* Posición horizontal del botón "Es" (ej: -5px o 10px) */
+            --desplazar-en: 30px;       /* Posición horizontal del botón "En" (ej: -5px o 10px) */
+            --desplazar-ayuda: -50px;    /* Posición horizontal del botón "?" (ej: -5px o 10px) */
+            
+            /* Botón de Ayuda (?) */
+            --tamano-boton-ayuda: 34px;          
+            --grosor-linea-ayuda: 1.5px;         
+            --tamano-signo-ayuda: 18px;          
+
+            /* Botones de Idioma (Es / En) */
+            --tamano-boton-idioma: 34px;         
+            --grosor-linea-idioma: 1.5px;        
+            --tamano-texto-idioma: 14px;         
+        }
+
+        /* --- ESTILOS GENERALES Y FONDO --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #3bb2ea, #76639c, #95455c, #3bb2ea);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 20px 10px;
+            position: relative;
+            overflow-x: hidden; 
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- PARTÍCULAS --- */
+        .area-particulas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            overflow: hidden;
+            pointer-events: none; 
+        }
+
+        .circulos {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circulos li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            background: rgba(255, 255, 255, 0.12); 
+            animation: subirParticulas linear infinite;
+            border-radius: 50%;
+            bottom: -100px; 
+        }
+
+        .circulos li:nth-child(1)  { left: 10%; width: 50px; height: 50px; animation-duration: 20s; animation-delay: -5s; }
+        .circulos li:nth-child(2)  { left: 25%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: -8s; }
+        .circulos li:nth-child(3)  { left: 45%; width: 60px; height: 60px; animation-duration: 25s; animation-delay: -12s; }
+        .circulos li:nth-child(4)  { left: 65%; width: 25px; height: 25px; animation-duration: 15s; animation-delay: -3s; }
+        .circulos li:nth-child(5)  { left: 85%; width: 40px; height: 40px; animation-duration: 18s; animation-delay: -15s; }
+        .circulos li:nth-child(6)  { left: 15%; width: 30px; height: 30px; animation-duration: 14s; animation-delay: -7s; }
+        .circulos li:nth-child(7)  { left: 35%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: -2s; }
+        .circulos li:nth-child(8)  { left: 55%; width: 45px; height: 45px; animation-duration: 22s; animation-delay: -18s; }
+        .circulos li:nth-child(9)  { left: 75%; width: 20px; height: 20px; animation-duration: 16s; animation-delay: -9s; }
+        .circulos li:nth-child(10) { left: 90%; width: 35px; height: 35px; animation-duration: 19s; animation-delay: -11s; }
+
+        @keyframes subirParticulas {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .contenido-principal {
+            z-index: 1; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px; 
+            flex-grow: 1;
+            position: relative;
+        }
+
+        /* --- ILUSTRACIÓN DE FONDO PRINCIPAL --- */
+        .fondo-ilustracion {
+            position: fixed; 
+            top: var(--fondo-libros-posicion-y);
+            left: var(--fondo-libros-posicion-x);
+            transform: translateX(-50%); 
+            width: 100%;
+            max-width: var(--fondo-libros-tamano);
+            opacity: var(--fondo-libros-opacidad);
+            z-index: -1; 
+            pointer-events: none; 
+        }
+
+        /* --- LOGO --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .logo {
+            width: 160px;
+            margin-bottom: 30px;
+            animation: float 3.5s ease-in-out infinite;
+            filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.3)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+        }
+
+        /* --- ACORDEÓN --- */
+        .accordion-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .accordion-item {
+            width: 100%;
+            position: relative; 
+            overflow: hidden;    
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            outline: none;
+        }
+
+        .accordion-header i {
+            font-size: 24px;
+            width: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes latidoLlamativo {
+            0% { transform: scale(1); text-shadow: 0 0 0px transparent; }
+            50% { 
+                transform: scale(1.4); 
+                color: #ff9de2;        
+                text-shadow: 0 0 15px rgba(255, 157, 226, 0.9); 
+            }
+            100% { transform: scale(1); text-shadow: 0 0 0px transparent; }
+        }
+
+        .accordion-header i.fa-plus {
+            animation: latidoLlamativo 1.8s infinite ease-in-out;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding-left: 10px; 
+        }
+
+        /* --- TARJETAS DE LIBROS --- */
+        .book-item {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+
+        .book-cover {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .book-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .book-desc {
+            font-size: 13px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .book-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center; /* Alinea el botón y la flecha en el centro vertical */
+        }
+
+        .btn-lang {
+            background-color: #d82b98; 
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-lang:hover {
+            transform: scale(1.05);
+            background-color: #f03eb1;
+        }
+
+        /* --- FLECHA "ADQUIERELO!!" ANIMADA --- */
+        .flecha-adquierelo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            padding: 4px 24px 4px 18px; /* Padding ajustado para el pico izquierdo */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' preserveAspectRatio='none'%3E%3Cpolygon points='15,2 98,2 85,15 98,28 15,28 2,15' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: moverFlecha 0.8s infinite alternate ease-in-out;
+            pointer-events: none; /* Evita que la flecha estorbe si hay clics cerca */
+        }
+
+        @keyframes moverFlecha {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(8px); }
+        }
+
+        /* --- BOTÓN VOLVER --- */
+        .btn-volver {
+            margin-top: var(--distancia-volver-arriba);
+            margin-bottom: var(--distancia-volver-abajo);
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.15); 
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px); 
+        }
+
+        .btn-volver i {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-volver:hover {
+            background-color: white;
+            color: #d82b98; 
+            border-color: white;
+            transform: translateY(-2px); 
+        }
+
+        .btn-volver:hover i {
+            transform: translateX(-4px); 
+        }
+
+        /* --- FOOTER / LÍNEA INFERIOR --- */
+        .footer {
+            margin-top: var(--distancia-footer-arriba);
+            padding-bottom: 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .fila-inferior {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr; 
+            align-items: center;
+            padding: 0 var(--footer-padding-lateral);
+            margin-bottom: 10px;
+        }
+
+        .banderas-idioma {
+            justify-self: start; 
+            display: flex;
+            gap: var(--espacio-entre-idiomas);
+            align-items: center;
+        }
+
+        .btn-bandera {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--tamano-boton-idioma);
+            height: var(--tamano-boton-idioma);
+            background: transparent; 
+            border: var(--grosor-linea-idioma) solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%; 
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            
+            color: rgba(255, 255, 255, 0.9);
+            font-size: var(--tamano-texto-idioma);
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Desplazamientos independientes para Es y En */
+        .btn-es {
+            position: relative;
+            left: var(--desplazar-es);
+        }
+
+        .btn-en {
+            position: relative;
+            left: var(--desplazar-en);
+        }
+
+        .btn-bandera:hover {
+            transform: scale(1.15);
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+
+        .handle {
+            justify-self: center; 
+            font-size: 17px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+
+        /* Desplazamiento independiente para el botón de ayuda (?) */
+        .btn-ayuda-bot {
+            justify-self: end; 
+            position: relative;
+            left: var(--desplazar-ayuda);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--tamano-boton-ayuda);
+            height: var(--tamano-boton-ayuda);
+            border: var(--grosor-linea-ayuda) solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        .btn-ayuda-bot:hover {
+            transform: scale(1.15);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-ayuda-bot i {
+            font-size: var(--tamano-signo-ayuda);
+            color: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Iconos de redes sociales */
+        .social-icons {
+            display: flex;
+            gap: 18px; 
+            margin-top: -5px; 
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover { transform: scale(1.15); }
+        .social-icons .fa-instagram:hover { color: #E1306C; }
+        .social-icons .fa-tiktok:hover { color: #000000; text-shadow: 2px 2px 0px #00f2fe, -2px -2px 0px #fe0979;}
+        .social-icons .fa-youtube:hover { color: #FF0000; }
+        .social-icons .fa-pinterest:hover { color: #E60023; }
+
+        /* --- LIGHTBOX MODAL --- */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: #d82b98;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Partículas de fondo -->
+    <div class="area-particulas">
+        <ul class="circulos">
+            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+    </div>
+
+    <div class="contenido-principal">
+        
+        <!-- Logo -->
+        <a href="index.html">
+            <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
+        </a>
+
+        <!-- IMAGEN DE FONDO PRINCIPAL -->
+        <img src="Imagenes/fondo-apps.png" alt="" class="fondo-ilustracion">
+
+<div class="accordion-container">
+
+            <!-- SECCIÓN 1: Easy Calculator -->
+            <div class="book-item">
+                <!-- CUADRO BLANCO 1 MODIFICADO -->
+                <div class="book-cover" style="background-image: url('Imagenes/app1.jpg');" onclick="abrirLightbox(this)"></div> 
+                <div class="book-info">
+                    <div class="book-title" data-i18n="titulo_col_1">Easy Calculator</div>
+                    <div class="book-desc" data-i18n="desc_col_1"> Calculadora simple para la infancia con contenido extra de valor</div>
+                    <div class="book-buttons">
+                        <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Clic Aqui</a>
+                        <div class="flecha-adquierelo" data-i18n="btn_adquierelo">ADQUIERELO!!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: Easy Notes -->
+            <div class="book-item">
+                <!-- CUADRO BLANCO 2 MODIFICADO -->
+                <div class="book-cover" style="background-image: url('Imagenes/app2.jpg');" onclick="abrirLightbox(this)"></div> 
+                <div class="book-info">
+                    <div class="book-title" data-i18n="titulo_col_2">Easy Notes</div>
+                    <div class="book-desc" data-i18n="desc_col_2"> Un anotador practico para niños y adultos con menú de opciones de anotación interesantes y detalladas</div>
+                    <div class="book-buttons">
+                        <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Clic Aqui</a>
+                        <div class="flecha-adquierelo" data-i18n="btn_adquierelo">ADQUIERELO!!</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="index.html" class="btn-volver">
+            <i class="fa-solid fa-chevron-left"></i> <span data-i18n="btn_volver">Volver al inicio</span>
+        </a>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            
+            <div class="fila-inferior">
+                <!-- Botones de idioma a la izquierda -->
+                <div class="banderas-idioma">
+                    <button class="btn-bandera btn-es" onclick="cambiarIdioma('es')">Es</button>
+                    <button class="btn-bandera btn-en" onclick="cambiarIdioma('en')">En</button>
+                </div>
+                
+                <!-- Texto al centro exacto -->
+                <div class="handle">@ReadMindBK</div>
+
+                <!-- Botón de ayuda a la derecha -->
+                <a href="bot.html" class="btn-ayuda-bot">
+                    <i class="fa-solid fa-question"></i>
+                </a>
+            </div>
+            
+            <!-- Redes sociales debajo -->
+            <div class="social-icons">
+                <a href="LINK_DE_TU_INSTAGRAM" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="LINK_DE_TU_TIKTOK" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="LINK_DE_TU_YOUTUBE" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="LINK_DE_TU_PINTEREST" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+
+    </script>
+</body>
+</html>
