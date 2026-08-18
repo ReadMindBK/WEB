@@ -978,7 +978,7 @@ if (!estabaAbierto) {
 
             try {
                 // Petición al archivo preguntas.json
-                const response = await fetch("preguntas.json");
+                const response = await fetch("json/preguntas.json");
                 if (!response.ok) {
                     throw new Error("No se pudo cargar el archivo preguntas.json");
                 }
