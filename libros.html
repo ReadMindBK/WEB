@@ -715,7 +715,7 @@
         // Lógica original de idiomas y acordeón
         let traducciones = {};
 
-        fetch('libros.json')
+        fetch('json/libros.json')
             .then(respuesta => respuesta.json())
             .then(datos => {
                 traducciones = datos;
