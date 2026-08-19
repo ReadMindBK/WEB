@@ -1,5 +1,6 @@
 {
   "es": {
+    "tituloweb": "LIBROS",
     "menu_coloreables": "Libros Coloreables",
     "menu_actividades": "Libros de Actividades",
     "menu_audibles": "Libros Audibles",
@@ -30,6 +31,7 @@
     "btn_lang_en": "Inglés"
   },
   "en": {
+    "tituloweb": "BOOKS",
     "menu_coloreables": "Coloring Books",
     "menu_actividades": "Activity Books",
     "menu_audibles": "Audiobooks",
