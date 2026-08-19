@@ -74,6 +74,33 @@
             --tamano-texto-idioma: 14px;
         }
 
+
+            /* ======================================================= */
+            /* CONTROLES TITULO: Posicionamiento y Movimiento Libre    */
+            /* ======================================================= */
+
+    .titulo-tituloweb {
+    font-size: 24px;
+    position: relative;
+    top: -10px;
+    margin-bottom: 10px; 
+}
+
+.latido {
+    animation: latidoSuave 2s ease-in-out infinite;
+}
+
+@keyframes latidoSuave {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+
         /* =========================================================
            ESTILOS GENERALES
            ========================================================= */
@@ -539,6 +566,7 @@
         </ul>
     </div>
 
+
     <main class="contenido-principal">
 
         <!-- LOGO -->
@@ -546,8 +574,11 @@
             <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
         </a>
 
+
         <!-- TITULO -->
-        <h1 class="titulo-faq">Preguntas Frecuentes</h1>
+
+        <h1 data-key="tituloweb" class="titulo-tituloweb latido"">Preguntas Frecuentes</h1>
+
 
         <!-- =====================================================
              FAQ
