@@ -1,6 +1,6 @@
 {
     "es": {
-        "tituloFAQ": "Preguntas Frecuentes",
+        "tituloweb": "Preguntas Frecuentes",
         "mensajeInicial": "¡Hola! ¿Te puedo ayudar en algo?",
         "placeholderInput": "Escribí tu pregunta...",
         "botonEnviar": "Enviar",
@@ -134,7 +134,7 @@
         ]
     },
     "en": {
-        "tituloFAQ": "Frequently Asked Questions",
+        "tituloweb": "Frequently Asked Questions",
         "mensajeInicial": "Hello! Can I help you with anything?",
         "placeholderInput": "Write your question...",
         "botonEnviar": "Send",
