@@ -34,6 +34,32 @@
             --footer-barra-margin-bottom: 5px;/* Separación inferior de la barra superior */
         }
 
+            /* ======================================================= */
+            /* CONTROLES TITULO: Posicionamiento y Movimiento Libre    */
+            /* ======================================================= */
+
+    .titulo-tituloweb {
+    font-size: 24px;
+    position: relative;
+    top: 0px;
+    margin-bottom: 20px; 
+}
+
+.latido {
+    animation: latidoSuave 2s ease-in-out infinite;
+}
+
+@keyframes latidoSuave {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+
         /* --- ESTILOS GENERALES --- */
         * {
             box-sizing: border-box;
@@ -204,17 +230,23 @@
             background: rgba(255, 255, 255, 0.12); 
             animation: subirParticulas linear infinite;
             border-radius: 50%;
+            bottom: -100px; 
         }
 
-        .circulos li:nth-child(1)  { left: 5%;  width: 50px; height: 50px; top: 10%;  animation-duration: 20s; animation-delay: -2s; }
-        .circulos li:nth-child(2)  { left: 10%; width: 20px; height: 20px; top: 60%;  animation-duration: 12s; animation-delay: -5s; }
-        .circulos li:nth-child(3)  { left: 15%; width: 60px; height: 60px; top: 30%;  animation-duration: 25s; animation-delay: -1s; }
-        .circulos li:nth-child(4)  { left: 20%; width: 25px; height: 25px; top: 80%;  animation-duration: 15s; animation-delay: -8s; }
-        .circulos li:nth-child(5)  { left: 25%; width: 40px; height: 40px; top: 20%;  animation-duration: 18s; animation-delay: -4s; }
+        .circulos li:nth-child(1)  { left: 10%; width: 50px; height: 50px; animation-duration: 20s; animation-delay: -5s; }
+        .circulos li:nth-child(2)  { left: 25%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: -8s; }
+        .circulos li:nth-child(3)  { left: 45%; width: 60px; height: 60px; animation-duration: 25s; animation-delay: -12s; }
+        .circulos li:nth-child(4)  { left: 65%; width: 25px; height: 25px; animation-duration: 15s; animation-delay: -3s; }
+        .circulos li:nth-child(5)  { left: 85%; width: 40px; height: 40px; animation-duration: 18s; animation-delay: -15s; }
+        .circulos li:nth-child(6)  { left: 15%; width: 30px; height: 30px; animation-duration: 14s; animation-delay: -7s; }
+        .circulos li:nth-child(7)  { left: 35%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: -2s; }
+        .circulos li:nth-child(8)  { left: 55%; width: 45px; height: 45px; animation-duration: 22s; animation-delay: -18s; }
+        .circulos li:nth-child(9)  { left: 75%; width: 20px; height: 20px; animation-duration: 16s; animation-delay: -9s; }
+        .circulos li:nth-child(10) { left: 90%; width: 35px; height: 35px; animation-duration: 19s; animation-delay: -11s; }
 
         @keyframes subirParticulas {
             0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-800px) scale(0.5); opacity: 0; }
+            100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
         }
 
         /* --- CONTENEDOR PRINCIPAL --- */
@@ -425,7 +457,7 @@
         
         <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
 
-        <h1 data-key="bienvenidos">¡¡Bienvenidos!!</h1>
+        <h1 data-key="tituloweb" class="titulo-tituloweb latido"">¡¡Bienvenidos!!</h1>
         
         <p class="descripcion-breve" data-key="descripcion">
             Mucho más que libros para pintar: juegos, diccionarios, personajes increíbles y códigos QR con audios mágicos. ¡Únete a la aventura de usar menos pantallas y más lápices con crayón!
@@ -472,19 +504,19 @@
             
             <!-- BOTÓN ORIGINAL DE LIBROS -->
             <a href="libros.html" class="category-link">
-                <div class="category-title" data-key="libros">libros</div>
+                <div class="category-title" data-key="libros">LIBROS</div>
                 <img src="Imagenes/libros.png" alt=libros" class="category-box">
             </a>
 
             <!-- BOTÓN ORIGINAL DE APPS -->
             <a href="apps.html" class="category-link">
-                <div class="category-title" data-key="apps"style="margin-bottom: 0px;">apps</div>
+                <div class="category-title" data-key="apps"style="margin-bottom: 0px;">APPS</div>
                 <img src="Imagenes/app.png" alt="apps" class="category-box">
             </a>
 
             <!-- BOTÓN ORIGINAL DE MÚSICA -->
             <a href="musica.html" class="category-link">
-                <div class="category-title" data-key="musica">musica</div>
+                <div class="category-title" data-key="musica">MUSICA</div>
                 <img src="Imagenes/musica.png" alt="musica" class="category-box">
                 <p class="musica-descripcion" data-key="musica_desc">
                     ¡A cantar y bailar con el corazón! Melodías superadoras que acompañan las emociones y aventuras cotidianas de los más pequeños mientras descubren el mundo.
