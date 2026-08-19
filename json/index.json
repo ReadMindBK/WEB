@@ -1,6 +1,6 @@
 {
     "es": {
-        "titulo-tituloweb": "¡¡Bienvenidos!!",
+        "tituloweb": "¡¡Bienvenidos!!",
         "descripcion": "Mucho más que libros para pintar: juegos, diccionarios, personajes increíbles y códigos QR con audios mágicos. ¡Únete a la aventura de usar menos pantallas y más lápices con crayón!",
         "libros": "LIBROS",
         "apps": "APPS",
@@ -8,7 +8,7 @@
         "musica_desc": "¡A cantar y bailar con el corazón! Melodías superadoras que acompañan las emociones y aventuras cotidianas de los más pequeños mientras descubren el mundo."
     },
     "en": {
-        "titulo-tituloweb": "Welcome!!",
+        "tituloweb": "Welcome!!",
         "descripcion": "Much more than coloring books: games, dictionaries, incredible characters, and QR codes with magical audio. Join the adventure of using fewer screens and more crayon pencils!",
         "libros": "BOOKS",
         "apps": "APPS",
