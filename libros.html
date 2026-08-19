@@ -46,6 +46,34 @@
             --tamano-texto-idioma: 14px;         
         }
 
+            /* ======================================================= */
+            /* CONTROLES TITULO: Posicionamiento y Movimiento Libre    */
+            /* ======================================================= */
+
+    .titulo-tituloweb {
+    font-size: 24px;
+    position: relative;
+    top: -20px;
+    margin-bottom: -10px; 
+}
+
+.latido {
+    animation: latidoSuave 2s ease-in-out infinite;
+}
+
+@keyframes latidoSuave {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+            /* ======================================================= */
+
+
         /* --- ESTILOS GENERALES Y FONDO --- */
         * {
             box-sizing: border-box;
@@ -513,6 +541,10 @@
         <a href="index.html">
             <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
         </a>
+
+        <h1 data-key="tituloweb" class="titulo-tituloweb latido"">LIBROS</h1>
+
+
 
         <img src="Imagenes/fondo-libros.png" alt="" class="fondo-ilustracion">
 
