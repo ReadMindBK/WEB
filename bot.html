@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ReadMind - Preguntas Frecuentes</title>
 
-    <!-- Iconos Font Awesome -->
+    <!-- =========================================================
+         FONT AWESOME
+         ========================================================= -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -38,24 +41,24 @@
             --faq-interlineado: 1.25;
             --faq-espacio-seccion: 15px;
 
-            /* Respuestas desplegables */
+            /* Respuestas */
             --respuesta-tamano: 15px;
             --respuesta-margen-izquierdo: 24px;
 
-            /* ChatBot / personaje */
+            /* ChatBot */
             --chatbot-ancho-maximo: 500px;
 
-            /* Posición del contenido sobre la pizarra */
+            /* Posición sobre la pizarra */
             --pizarra-input-top: 22%;
             --pizarra-input-left: 7%;
             --pizarra-input-width: 86%;
             --pizarra-input-height: 56%;
 
-            /* Botón Enviar */
+            /* Botón enviar */
             --chatbot-boton-ancho: 105px;
             --chatbot-boton-alto: 38px;
 
-            /* Botón VOLVER */
+            /* Botón volver */
             --distancia-volver-arriba: 22px;
             --distancia-volver-abajo: 10px;
 
@@ -63,6 +66,7 @@
             --distancia-footer-arriba: 20px;
             --footer-padding-lateral: 15px;
             --espacio-entre-idiomas: 8px;
+
             --desplazar-es: 0px;
             --desplazar-en: 0px;
 
@@ -90,7 +94,7 @@
 
 
         /* =========================================================
-           ANIMACION LATIDO
+           ANIMACIÓN LATIDO
            ========================================================= */
 
         .latido {
@@ -98,9 +102,11 @@
             animation: latidoSuave 2s ease-in-out infinite;
         }
 
+
         @keyframes latidoSuave {
 
-            0%, 100% {
+            0%,
+            100% {
 
                 transform: scale(1);
             }
@@ -170,24 +176,21 @@
         @keyframes gradientBG {
 
             0% {
-
                 background-position: 0% 50%;
             }
 
             50% {
-
                 background-position: 100% 50%;
             }
 
             100% {
-
                 background-position: 0% 50%;
             }
         }
 
 
         /* =========================================================
-           PARTICULAS
+           PARTÍCULAS
            ========================================================= */
 
         .area-particulas {
@@ -237,7 +240,6 @@
 
 
         .circulos li:nth-child(1) {
-
             left: 10%;
             width: 50px;
             height: 50px;
@@ -246,7 +248,6 @@
         }
 
         .circulos li:nth-child(2) {
-
             left: 25%;
             width: 20px;
             height: 20px;
@@ -255,7 +256,6 @@
         }
 
         .circulos li:nth-child(3) {
-
             left: 45%;
             width: 60px;
             height: 60px;
@@ -264,7 +264,6 @@
         }
 
         .circulos li:nth-child(4) {
-
             left: 65%;
             width: 25px;
             height: 25px;
@@ -273,7 +272,6 @@
         }
 
         .circulos li:nth-child(5) {
-
             left: 85%;
             width: 40px;
             height: 40px;
@@ -282,7 +280,6 @@
         }
 
         .circulos li:nth-child(6) {
-
             left: 15%;
             width: 30px;
             height: 30px;
@@ -291,7 +288,6 @@
         }
 
         .circulos li:nth-child(7) {
-
             left: 35%;
             width: 15px;
             height: 15px;
@@ -300,7 +296,6 @@
         }
 
         .circulos li:nth-child(8) {
-
             left: 55%;
             width: 45px;
             height: 45px;
@@ -309,7 +304,6 @@
         }
 
         .circulos li:nth-child(9) {
-
             left: 75%;
             width: 20px;
             height: 20px;
@@ -318,7 +312,6 @@
         }
 
         .circulos li:nth-child(10) {
-
             left: 90%;
             width: 35px;
             height: 35px;
@@ -378,17 +371,14 @@
         @keyframes float {
 
             0% {
-
                 transform: translateY(0);
             }
 
             50% {
-
                 transform: translateY(-6px);
             }
 
             100% {
-
                 transform: translateY(0);
             }
         }
@@ -406,10 +396,12 @@
 
             filter:
                 drop-shadow(
-                    0 10px 10px rgba(0,0,0,0.3)
+                    0 10px 10px
+                    rgba(0,0,0,0.3)
                 )
                 drop-shadow(
-                    0 0 5px rgba(255,255,255,0.4)
+                    0 0 5px
+                    rgba(255,255,255,0.4)
                 );
         }
 
@@ -433,7 +425,8 @@
                 var(--titulo-margen-abajo);
 
             text-shadow:
-                1px 2px 3px rgba(0,0,0,0.35);
+                1px 2px 3px
+                rgba(0,0,0,0.35);
         }
 
 
@@ -502,7 +495,8 @@
             padding: 1px 0;
 
             text-shadow:
-                1px 1px 2px rgba(0,0,0,0.25);
+                1px 1px 2px
+                rgba(0,0,0,0.25);
         }
 
 
@@ -512,16 +506,12 @@
         }
 
 
-        /* Pregunta activa */
-
         .accordion-item.open
         .accordion-header {
 
             color: #FFD700;
         }
 
-
-        /* Respuesta activa */
 
         .accordion-item.open
         .accordion-content p {
@@ -540,14 +530,6 @@
 
             transition:
                 transform 0.25s ease;
-        }
-
-
-        .accordion-item.open
-        .accordion-header
-        .signo {
-
-            transform: none;
         }
 
 
@@ -701,11 +683,13 @@
             height: 38px;
 
             border:
-                1px solid rgba(70,70,70,0.35);
+                1px solid
+                rgba(70,70,70,0.35);
 
             border-radius: 18px;
 
-            padding: 0 13px;
+            padding:
+                0 13px;
 
             font-size: 14px;
 
@@ -717,7 +701,8 @@
             color: #333;
 
             box-shadow:
-                0 2px 5px rgba(0,0,0,0.15);
+                0 2px 5px
+                rgba(0,0,0,0.15);
         }
 
 
@@ -742,7 +727,8 @@
             cursor: pointer;
 
             box-shadow:
-                0 3px 7px rgba(0,0,0,0.25);
+                0 3px 7px
+                rgba(0,0,0,0.25);
 
             transition:
                 transform .2s ease,
@@ -755,8 +741,7 @@
             transform:
                 translateY(-2px);
 
-            background:
-                #d82b98;
+            background: #d82b98;
         }
 
 
@@ -786,7 +771,8 @@
             color: white;
 
             border:
-                2px solid rgba(255,255,255,0.6);
+                2px solid
+                rgba(255,255,255,0.6);
 
             text-decoration: none;
 
@@ -803,7 +789,8 @@
                 all .3s ease;
 
             box-shadow:
-                0 4px 15px rgba(0,0,0,0.2);
+                0 4px 15px
+                rgba(0,0,0,0.2);
 
             backdrop-filter:
                 blur(5px);
@@ -909,7 +896,8 @@
 
             border:
                 var(--grosor-linea-idioma)
-                solid rgba(255,255,255,0.9);
+                solid
+                rgba(255,255,255,0.9);
 
             border-radius: 50%;
 
@@ -920,7 +908,8 @@
                 background-color .3s ease;
 
             box-shadow:
-                0 2px 6px rgba(0,0,0,0.4);
+                0 2px 6px
+                rgba(0,0,0,0.4);
 
             color:
                 rgba(255,255,255,0.9);
@@ -931,7 +920,8 @@
             font-weight: bold;
 
             text-shadow:
-                1px 1px 2px rgba(0,0,0,0.5);
+                1px 1px 2px
+                rgba(0,0,0,0.5);
         }
 
 
@@ -972,7 +962,8 @@
             font-weight: bold;
 
             text-shadow:
-                1px 1px 2px rgba(0,0,0,0.4);
+                1px 1px 2px
+                rgba(0,0,0,0.4);
         }
 
 
@@ -1007,15 +998,13 @@
         }
 
 
-        .social-icons
-        .fa-instagram:hover {
+        .social-icons .fa-instagram:hover {
 
             color: #E1306C;
         }
 
 
-        .social-icons
-        .fa-tiktok:hover {
+        .social-icons .fa-tiktok:hover {
 
             color: #000;
 
@@ -1025,15 +1014,13 @@
         }
 
 
-        .social-icons
-        .fa-youtube:hover {
+        .social-icons .fa-youtube:hover {
 
             color: #FF0000;
         }
 
 
-        .social-icons
-        .fa-pinterest:hover {
+        .social-icons .fa-pinterest:hover {
 
             color: #E60023;
         }
@@ -1064,12 +1051,6 @@
             }
 
 
-            .chatbot-titulo {
-
-                font-size: 22px;
-            }
-
-
             .chatbot-panel {
 
                 padding: 7px;
@@ -1097,6 +1078,7 @@
         }
 
     </style>
+
 </head>
 
 
@@ -1104,7 +1086,7 @@
 
 
     <!-- =========================================================
-         PARTICULAS DE FONDO
+         PARTÍCULAS
          ========================================================= -->
 
     <div class="area-particulas">
@@ -1150,11 +1132,15 @@
 
         <!-- =====================================================
              TITULO
+
+             IMPORTANTE:
+             Se corrigió la comilla extra que tenía el código
+             original.
              ===================================================== -->
 
         <h1
             id="tituloWeb"
-            data-key="tituloweb"
+            data-i18n="tituloweb"
             class="titulo-tituloweb latido">
 
             Preguntas Frecuentes
@@ -1164,21 +1150,12 @@
 
         <!-- =====================================================
              FAQ
-
-             IMPORTANTE:
-
-             Ahora NO se escriben las preguntas acá.
-
-             Se cargan automáticamente desde:
-
-             json/bot.json
-
-             según el idioma seleccionado.
              ===================================================== -->
 
         <section
             id="faq"
             class="faq">
+
         </section>
 
 
@@ -1200,9 +1177,7 @@
             <div class="chatbot-panel">
 
 
-                <!-- =================================================
-                     RESPUESTA DEL CHATBOT
-                     ================================================= -->
+                <!-- Respuesta del chatbot -->
 
                 <div
                     id="chatbotRespuesta"
@@ -1210,7 +1185,9 @@
                     aria-live="polite">
 
                     <span id="mensajeInicial">
+
                         ¡Hola! ¿Te puedo ayudar en algo?
+
                     </span>
 
                 </div>
@@ -1235,7 +1212,6 @@
 
 
                     <button
-                        id="botonEnviar"
                         class="chatbot-enviar"
                         type="submit">
 
@@ -1261,16 +1237,15 @@
             href="index.html"
             class="btn-volver">
 
+            <i class="fa-solid fa-chevron-left"></i>
 
-            <i
-                class="fa-solid fa-chevron-left">
-            </i>
+            <span
+                id="textoVolver"
+                data-i18n="btnVolver">
 
-
-            <span id="btnVolver">
                 Volver al inicio
-            </span>
 
+            </span>
 
         </a>
 
@@ -1394,569 +1369,61 @@
 
         let datosBot = null;
 
-
-        /* =========================================================
-           CARGAR BOT.JSON
-           =========================================================
-
-           ESTE ARCHIVO ES EL QUE CONTIENE:
-
-           - textos generales
-           - preguntas
-           - respuestas
-           - categorías
-           - español
-           - inglés
-
-           NO CONFUNDIR CON:
-
-           json/preguntas.json
-
-           preguntas.json queda reservado para el ChatBot.
-           ========================================================= */
-
-        async function cargarBotJSON() {
-
-            try {
-
-                const response =
-                    await fetch("json/bot.json");
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        "No se pudo cargar json/bot.json"
-                    );
-                }
-
-
-                datosBot =
-                    await response.json();
-
-
-                console.log(
-                    "bot.json cargado correctamente:",
-                    datosBot
-                );
-
-
-                aplicarIdioma(idiomaActual);
-
-
-            } catch (error) {
-
-                console.error(
-                    "ERROR cargando bot.json:",
-                    error
-                );
-
-
-                document.getElementById("faq").innerHTML =
-
-                    "<p style='color:#FFD700;text-align:center;'>"+
-                    "No se pudo cargar el archivo bot.json."+
-                    "</p>";
-            }
-
-        }
+        let preguntasExtra = [];
 
 
         /* =========================================================
-           APLICAR IDIOMA
+           PALABRAS IGNORADAS
            ========================================================= */
 
-        function aplicarIdioma(idioma) {
+        const palabrasIgnoradas = new Set([
 
+            "el",
+            "la",
+            "los",
+            "las",
 
-            if (!datosBot) {
+            "un",
+            "una",
+            "unos",
+            "unas",
 
-                return;
-            }
+            "de",
+            "del",
+            "al",
 
+            "que",
+            "qué",
 
-            if (!datosBot[idioma]) {
+            "para",
+            "por",
 
-                console.error(
-                    "No existe el idioma:",
-                    idioma
-                );
+            "en",
+            "con",
 
-                return;
-            }
+            "y",
+            "o",
 
+            "es",
+            "son",
 
-            idiomaActual = idioma;
+            "se",
+            "me",
+            "mi",
 
+            "puedo",
+            "puede",
 
-            const traduccion =
-                datosBot[idioma];
+            "cómo",
+            "como",
 
+            "donde",
+            "dónde",
 
-            /* =====================================================
-               TITULO
-               ===================================================== */
-
-            const titulo =
-                document.getElementById("tituloWeb");
-
-
-            if (titulo) {
-
-                titulo.textContent =
-                    traduccion.tituloweb;
-            }
-
-
-            /* =====================================================
-               MENSAJE INICIAL
-               ===================================================== */
-
-            const mensajeInicial =
-                document.getElementById("mensajeInicial");
-
-
-            if (mensajeInicial) {
-
-                mensajeInicial.textContent =
-                    traduccion.mensajeInicial;
-            }
-
-
-            /* =====================================================
-               PLACEHOLDER
-               ===================================================== */
-
-            const input =
-                document.getElementById("chatbotInput");
-
-
-            if (input) {
-
-                input.placeholder =
-                    traduccion.placeholderInput;
-
-                input.setAttribute(
-                    "aria-label",
-                    traduccion.placeholderInput
-                );
-            }
-
-
-            /* =====================================================
-               BOTON ENVIAR
-               ===================================================== */
-
-            const botonEnviar =
-                document.getElementById("botonEnviar");
-
-
-            if (botonEnviar) {
-
-                botonEnviar.textContent =
-                    traduccion.botonEnviar;
-            }
-
-
-            /* =====================================================
-               BOTON VOLVER
-               ===================================================== */
-
-            const btnVolver =
-                document.getElementById("btnVolver");
-
-
-            if (btnVolver) {
-
-                btnVolver.textContent =
-                    traduccion.btnVolver;
-            }
-
-
-            /* =====================================================
-               IDIOMA DEL HTML
-               ===================================================== */
-
-            document.documentElement.lang =
-                idioma;
-
-
-            /* =====================================================
-               CARGAR FAQ
-               ===================================================== */
-
-            cargarPreguntasFrecuentes(
-                traduccion.faqData
-            );
-
-        }
-
-
-        /* =========================================================
-           CREAR FAQ DESDE BOT.JSON
-           ========================================================= */
-
-        function cargarPreguntasFrecuentes(faqData) {
-
-
-            const contenedor =
-                document.getElementById("faq");
-
-
-            if (!contenedor) {
-
-                return;
-            }
-
-
-            /* Limpiar contenido anterior */
-
-            contenedor.innerHTML = "";
-
-
-            if (!Array.isArray(faqData)) {
-
-                console.error(
-                    "faqData no es un array válido."
-                );
-
-                return;
-            }
-
-
-            /* =====================================================
-               OBTENER CATEGORIAS
-               ===================================================== */
-
-            const categorias = [];
-
-
-            faqData.forEach(item => {
-
-
-                if (
-                    !categorias.includes(
-                        item.categoria
-                    )
-                ) {
-
-                    categorias.push(
-                        item.categoria
-                    );
-                }
-
-            });
-
-
-            /* =====================================================
-               CREAR CADA CATEGORIA
-               ===================================================== */
-
-            categorias.forEach(categoria => {
-
-
-                const seccion =
-                    document.createElement("div");
-
-
-                seccion.className =
-                    "faq-seccion";
-
-
-                /* =================================================
-                   TITULO DE CATEGORIA
-                   ================================================= */
-
-                const titulo =
-                    document.createElement("div");
-
-
-                titulo.className =
-                    "faq-seccion-titulo";
-
-
-                titulo.textContent =
-                    categoria;
-
-
-                /* =================================================
-                   ACORDEON
-                   ================================================= */
-
-                const accordion =
-                    document.createElement("div");
-
-
-                accordion.className =
-                    "accordion";
-
-
-                /* =================================================
-                   PREGUNTAS DE ESTA CATEGORIA
-                   ================================================= */
-
-                faqData
-
-                    .filter(
-                        item =>
-                            item.categoria ===
-                            categoria
-                    )
-
-                    .forEach(item => {
-
-
-                        const elemento =
-                            document.createElement("div");
-
-
-                        elemento.className =
-                            "accordion-item";
-
-
-                        /* =================================================
-                           BOTON DE PREGUNTA
-                           ================================================= */
-
-                        const boton =
-                            document.createElement("button");
-
-
-                        boton.className =
-                            "accordion-header";
-
-
-                        boton.type =
-                            "button";
-
-
-                        boton.innerHTML = `
-
-                            <span class="signo">
-                                +
-                            </span>
-
-                            <span>
-                                ${item.pregunta}
-                            </span>
-
-                        `;
-
-
-                        /* =================================================
-                           RESPUESTA
-                           ================================================= */
-
-                        const respuesta =
-                            document.createElement("div");
-
-
-                        respuesta.className =
-                            "accordion-content";
-
-
-                        const texto =
-                            document.createElement("p");
-
-
-                        texto.textContent =
-                            item.respuesta;
-
-
-                        respuesta.appendChild(
-                            texto
-                        );
-
-
-                        elemento.appendChild(
-                            boton
-                        );
-
-
-                        elemento.appendChild(
-                            respuesta
-                        );
-
-
-                        accordion.appendChild(
-                            elemento
-                        );
-
-
-                        /* =================================================
-                           ABRIR / CERRAR
-                           ================================================= */
-
-                        boton.addEventListener(
-                            "click",
-                            () => {
-
-
-                                const estabaAbierto =
-                                    elemento.classList.contains(
-                                        "open"
-                                    );
-
-
-                                /* Cerrar los demás */
-
-                                accordion
-
-                                    .querySelectorAll(
-                                        ".accordion-item"
-                                    )
-
-                                    .forEach(
-                                        otro => {
-
-
-                                            otro.classList.remove(
-                                                "open"
-                                            );
-
-
-                                            const contenido =
-                                                otro.querySelector(
-                                                    ".accordion-content"
-                                                );
-
-
-                                            contenido.style.maxHeight =
-                                                null;
-
-
-                                            const signo =
-                                                otro.querySelector(
-                                                    ".signo"
-                                                );
-
-
-                                            if (signo) {
-
-                                                signo.textContent =
-                                                    "+";
-                                            }
-
-                                        }
-                                    );
-
-
-                                /* Abrir el seleccionado */
-
-                                if (!estabaAbierto) {
-
-
-                                    elemento.classList.add(
-                                        "open"
-                                    );
-
-
-                                    respuesta.style.maxHeight =
-                                        respuesta.scrollHeight +
-                                        "px";
-
-
-                                    boton
-                                        .querySelector(
-                                            ".signo"
-                                        )
-                                        .textContent =
-                                        "-";
-
-
-                                }
-
-                            }
-                        );
-
-                    });
-
-
-                /* Agregar categoría */
-
-                seccion.appendChild(
-                    titulo
-                );
-
-
-                seccion.appendChild(
-                    accordion
-                );
-
-
-                contenedor.appendChild(
-                    seccion
-                );
-
-            });
-
-        }
-
-
-        /* =========================================================
-           CHATBOT
-           
-           IMPORTANTE:
-
-           ESTA PARTE SIGUE UTILIZANDO:
-
-           json/preguntas.json
-
-           NO bot.json.
-
-           Esto mantiene separado el sistema de traducción del
-           sistema de búsqueda del ChatBot.
-           ========================================================= */
-
-        const palabrasIgnoradas =
-            new Set([
-
-                "el",
-                "la",
-                "los",
-                "las",
-
-                "un",
-                "una",
-                "unos",
-                "unas",
-
-                "de",
-                "del",
-                "al",
-
-                "que",
-                "qué",
-
-                "para",
-                "por",
-
-                "en",
-                "con",
-
-                "y",
-                "o",
-
-                "es",
-                "son",
-
-                "se",
-                "me",
-                "mi",
-
-                "puedo",
-                "puede",
-
-                "cómo",
-                "como",
-
-                "donde",
-                "dónde",
-
-                "está",
-                "estan",
-                "están"
-            ]);
+            "está",
+            "estan",
+            "están"
+        ]);
 
 
         /* =========================================================
@@ -2002,7 +1469,9 @@
 
                 .filter(
                     palabra =>
+
                         palabra.length > 2 &&
+
                         !palabrasIgnoradas.has(
                             palabra
                         )
@@ -2011,15 +1480,724 @@
 
 
         /* =========================================================
-           BUSCAR RESPUESTA EN PREGUNTAS.JSON
-           
-           NO MODIFICAMOS ESTE SISTEMA.
+           CARGAR LOS DOS JSON
+           ========================================================= */
+
+        async function cargarDatos() {
+
+            try {
+
+                /*
+                 * ==================================================
+                 * 1. CARGAMOS BOT.JSON
+                 *
+                 * Este archivo contiene:
+                 *
+                 * - traducciones
+                 * - títulos
+                 * - botones
+                 * - FAQ
+                 * ==================================================
+                 */
+
+                const respuestaBot =
+                    await fetch(
+                        "json/bot.json",
+                        {
+                            cache: "no-store"
+                        }
+                    );
+
+
+                if (!respuestaBot.ok) {
+
+                    throw new Error(
+                        "No se pudo cargar bot.json"
+                    );
+                }
+
+
+                datosBot =
+                    await respuestaBot.json();
+
+
+                /*
+                 * ==================================================
+                 * 2. CARGAMOS PREGUNTAS.JSON
+                 *
+                 * Este archivo contiene las preguntas adicionales
+                 * del chatbot.
+                 * ==================================================
+                 */
+
+                const respuestaPreguntas =
+                    await fetch(
+                        "json/preguntas.json",
+                        {
+                            cache: "no-store"
+                        }
+                    );
+
+
+                if (!respuestaPreguntas.ok) {
+
+                    throw new Error(
+                        "No se pudo cargar preguntas.json"
+                    );
+                }
+
+
+                preguntasExtra =
+                    await respuestaPreguntas.json();
+
+
+                /*
+                 * Verificamos que realmente sea un array.
+                 */
+
+                if (
+                    !Array.isArray(
+                        preguntasExtra
+                    )
+                ) {
+
+                    throw new Error(
+                        "preguntas.json debe contener un array de preguntas."
+                    );
+                }
+
+
+                /*
+                 * Una vez cargados los dos archivos,
+                 * aplicamos el idioma actual.
+                 */
+
+                aplicarIdioma(
+                    idiomaActual
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "ERROR CARGANDO JSON:",
+                    error
+                );
+
+
+                /*
+                 * Mensaje visible si falta alguno de los archivos.
+                 */
+
+                document.getElementById(
+                    "chatbotRespuesta"
+                ).textContent =
+                    "No se pudieron cargar los archivos de idioma.";
+            }
+        }
+
+
+        /* =========================================================
+           OBTENER DATOS DEL IDIOMA ACTUAL
+           ========================================================= */
+
+        function obtenerDatosIdioma() {
+
+            if (!datosBot) {
+
+                return null;
+            }
+
+
+            if (!datosBot[idiomaActual]) {
+
+                console.error(
+                    "No existe el idioma:",
+                    idiomaActual
+                );
+
+                return null;
+            }
+
+
+            return datosBot[
+                idiomaActual
+            ];
+        }
+
+
+        /* =========================================================
+           APLICAR IDIOMA
+           ========================================================= */
+
+        function aplicarIdioma(idioma) {
+
+            idiomaActual = idioma;
+
+
+            const idiomaDatos =
+                obtenerDatosIdioma();
+
+
+            if (!idiomaDatos) {
+
+                return;
+            }
+
+
+            /*
+             * Cambiar idioma HTML
+             */
+
+            document.documentElement.lang =
+                idioma;
+
+
+            /*
+             * Cambiar título del navegador
+             */
+
+            if (idiomaDatos.tituloweb) {
+
+                document.title =
+                    "ReadMind - " +
+                    idiomaDatos.tituloweb;
+            }
+
+
+            /*
+             * Cambiar título visible
+             */
+
+            const titulo =
+                document.getElementById(
+                    "tituloWeb"
+                );
+
+
+            if (titulo) {
+
+                titulo.textContent =
+                    idiomaDatos.tituloweb;
+            }
+
+
+            /*
+             * Cambiar saludo inicial
+             */
+
+            const mensajeInicial =
+                document.getElementById(
+                    "mensajeInicial"
+                );
+
+
+            if (mensajeInicial) {
+
+                mensajeInicial.textContent =
+                    idiomaDatos.mensajeInicial;
+            }
+
+
+            /*
+             * Cambiar placeholder
+             */
+
+            const input =
+                document.getElementById(
+                    "chatbotInput"
+                );
+
+
+            if (input) {
+
+                input.placeholder =
+                    idiomaDatos.placeholderInput;
+
+                input.setAttribute(
+                    "aria-label",
+                    idiomaDatos.placeholderInput
+                );
+            }
+
+
+            /*
+             * Cambiar botón enviar
+             */
+
+            const botonEnviar =
+                document.querySelector(
+                    ".chatbot-enviar"
+                );
+
+
+            if (botonEnviar) {
+
+                botonEnviar.textContent =
+                    idiomaDatos.botonEnviar;
+            }
+
+
+            /*
+             * Cambiar botón volver
+             */
+
+            const botonVolver =
+                document.getElementById(
+                    "textoVolver"
+                );
+
+
+            if (botonVolver) {
+
+                botonVolver.textContent =
+                    idiomaDatos.btnVolver;
+            }
+
+
+            /*
+             * Reconstruir FAQ
+             */
+
+            cargarPreguntasFrecuentes();
+
+
+            /*
+             * Mostrar nuevamente el saludo
+             */
+
+            mostrarRespuesta(
+                idiomaDatos.mensajeInicial
+            );
+        }
+
+
+        /* =========================================================
+           CAMBIAR IDIOMA
+           ========================================================= */
+
+        function cambiarIdioma(idioma) {
+
+            if (
+                idioma !== "es" &&
+                idioma !== "en"
+            ) {
+
+                return;
+            }
+
+
+            if (!datosBot) {
+
+                console.error(
+                    "bot.json todavía no fue cargado."
+                );
+
+                return;
+            }
+
+
+            aplicarIdioma(idioma);
+
+
+            console.log(
+                "Idioma seleccionado:",
+                idioma
+            );
+        }
+
+
+        /* =========================================================
+           CREAR FAQ
+           ========================================================= */
+
+        function cargarPreguntasFrecuentes() {
+
+            const contenedor =
+                document.getElementById(
+                    "faq"
+                );
+
+
+            contenedor.innerHTML = "";
+
+
+            const idiomaDatos =
+                obtenerDatosIdioma();
+
+
+            if (
+                !idiomaDatos ||
+                !Array.isArray(
+                    idiomaDatos.faqData
+                )
+            ) {
+
+                console.error(
+                    "No se encontró faqData para:",
+                    idiomaActual
+                );
+
+                return;
+            }
+
+
+            const FAQ =
+                idiomaDatos.faqData;
+
+
+            const categorias = [];
+
+
+            /*
+             * Obtener categorías únicas
+             */
+
+            FAQ.forEach(item => {
+
+                if (
+                    !categorias.includes(
+                        item.categoria
+                    )
+                ) {
+
+                    categorias.push(
+                        item.categoria
+                    );
+                }
+            });
+
+
+            /*
+             * Crear cada sección
+             */
+
+            categorias.forEach(categoria => {
+
+
+                const seccion =
+                    document.createElement(
+                        "div"
+                    );
+
+                seccion.className =
+                    "faq-seccion";
+
+
+                const titulo =
+                    document.createElement(
+                        "div"
+                    );
+
+                titulo.className =
+                    "faq-seccion-titulo";
+
+                titulo.textContent =
+                    categoria;
+
+
+                const accordion =
+                    document.createElement(
+                        "div"
+                    );
+
+                accordion.className =
+                    "accordion";
+
+
+                /*
+                 * Crear preguntas de la categoría
+                 */
+
+                FAQ
+
+                    .filter(
+                        item =>
+                            item.categoria ===
+                            categoria
+                    )
+
+                    .forEach(item => {
+
+
+                        const elemento =
+                            document.createElement(
+                                "div"
+                            );
+
+                        elemento.className =
+                            "accordion-item";
+
+
+                        const boton =
+                            document.createElement(
+                                "button"
+                            );
+
+                        boton.className =
+                            "accordion-header";
+
+                        boton.type =
+                            "button";
+
+
+                        boton.innerHTML = `
+
+                            <span class="signo">
+                                +
+                            </span>
+
+                            <span>
+                                ${item.pregunta}
+                            </span>
+
+                        `;
+
+
+                        const respuesta =
+                            document.createElement(
+                                "div"
+                            );
+
+                        respuesta.className =
+                            "accordion-content";
+
+
+                        const texto =
+                            document.createElement(
+                                "p"
+                            );
+
+                        texto.textContent =
+                            item.respuesta;
+
+
+                        respuesta.appendChild(
+                            texto
+                        );
+
+
+                        elemento.appendChild(
+                            boton
+                        );
+
+                        elemento.appendChild(
+                            respuesta
+                        );
+
+                        accordion.appendChild(
+                            elemento
+                        );
+
+
+                        /*
+                         * Abrir / cerrar pregunta
+                         */
+
+                        boton.addEventListener(
+                            "click",
+                            () => {
+
+
+                                const estabaAbierto =
+                                    elemento
+                                        .classList
+                                        .contains(
+                                            "open"
+                                        );
+
+
+                                /*
+                                 * Cerrar las demás
+                                 */
+
+                                accordion
+
+                                    .querySelectorAll(
+                                        ".accordion-item"
+                                    )
+
+                                    .forEach(
+                                        otro => {
+
+
+                                            otro
+                                                .classList
+                                                .remove(
+                                                    "open"
+                                                );
+
+
+                                            const contenido =
+                                                otro
+                                                    .querySelector(
+                                                        ".accordion-content"
+                                                    );
+
+
+                                            contenido.style.maxHeight =
+                                                null;
+
+
+                                            otro
+                                                .querySelector(
+                                                    ".signo"
+                                                )
+                                                .textContent =
+                                                    "+";
+                                        }
+                                    );
+
+
+                                /*
+                                 * Abrir la seleccionada
+                                 */
+
+                                if (
+                                    !estabaAbierto
+                                ) {
+
+                                    elemento
+                                        .classList
+                                        .add(
+                                            "open"
+                                        );
+
+
+                                    respuesta.style.maxHeight =
+                                        respuesta
+                                            .scrollHeight +
+                                        "px";
+
+
+                                    boton
+                                        .querySelector(
+                                            ".signo"
+                                        )
+                                        .textContent =
+                                            "-";
+                                }
+
+                            }
+                        );
+
+                    });
+
+
+                seccion.appendChild(
+                    titulo
+                );
+
+                seccion.appendChild(
+                    accordion
+                );
+
+                contenedor.appendChild(
+                    seccion
+                );
+
+            });
+
+        }
+
+
+        /* =========================================================
+           CREAR BASE COMPLETA DEL CHATBOT
+           ========================================================= */
+
+        function obtenerBaseChatbot() {
+
+            const base = [];
+
+
+            /*
+             * ======================================================
+             * PRIMERO:
+             * FAQ traducidas de bot.json
+             * ======================================================
+             */
+
+            const idiomaDatos =
+                obtenerDatosIdioma();
+
+
+            if (
+                idiomaDatos &&
+                Array.isArray(
+                    idiomaDatos.faqData
+                )
+            ) {
+
+                idiomaDatos.faqData.forEach(
+                    item => {
+
+                        base.push({
+
+                            categoria:
+                                item.categoria,
+
+                            pregunta:
+                                item.pregunta,
+
+                            respuesta:
+                                item.respuesta
+                        });
+
+                    }
+                );
+            }
+
+
+            /*
+             * ======================================================
+             * SEGUNDO:
+             * preguntas.json
+             *
+             * SOLO las agregamos cuando estamos en español.
+             *
+             * Esto evita que el chatbot en inglés responda
+             * en español.
+             * ======================================================
+             */
+
+            if (
+                idiomaActual === "es" &&
+                Array.isArray(
+                    preguntasExtra
+                )
+            ) {
+
+                preguntasExtra.forEach(
+                    item => {
+
+                        base.push({
+
+                            categoria:
+                                item.categoria,
+
+                            pregunta:
+                                item.pregunta,
+
+                            respuesta:
+                                item.respuesta
+                        });
+
+                    }
+                );
+            }
+
+
+            return base;
+        }
+
+
+        /* =========================================================
+           BUSCAR RESPUESTA
            ========================================================= */
 
         async function buscarRespuesta(
             preguntaUsuario
         ) {
-
 
             const palabrasUsuario =
                 obtenerPalabras(
@@ -2038,137 +2216,133 @@
             try {
 
 
-                /* ================================================
-                   ARCHIVO DEL CHATBOT
+                /*
+                 * Obtener base correspondiente al idioma
+                 */
 
-                   ESTE NO ES bot.json
-
-                   ESTE ES preguntas.json
-                   ================================================ */
-
-                const response =
-                    await fetch(
-                        "json/preguntas.json"
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        "No se pudo cargar el archivo preguntas.json"
-                    );
-                }
-
-
-                const datosJson =
-                    await response.json();
+                const baseChatbot =
+                    obtenerBaseChatbot();
 
 
                 let mejorCoincidencia =
                     null;
 
-
-                let mejorPuntaje =
-                    0;
+                let mejorPuntaje = 0;
 
 
-                /* =================================================
-                   BUSCAR COINCIDENCIA
-                   ================================================= */
+                /*
+                 * Buscar coincidencias
+                 */
 
-                datosJson.forEach(item => {
-
-
-                    const palabrasPregunta =
-                        obtenerPalabras(
-                            item.pregunta
-                        );
+                baseChatbot.forEach(
+                    item => {
 
 
-                    let coincidencias =
-                        0;
+                        const palabrasPregunta =
+                            obtenerPalabras(
+                                item.pregunta
+                            );
 
 
-                    palabrasUsuario.forEach(
-                        palabraUsuario => {
+                        let coincidencias =
+                            0;
 
 
-                            if (
-                                palabrasPregunta.includes(
-                                    palabraUsuario
-                                )
-                            ) {
-
-                                coincidencias++;
+                        palabrasUsuario.forEach(
+                            palabraUsuario => {
 
 
-                            } else if (
+                                /*
+                                 * Coincidencia exacta
+                                 */
+
+                                if (
+                                    palabrasPregunta.includes(
+                                        palabraUsuario
+                                    )
+                                ) {
+
+                                    coincidencias++;
+
+                                }
 
 
-                                palabrasPregunta.some(
-                                    palabra =>
+                                /*
+                                 * Coincidencia aproximada
+                                 */
 
-                                        palabra.startsWith(
-                                            palabraUsuario
-                                        )
+                                else if (
 
-                                        ||
+                                    palabrasPregunta.some(
+                                        palabra =>
 
-                                        palabraUsuario.startsWith(
-                                            palabra
-                                        )
-                                )
+                                            palabra.startsWith(
+                                                palabraUsuario
+                                            )
 
-                            ) {
+                                            ||
 
-                                coincidencias += 0.7;
+                                            palabraUsuario.startsWith(
+                                                palabra
+                                            )
+                                    )
+
+                                ) {
+
+                                    coincidencias +=
+                                        0.7;
+                                }
+
                             }
-
-                        }
-                    );
-
-
-                    const puntaje =
-
-                        coincidencias /
-
-                        Math.max(
-                            palabrasUsuario.length,
-                            palabrasPregunta.length
                         );
 
 
-                    if (
-                        puntaje >
-                        mejorPuntaje
-                    ) {
+                        /*
+                         * Calcular puntaje
+                         */
 
-                        mejorPuntaje =
-                            puntaje;
+                        const puntaje =
+
+                            coincidencias /
+
+                            Math.max(
+                                palabrasUsuario.length,
+                                palabrasPregunta.length
+                            );
 
 
-                        mejorCoincidencia =
-                            item;
+                        /*
+                         * Guardar mejor resultado
+                         */
+
+                        if (
+                            puntaje >
+                            mejorPuntaje
+                        ) {
+
+                            mejorPuntaje =
+                                puntaje;
+
+                            mejorCoincidencia =
+                                item;
+                        }
+
                     }
+                );
 
-                });
 
-
-                /* =================================================
-                   UMBRAL
-                   ================================================= */
+                /*
+                 * Umbral mínimo
+                 */
 
                 const UMBRAL_COINCIDENCIA =
                     0.30;
 
 
                 if (
-
                     mejorCoincidencia &&
-
                     mejorPuntaje >=
-                    UMBRAL_COINCIDENCIA
-
+                        UMBRAL_COINCIDENCIA
                 ) {
 
                     return mejorCoincidencia;
@@ -2180,9 +2354,8 @@
 
             } catch (error) {
 
-
                 console.error(
-                    "Error al buscar en preguntas.json:",
+                    "Error al buscar respuesta:",
                     error
                 );
 
@@ -2190,12 +2363,13 @@
                 return {
 
                     respuesta:
-                        "Error al intentar conectar con la base de preguntas."
+                        idiomaActual === "en"
 
+                            ? "There was an error while searching for an answer."
+
+                            : "Error al intentar conectar con la base de preguntas."
                 };
-
             }
-
         }
 
 
@@ -2207,7 +2381,6 @@
             texto
         ) {
 
-
             const zona =
                 document.getElementById(
                     "chatbotRespuesta"
@@ -2216,7 +2389,6 @@
 
             zona.textContent =
                 texto;
-
         }
 
 
@@ -2228,7 +2400,6 @@
             pregunta
         ) {
 
-
             const preguntaLimpia =
                 pregunta.trim();
 
@@ -2237,15 +2408,22 @@
                 !preguntaLimpia
             ) {
 
+                const idiomaDatos =
+                    obtenerDatosIdioma();
+
 
                 mostrarRespuesta(
 
-                    idiomaActual === "en"
+                    idiomaDatos
+                        ? (
+                            idiomaActual === "en"
 
-                        ? "Please write a question so I can help you."
+                                ? "Write a question so I can help you."
 
-                        : "Escribí una pregunta para que pueda ayudarte."
+                                : "Escribí una pregunta para que pueda ayudarte."
+                        )
 
+                        : "..."
                 );
 
 
@@ -2253,12 +2431,23 @@
             }
 
 
+            /*
+             * Mensaje mientras busca
+             */
+
             mostrarRespuesta(
+
                 idiomaActual === "en"
+
                     ? "Searching..."
+
                     : "Buscando..."
             );
 
+
+            /*
+             * Buscar
+             */
 
             const resultado =
                 await buscarRespuesta(
@@ -2266,25 +2455,32 @@
                 );
 
 
-            if (resultado) {
+            /*
+             * Resultado encontrado
+             */
 
+            if (resultado) {
 
                 mostrarRespuesta(
                     resultado.respuesta
                 );
 
+            }
 
-            } else {
 
+            /*
+             * No encontrado
+             */
+
+            else {
 
                 mostrarRespuesta(
 
                     idiomaActual === "en"
 
-                        ? "I don't have an answer for that question yet. Try asking it in another way or choose one of the frequently asked questions."
+                        ? "I don't have an answer for that question yet. Try asking it another way or choose one of the frequently asked questions."
 
                         : "Todavía no tengo una respuesta para esa consulta. Probá escribiendo la pregunta de otra manera o elegí una de las frecuentes."
-
                 );
 
             }
@@ -2293,15 +2489,13 @@
 
 
         /* =========================================================
-           FORMULARIO DEL CHATBOT
+           EVENTO DEL CHATBOT
            ========================================================= */
 
         document
-
             .getElementById(
                 "chatbotForm"
             )
-
             .addEventListener(
                 "submit",
                 function(event) {
@@ -2321,8 +2515,7 @@
                     );
 
 
-                    input.value =
-                        "";
+                    input.value = "";
 
 
                     input.focus();
@@ -2332,44 +2525,22 @@
 
 
         /* =========================================================
-           CAMBIAR IDIOMA
+           INICIAR SISTEMA
            ========================================================= */
 
-        function cambiarIdioma(
-            idioma
-        ) {
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
 
+                cargarDatos();
 
-            console.log(
-                "Cambiando idioma a:",
-                idioma
-            );
-
-
-            if (
-                idioma !== "es" &&
-                idioma !== "en"
-            ) {
-
-                return;
             }
-
-
-            aplicarIdioma(
-                idioma
-            );
-
-        }
-
-
-        /* =========================================================
-           INICIAR LA WEB
-           ========================================================= */
-
-        cargarBotJSON();
+        );
 
 
     </script>
 
+
 </body>
+
 </html>
