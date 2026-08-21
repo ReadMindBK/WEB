@@ -1,305 +1,482 @@
 [
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿Para qué edades son los libros?",
-      "respuesta": "Generalmente de 4 a 10 años, igualmente cada libro indica un rango especifico."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿De qué tratan los libros?",
-      "respuesta": "Mitologías, Dinosaurios, Robots, Animales y muchos personajes más."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿Los libros son educativos?",
-      "respuesta": "Si, es la intensión de READMIND, que cada libro aporte conocimiento ademas de diversión."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿Los libros tienen ilustraciones?",
-      "respuesta": "Todos los libros cuentan con ilustraciones, algunos más que otros dependiendo de cada categoria."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿Puedo ver algunas páginas antes de comprar?",
-      "respuesta": "Desde nuestras redes sociales como @READMINDBK, puedes ver todo lo necesario."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿En qué idiomas están los libros?",
-      "respuesta": "Todos nuestros libros cuentan con 2 ediciones, en Español e Ingles."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿Los libros son digitales o impresos?",
-      "respuesta": "Todos son impresos por Amazon."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿Qué es el código QR que aparece en algunos libros?",
-      "respuesta": "Es opcional, si quieres escuchar la guia, sinopsis de los personajes, e incluso musica, puedes escanear el QR y disfrutar los audios."
-    },
-    {
-      "categoria": "Sobre los libros",
-      "pregunta": "¿Necesito una aplicación para escuchar los contenidos?",
-      "respuesta": "No es necesario, salvo excepciones, con cualquier camara de celular, detecta automaticamente el QR y te direccionará a una web de ReadMind con el audio especifico."
-    },
-
-    {
-      "categoria": "Sobre los álbumes musicales",
-      "pregunta": "¿Qué música tienen disponible?",
-      "respuesta": "Actualmente son 3 albumes con 10 temas cada uno."
-    },
-    {
-      "categoria": "Sobre los álbumes musicales",
-      "pregunta": "¿Para qué edades está pensada la música?",
-      "respuesta": "Son caciones infantiles que pueden abarcar un amplio rango de edades."
-    },
-    {
-      "categoria": "Sobre los álbumes musicales",
-      "pregunta": "¿Qué tipo de canciones incluye el álbum?",
-      "respuesta": "Son canciones alegres con un proposito de optimismo y superación, sobre las distintas etapas por las que pasan los niños mientras crecen."
-    },
-    {
-      "categoria": "Sobre los álbumes musicales",
-      "pregunta": "¿Puedo escuchar una muestra?",
-      "respuesta": "Puedes escuchar las canciones en una gran cantidad de plataformas, como Spotify, Apple Music, Amazon Music, YouTube Music, etc."
-    },
-    {
-      "categoria": "Sobre los álbumes musicales",
-      "pregunta": "¿La música está relacionada con los libros?",
-      "respuesta": "Los albumes musicales son totalmente independientes de los libros que publicamos."
-    },
-    {
-      "categoria": "Sobre los álbumes musicales",
-      "pregunta": "¿En qué idiomas están las canciones de los álbumes?",
-      "respuesta": "Solo en el caso de los albumes, todas las canciones estan en español."
-    },
-    {
-      "categoria": "Sobre los álbumes musicales",
-      "pregunta": "¿En qué plataformas está disponible la música?",
-      "respuesta": "Spotify, Apple Music, Amazon Music, YouTube Music, SoundCloud, TikTok, Instagram, Facebook, CapCut y más."
-    },
-
-    {
-      "categoria": "Compras",
-      "pregunta": "¿Cómo obtengo el libro?",
-      "respuesta": "Todos los enlaces de los libros te dirigirán a Amazon, donde alli puedes realizar la compra."
-    },
-    {
-      "categoria": "Compras",
-      "pregunta": "¿Cómo puedo pagar?",
-      "respuesta": "A travez de los distintos medios de pago que ofrece Amazon en su plataforma."
-    },
-    {
-      "categoria": "Compras",
-      "pregunta": "¿Cómo recibo mi compra?",
-      "respuesta": "Mediante el confiable sistema de envíos de la plataforma de Amazon."
-    },
-
-    {
-      "categoria": "Contacto",
-      "pregunta": "¿Dónde puedo hacer una consulta?",
-      "respuesta": "Puedes consultarle a nuestro bot lo que necesites saber."
-    },
-    {
-      "categoria": "Contacto",
-      "pregunta": "¿Cómo puedo recibir novedades?",
-      "respuesta": "Por medio de nuestras redes sociales por Instragam, Tiktok, Youtube y Pinterest."
-    },
-    {
-      "categoria": "Contacto",
-      "pregunta": "¿Dónde puedo seguirlos?",
-      "respuesta": "Buscanos en nuestras redes como @READMINDBK."
-    },
-     {
-      "categoria": "Preguntas",
-      "pregunta": "¿Cuanto cuestan los libros?",
-      "respuesta": "Todos los precios se actualizan en la plataforma de Amazon, si quieres saber los valores, busca el libro en nuestra web, elige si lo quieres en Español o Ingles, y te enviará directo a Amazon en donde podrás ver mucho mas que su precio."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "hola",
-      "respuesta": "Hola, ¿como estas? ¿en que puedo ayudarte?."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "chau",
-      "respuesta": "Hasta pronto!, gracias por visitarnos."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿como estas?",
-      "respuesta": "Bien, gracias por preguntar ¿en que puedo ayudarte?."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿como te llamas?",
-      "respuesta": "Soy ChatBot! y estoy aqui para ayudarte con tus dudas."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿que sos?",
-      "respuesta": "Soy el ChatBot de READMIND y estoy aqui para ayudarte."
-    },
-     {
-      "categoria": "Preguntas",
-      "pregunta": "¿sos ia?",
-      "respuesta": "No, soy un bot con respuestas limitadas, pero igualmente puedo ayudarte."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿que es readmind?",
-      "respuesta": "Somos un equipo que pretende a travez de sus libros y musica, instruir de la forma mas divertida posible, a todos los infantes que es una de las etapas de la vida más importantes, y sobre todo hacerlo sin tantas pantallas. Por eso, la frase menos pantallas y mas lapicez con crayón."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿Que calidad de impresión tienen los libros?",
-      "respuesta": "Todos nuestros libros son impresos y preparados para enviar por la gran empresa Amazon."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿Cuanto tiempo tarda en llegarme el libro?",
-      "respuesta": "Los tiempos de envío los maneja Amazon, y desde sus sistemas, podrás darle seguimiento a tu envío"
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿Como compro un libro?",
-      "respuesta": "En nuestra web, elegis el libro en español o ingles y te direccionamos a Amazon, en donde estan publicados nuestros libros. Luego podrás elegir las formas de pago en esa gran plataforma."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "comprar",
-      "respuesta": "En nuestra web, elegis si el libro lo queres en español o ingles y luego te direccionamos a Amazon, en donde estan publicados todos nuestros libros. Luego podrás elegir las formas de pago en esa gran plataforma."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "como funciona",
-      "respuesta": "En nuestra web, elegis el libro en español o ingles y te direccionamos a Amazon, en donde estan publicados nuestros libros. Luego podrás allí elegirás las formas de pago. Con respecto a los albumes musicales, podes escucharlas al instante."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿Como pago?",
-      "respuesta": "El pago lo haces en la web segura de Amazon, en donde estan publicados todos nuestros libros."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿Cuantas hojas tienen los libros?",
-      "respuesta": "Generalmente los libros tienen de 40 hojas en adelante, dependiendo de la categoria."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "precios",
-      "respuesta": "Los precios estan publicados en la plataforma de venta de Amazon."
-    },
-   {
-      "categoria": "Preguntas",
-      "pregunta": "valor",
-      "respuesta": "Los valores estan publicados en la plataforma de venta de Amazon."
-    },
-   {
-      "categoria": "Preguntas",
-      "pregunta": "costo",
-      "respuesta": "Los valores estan publicados en la plataforma de venta de Amazon."
-    },
-   {
-      "categoria": "Preguntas",
-      "pregunta": "¿que venden?",
-      "respuesta": "Contamos con variedad de libros infantiles, que incluyen guias, diccionarios, sinopsis, QR de audios y juegos, que son publicados en Amazon. Tambien albumes musicales distribuidas en diversas plataformas de audio para escuchar al instante."
-    },
-   {
-      "categoria": "Preguntas",
-      "pregunta": "¿que brindan?",
-      "respuesta": "Contamos con variedad de libros infantiles, que incluyen guias, diccionarios, sinopsis, QR de audios y juegos, que son publicados en Amazon. Tambien albumes musicales distribuidas en diversas plataformas de audio para escuchar al instante."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿libros?",
-      "respuesta": "En la seccion Libros en la pagina principal de la web, encontarás las categorias actuales."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿Musica?",
-      "respuesta": "Tenemos 3 albumes musicales disponibles, distribuidos en las plataformas más conocidas para escuchar"
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿que hay en esta web?",
-      "respuesta": "Contamos con variedad de libros fisicos para colorear, que incluyen diccionarios, Sinopsis, juegos y codigos QR para escuchar diversos audios interesantes y educativos. Tambien actualmente tenemos 3 albumes musicales, que tratan temas cotidianos durante el crecimiento infantil, con canciones de superación y aprendisaje."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿que hay en la pagina?",
-      "respuesta": "Contamos con variedad de libros fisicos para colorear, que incluyen diccionarios, Sinopsis, juegos y codigos QR para escuchar diversos audios interesantes y educativos. Tambien actualmente tenemos 3 albumes musicales, que tratan temas cotidianos durante el crecimiento infantil, con canciones de superación y aprendisaje."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "qr",
-      "respuesta": "Gracias a los codigos QR podrás escuchar diversos audios a lo largo del recorrido de los libros. guias, sinopsis, juegos y canciones"
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿como cambio a idioma ingles?",
-      "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿otros idiomas?",
-      "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿hablas ingles?",
-      "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles. Cuando lo hagas, tambien cambiará mi idioma."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "español",
-      "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles. Cuando lo hagas, tambien cambiará mi idioma."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿como cambio a idioma ingles?",
-      "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "ayuda",
-      "respuesta": "Contame de forma mas precisa de que forma te puedo ayudar."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿para que un qr?",
-      "respuesta": "Gracias a los codigos QR podrás escuchar diversos audios a lo largo del recorrido de los libros, como guias, sinopsis, juegos y canciones"
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿libros con audios?",
-      "respuesta": "Gracias a los codigos QR podrás escuchar diversos audios a lo largo del recorrido de los libros, como guias, sinopsis, juegos y canciones"
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿Cuantas hojas?",
-      "respuesta": "Generalmente los libros tienen de 40 hojas en adelante, dependiendo de la categoria."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿porque amazon?",
-      "respuesta": "Porque es una de las plataformas ideales para nuestors libros y de las más confiables para la compra y los envíos."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "amazon",
-      "respuesta": "Es una de las plataformas lider de venta de productos y de las más confiables para la compra y  envíos."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿que tipo de libros hay?",
-      "respuesta": "Contamos con libros para colorear de los más completos que exiten con (guia, sinopsis, juegos, codigos QR para audios y musica. Tambien libros de actividades con el mismo sistema QR y libros con historias y canciones para dormir."
-    },
-    {
-      "categoria": "Preguntas",
-      "pregunta": "¿que tamaños tiene los libros",
-      "respuesta": "Los tamaños pueden variar desde las medidas de una hoja a 4 (210cmx297cm) a menor escala, como por ejemplo 15cmx15cm. Cada libro tiene especificado su tamaño en la descripción"
-    }
-  ]
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿Para qué edades son los libros?",
+    "pregunta_en": "What ages are the books for?",
+    "respuesta": "Generalmente de 4 a 10 años, igualmente cada libro indica un rango especifico.",
+    "respuesta_en": "Generally for ages 4 to 10, although each book specifies its own age range."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿De qué tratan los libros?",
+    "pregunta_en": "What are the books about?",
+    "respuesta": "Mitologías, Dinosaurios, Robots, Animales y muchos personajes más.",
+    "respuesta_en": "Mythologies, dinosaurs, robots, animals, and many other characters."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿Los libros son educativos?",
+    "pregunta_en": "Are the books educational?",
+    "respuesta": "Si, es la intensión de READMIND, que cada libro aporte conocimiento ademas de diversión.",
+    "respuesta_en": "Yes. READMIND's intention is for each book to provide knowledge as well as fun."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿Los libros tienen ilustraciones?",
+    "pregunta_en": "Do the books have illustrations?",
+    "respuesta": "Todos los libros cuentan con ilustraciones, algunos más que otros dependiendo de cada categoria.",
+    "respuesta_en": "All books include illustrations, some more than others depending on the category."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿Puedo ver algunas páginas antes de comprar?",
+    "pregunta_en": "Can I see some pages before buying?",
+    "respuesta": "Desde nuestras redes sociales como @READMINDBK, puedes ver todo lo necesario.",
+    "respuesta_en": "You can see everything you need on our social media, such as @READMINDBK."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿En qué idiomas están los libros?",
+    "pregunta_en": "What languages are the books available in?",
+    "respuesta": "Todos nuestros libros cuentan con 2 ediciones, en Español e Ingles.",
+    "respuesta_en": "All our books are available in two editions: Spanish and English."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿Los libros son digitales o impresos?",
+    "pregunta_en": "Are the books digital or printed?",
+    "respuesta": "Todos son impresos por Amazon.",
+    "respuesta_en": "They are all printed by Amazon."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿Qué es el código QR que aparece en algunos libros?",
+    "pregunta_en": "What is the QR code that appears in some books?",
+    "respuesta": "Es opcional, si quieres escuchar la guia, sinopsis de los personajes, e incluso musica, puedes escanear el QR y disfrutar los audios.",
+    "respuesta_en": "It is optional. If you want to listen to the guide, character summaries, or even music, you can scan the QR code and enjoy the audio content."
+  },
+  {
+    "categoria": "Sobre los libros",
+    "categoria_en": "About the books",
+    "pregunta": "¿Necesito una aplicación para escuchar los contenidos?",
+    "pregunta_en": "Do I need an app to listen to the content?",
+    "respuesta": "No es necesario, salvo excepciones, con cualquier camara de celular, detecta automaticamente el QR y te direccionará a una web de ReadMind con el audio especifico.",
+    "respuesta_en": "It is not necessary. In most cases, any cellphone camera can automatically detect the QR code and direct you to a ReadMind website with the specific audio."
+  },
+  {
+    "categoria": "Sobre los álbumes musicales",
+    "categoria_en": "About the music albums",
+    "pregunta": "¿Qué música tienen disponible?",
+    "pregunta_en": "What music do you have available?",
+    "respuesta": "Actualmente son 3 albumes con 10 temas cada uno.",
+    "respuesta_en": "There are currently 3 albums with 10 songs each."
+  },
+  {
+    "categoria": "Sobre los álbumes musicales",
+    "categoria_en": "About the music albums",
+    "pregunta": "¿Para qué edades está pensada la música?",
+    "pregunta_en": "What ages is the music intended for?",
+    "respuesta": "Son caciones infantiles que pueden abarcar un amplio rango de edades.",
+    "respuesta_en": "They are children's songs that can appeal to a wide range of ages."
+  },
+  {
+    "categoria": "Sobre los álbumes musicales",
+    "categoria_en": "About the music albums",
+    "pregunta": "¿Qué tipo de canciones incluye el álbum?",
+    "pregunta_en": "What type of songs does the album include?",
+    "respuesta": "Son canciones alegres con un proposito de optimismo y superación, sobre las distintas etapas por las que pasan los niños mientras crecen.",
+    "respuesta_en": "They are cheerful songs focused on optimism and overcoming challenges, covering different stages children go through as they grow."
+  },
+  {
+    "categoria": "Sobre los álbumes musicales",
+    "categoria_en": "About the music albums",
+    "pregunta": "¿Puedo escuchar una muestra?",
+    "pregunta_en": "Can I listen to a sample?",
+    "respuesta": "Puedes escuchar las canciones en una gran cantidad de plataformas, como Spotify, Apple Music, Amazon Music, YouTube Music, etc.",
+    "respuesta_en": "You can listen to the songs on many platforms, such as Spotify, Apple Music, Amazon Music, YouTube Music, and more."
+  },
+  {
+    "categoria": "Sobre los álbumes musicales",
+    "categoria_en": "About the music albums",
+    "pregunta": "¿La música está relacionada con los libros?",
+    "pregunta_en": "Is the music related to the books?",
+    "respuesta": "Los albumes musicales son totalmente independientes de los libros que publicamos.",
+    "respuesta_en": "The music albums are completely independent from the books we publish."
+  },
+  {
+    "categoria": "Sobre los álbumes musicales",
+    "categoria_en": "About the music albums",
+    "pregunta": "¿En qué idiomas están las canciones de los álbumes?",
+    "pregunta_en": "What languages are the album songs in?",
+    "respuesta": "Solo en el caso de los albumes, todas las canciones estan en español.",
+    "respuesta_en": "For the albums, all songs are currently in Spanish."
+  },
+  {
+    "categoria": "Sobre los álbumes musicales",
+    "categoria_en": "About the music albums",
+    "pregunta": "¿En qué plataformas está disponible la música?",
+    "pregunta_en": "Which platforms is the music available on?",
+    "respuesta": "Spotify, Apple Music, Amazon Music, YouTube Music, SoundCloud, TikTok, Instagram, Facebook, CapCut y más.",
+    "respuesta_en": "Spotify, Apple Music, Amazon Music, YouTube Music, SoundCloud, TikTok, Instagram, Facebook, CapCut, and more."
+  },
+  {
+    "categoria": "Compras",
+    "categoria_en": "Purchases",
+    "pregunta": "¿Cómo obtengo el libro?",
+    "pregunta_en": "How do I get the book?",
+    "respuesta": "Todos los enlaces de los libros te dirigirán a Amazon, donde alli puedes realizar la compra.",
+    "respuesta_en": "All book links will take you to Amazon, where you can make your purchase."
+  },
+  {
+    "categoria": "Compras",
+    "categoria_en": "Purchases",
+    "pregunta": "¿Cómo puedo pagar?",
+    "pregunta_en": "How can I pay?",
+    "respuesta": "A travez de los distintos medios de pago que ofrece Amazon en su plataforma.",
+    "respuesta_en": "Through the different payment methods offered by Amazon on its platform."
+  },
+  {
+    "categoria": "Compras",
+    "categoria_en": "Purchases",
+    "pregunta": "¿Cómo recibo mi compra?",
+    "pregunta_en": "How do I receive my purchase?",
+    "respuesta": "Mediante el confiable sistema de envíos de la plataforma de Amazon.",
+    "respuesta_en": "Through Amazon's reliable delivery system."
+  },
+  {
+    "categoria": "Contacto",
+    "categoria_en": "Contact",
+    "pregunta": "¿Dónde puedo hacer una consulta?",
+    "pregunta_en": "Where can I ask a question?",
+    "respuesta": "Puedes consultarle a nuestro bot lo que necesites saber.",
+    "respuesta_en": "You can ask our bot anything you need to know."
+  },
+  {
+    "categoria": "Contacto",
+    "categoria_en": "Contact",
+    "pregunta": "¿Cómo puedo recibir novedades?",
+    "pregunta_en": "How can I receive updates?",
+    "respuesta": "Por medio de nuestras redes sociales por Instragam, Tiktok, Youtube y Pinterest.",
+    "respuesta_en": "Through our social media on Instagram, TikTok, YouTube, and Pinterest."
+  },
+  {
+    "categoria": "Contacto",
+    "categoria_en": "Contact",
+    "pregunta": "¿Dónde puedo seguirlos?",
+    "pregunta_en": "Where can I follow you?",
+    "respuesta": "Buscanos en nuestras redes como @READMINDBK.",
+    "respuesta_en": "Find us on our social media as @READMINDBK."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Cuanto cuestan los libros?",
+    "pregunta_en": "How much do the books cost?",
+    "respuesta": "Todos los precios se actualizan en la plataforma de Amazon, si quieres saber los valores, busca el libro en nuestra web, elige si lo quieres en Español o Ingles, y te enviará directo a Amazon en donde podrás ver mucho mas que su precio.",
+    "respuesta_en": "All prices are updated on Amazon. To see the current price, find the book on our website, choose Spanish or English, and you will be taken directly to Amazon, where you can see the price and more information."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "hola",
+    "pregunta_en": "hello",
+    "respuesta": "Hola, ¿como estas? ¿en que puedo ayudarte?.",
+    "respuesta_en": "Hello! How are you? How can I help you?"
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "chau",
+    "pregunta_en": "bye",
+    "respuesta": "Hasta pronto!, gracias por visitarnos.",
+    "respuesta_en": "See you soon! Thank you for visiting us."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿como estas?",
+    "pregunta_en": "how are you?",
+    "respuesta": "Bien, gracias por preguntar ¿en que puedo ayudarte?.",
+    "respuesta_en": "I'm fine, thank you for asking. How can I help you?"
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿como te llamas?",
+    "pregunta_en": "what is your name?",
+    "respuesta": "Soy ChatBot! y estoy aqui para ayudarte con tus dudas.",
+    "respuesta_en": "I'm ChatBot! I'm here to help you with your questions."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que sos?",
+    "pregunta_en": "what are you?",
+    "respuesta": "Soy el ChatBot de READMIND y estoy aqui para ayudarte.",
+    "respuesta_en": "I'm READMIND's ChatBot, and I'm here to help you."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿sos ia?",
+    "pregunta_en": "are you AI?",
+    "respuesta": "No, soy un bot con respuestas limitadas, pero igualmente puedo ayudarte.",
+    "respuesta_en": "No, I'm a bot with limited answers, but I can still help you."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que es readmind?",
+    "pregunta_en": "what is readmind?",
+    "respuesta": "Somos un equipo que pretende a travez de sus libros y musica, instruir de la forma mas divertida posible, a todos los infantes que es una de las etapas de la vida más importantes, y sobre todo hacerlo sin tantas pantallas. Por eso, la frase menos pantallas y mas lapicez con crayón.",
+    "respuesta_en": "We are a team that aims to teach children through our books and music in the most fun way possible. Childhood is one of the most important stages of life, and we especially want to do it with fewer screens. That's why our phrase is: fewer screens and more pencils and crayons."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Que calidad de impresión tienen los libros?",
+    "pregunta_en": "What print quality do the books have?",
+    "respuesta": "Todos nuestros libros son impresos y preparados para enviar por la gran empresa Amazon.",
+    "respuesta_en": "All our books are printed and prepared for shipping by Amazon."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Cuanto tiempo tarda en llegarme el libro?",
+    "pregunta_en": "How long does it take for the book to arrive?",
+    "respuesta": "Los tiempos de envío los maneja Amazon, y desde sus sistemas, podrás darle seguimiento a tu envío",
+    "respuesta_en": "Shipping times are managed by Amazon, and you can track your shipment through their systems."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Como compro un libro?",
+    "pregunta_en": "How do I buy a book?",
+    "respuesta": "En nuestra web, elegis el libro en español o ingles y te direccionamos a Amazon, en donde estan publicados nuestros libros. Luego podrás elegir las formas de pago en esa gran plataforma.",
+    "respuesta_en": "On our website, choose the book in Spanish or English and we will direct you to Amazon, where our books are published. You can then choose your payment method on that platform."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "comprar",
+    "pregunta_en": "buy",
+    "respuesta": "En nuestra web, elegis si el libro lo queres en español o ingles y luego te direccionamos a Amazon, en donde estan publicados todos nuestros libros. Luego podrás elegir las formas de pago en esa gran plataforma.",
+    "respuesta_en": "On our website, choose whether you want the book in Spanish or English, and then we will direct you to Amazon, where all our books are published. You can then choose your payment method on that platform."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "como funciona",
+    "pregunta_en": "how does it work",
+    "respuesta": "En nuestra web, elegis el libro en español o ingles y te direccionamos a Amazon, en donde estan publicados nuestros libros. Luego podrás allí elegirás las formas de pago. Con respecto a los albumes musicales, podes escucharlas al instante.",
+    "respuesta_en": "On our website, choose the book in Spanish or English and we will direct you to Amazon, where our books are published. You can then choose your payment method there. As for the music albums, you can listen to them instantly."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Como pago?",
+    "pregunta_en": "How do I pay?",
+    "respuesta": "El pago lo haces en la web segura de Amazon, en donde estan publicados todos nuestros libros.",
+    "respuesta_en": "You make the payment on Amazon's secure website, where all our books are published."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Cuantas hojas tienen los libros?",
+    "pregunta_en": "How many pages do the books have?",
+    "respuesta": "Generalmente los libros tienen de 40 hojas en adelante, dependiendo de la categoria.",
+    "respuesta_en": "The books generally have 40 pages or more, depending on the category."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "precios",
+    "pregunta_en": "prices",
+    "respuesta": "Los precios estan publicados en la plataforma de venta de Amazon.",
+    "respuesta_en": "Prices are published on Amazon's sales platform."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "valor",
+    "pregunta_en": "price",
+    "respuesta": "Los valores estan publicados en la plataforma de venta de Amazon.",
+    "respuesta_en": "Prices are published on Amazon's sales platform."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "costo",
+    "pregunta_en": "cost",
+    "respuesta": "Los valores estan publicados en la plataforma de venta de Amazon.",
+    "respuesta_en": "Prices are published on Amazon's sales platform."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que venden?",
+    "pregunta_en": "what do you sell?",
+    "respuesta": "Contamos con variedad de libros infantiles, que incluyen guias, diccionarios, sinopsis, QR de audios y juegos, que son publicados en Amazon. Tambien albumes musicales distribuidas en diversas plataformas de audio para escuchar al instante.",
+    "respuesta_en": "We offer a variety of children's books that include guides, dictionaries, summaries, audio QR codes, and games, published on Amazon. We also have music albums distributed across various audio platforms for instant listening."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que brindan?",
+    "pregunta_en": "what do you offer?",
+    "respuesta": "Contamos con variedad de libros infantiles, que incluyen guias, diccionarios, sinopsis, QR de audios y juegos, que son publicados en Amazon. Tambien albumes musicales distribuidas en diversas plataformas de audio para escuchar al instante.",
+    "respuesta_en": "We offer a variety of children's books that include guides, dictionaries, summaries, audio QR codes, and games, published on Amazon. We also have music albums distributed across various audio platforms for instant listening."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿libros?",
+    "pregunta_en": "books?",
+    "respuesta": "En la seccion Libros en la pagina principal de la web, encontarás las categorias actuales.",
+    "respuesta_en": "In the Books section on the main page of the website, you will find the current categories."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Musica?",
+    "pregunta_en": "music?",
+    "respuesta": "Tenemos 3 albumes musicales disponibles, distribuidos en las plataformas más conocidas para escuchar",
+    "respuesta_en": "We currently have 3 music albums available on the most popular listening platforms."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que hay en esta web?",
+    "pregunta_en": "what is on this website?",
+    "respuesta": "Contamos con variedad de libros fisicos para colorear, que incluyen diccionarios, Sinopsis, juegos y codigos QR para escuchar diversos audios interesantes y educativos. Tambien actualmente tenemos 3 albumes musicales, que tratan temas cotidianos durante el crecimiento infantil, con canciones de superación y aprendisaje.",
+    "respuesta_en": "We offer a variety of physical coloring books that include dictionaries, summaries, games, and QR codes for interesting and educational audio. We also currently have 3 music albums about everyday experiences during childhood, with songs about overcoming challenges and learning."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que hay en la pagina?",
+    "pregunta_en": "what is on the page?",
+    "respuesta": "Contamos con variedad de libros fisicos para colorear, que incluyen diccionarios, Sinopsis, juegos y codigos QR para escuchar diversos audios interesantes y educativos. Tambien actualmente tenemos 3 albumes musicales, que tratan temas cotidianos durante el crecimiento infantil, con canciones de superación y aprendisaje.",
+    "respuesta_en": "We offer a variety of physical coloring books that include dictionaries, summaries, games, and QR codes for interesting and educational audio. We also currently have 3 music albums about everyday experiences during childhood, with songs about overcoming challenges and learning."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "qr",
+    "pregunta_en": "qr",
+    "respuesta": "Gracias a los codigos QR podrás escuchar diversos audios a lo largo del recorrido de los libros. guias, sinopsis, juegos y canciones",
+    "respuesta_en": "Thanks to the QR codes, you can listen to different audio content throughout the books, including guides, summaries, games, and songs."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿como cambio a idioma ingles?",
+    "pregunta_en": "how do I change to English?",
+    "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles.",
+    "respuesta_en": "At the bottom left of the website, you will find the ES and EN buttons to change all the website content from Spanish to English."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿otros idiomas?",
+    "pregunta_en": "other languages?",
+    "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles.",
+    "respuesta_en": "At the bottom left of the website, you will find the ES and EN buttons to change the website content from Spanish to English."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿hablas ingles?",
+    "pregunta_en": "do you speak English?",
+    "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles. Cuando lo hagas, tambien cambiará mi idioma.",
+    "respuesta_en": "At the bottom left of the website, you will find the ES and EN buttons to change all the website content from Spanish to English. When you do this, my language will change too."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "español",
+    "pregunta_en": "Spanish",
+    "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles. Cuando lo hagas, tambien cambiará mi idioma.",
+    "respuesta_en": "At the bottom left of the website, you will find the ES and EN buttons to change all the website content from Spanish to English. When you do this, my language will change too."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿como cambio a idioma ingles?",
+    "pregunta_en": "how do I change to English?",
+    "respuesta": "En la web abajo a la izquierda, contas con los botones de ES y EN para cambiar todo el contenido de idioma de español a ingles.",
+    "respuesta_en": "At the bottom left of the website, you will find the ES and EN buttons to change all the website content from Spanish to English."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "ayuda",
+    "pregunta_en": "help",
+    "respuesta": "Contame de forma mas precisa de que forma te puedo ayudar.",
+    "respuesta_en": "Tell me more specifically how I can help you."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿para que un qr?",
+    "pregunta_en": "what is a QR code for?",
+    "respuesta": "Gracias a los codigos QR podrás escuchar diversos audios a lo largo del recorrido de los libros, como guias, sinopsis, juegos y canciones",
+    "respuesta_en": "Thanks to the QR codes, you can listen to different audio content throughout the books, such as guides, summaries, games, and songs."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿libros con audios?",
+    "pregunta_en": "books with audio?",
+    "respuesta": "Gracias a los codigos QR podrás escuchar diversos audios a lo largo del recorrido de los libros, como guias, sinopsis, juegos y canciones",
+    "respuesta_en": "Thanks to the QR codes, you can listen to different audio content throughout the books, such as guides, summaries, games, and songs."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿Cuantas hojas?",
+    "pregunta_en": "how many pages?",
+    "respuesta": "Generalmente los libros tienen de 40 hojas en adelante, dependiendo de la categoria.",
+    "respuesta_en": "The books generally have 40 pages or more, depending on the category."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿porque amazon?",
+    "pregunta_en": "why Amazon?",
+    "respuesta": "Porque es una de las plataformas ideales para nuestors libros y de las más confiables para la compra y los envíos.",
+    "respuesta_en": "Because it is one of the ideal platforms for our books and one of the most reliable for purchases and shipping."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "amazon",
+    "pregunta_en": "amazon",
+    "respuesta": "Es una de las plataformas lider de venta de productos y de las más confiables para la compra y  envíos.",
+    "respuesta_en": "It is one of the leading product sales platforms and one of the most reliable for purchases and shipping."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que tipo de libros hay?",
+    "pregunta_en": "what types of books are available?",
+    "respuesta": "Contamos con libros para colorear de los más completos que exiten con (guia, sinopsis, juegos, codigos QR para audios y musica. Tambien libros de actividades con el mismo sistema QR y libros con historias y canciones para dormir.",
+    "respuesta_en": "We offer some of the most complete coloring books, with guides, summaries, games, QR codes for audio and music. We also have activity books using the same QR system, as well as books with stories and bedtime songs."
+  },
+  {
+    "categoria": "Preguntas",
+    "categoria_en": "Questions",
+    "pregunta": "¿que tamaños tiene los libros",
+    "pregunta_en": "what sizes are the books?",
+    "respuesta": "Los tamaños pueden variar desde las medidas de una hoja a 4 (210cmx297cm) a menor escala, como por ejemplo 15cmx15cm. Cada libro tiene especificado su tamaño en la descripción",
+    "respuesta_en": "Sizes can vary from A4 dimensions (210 mm x 297 mm) to smaller formats, such as 15 cm x 15 cm. Each book has its size specified in the description."
+  }
+]
