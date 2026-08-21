@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ReadMind - Preguntas Frecuentes</title>
 
     <!-- Iconos Font Awesome -->
@@ -10,12 +11,13 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+
         /* =========================================================
            PANEL DE CONTROL
-           MODIFICA ESTOS VALORES PARA CAMBIAR DISTANCIAS, TAMAÑOS
-           Y POSICIONES SIN TENER QUE BUSCARLAS POR TODO EL CSS.
            ========================================================= */
+
         :root {
+
             /* Fondo general */
             --fondo-libros-opacidad: 0.25;
             --fondo-libros-tamano: 450px;
@@ -43,11 +45,7 @@
             /* ChatBot / personaje */
             --chatbot-ancho-maximo: 500px;
 
-            /*
-              Posición del contenido que aparece SOBRE LA PIZARRA.
-              Si tu fondo-bot.png cambia de tamaño, estos porcentajes
-              permiten volver a acomodar el área de escritura.
-            */
+            /* Posición del contenido sobre la pizarra */
             --pizarra-input-top: 22%;
             --pizarra-input-left: 7%;
             --pizarra-input-width: 86%;
@@ -75,547 +73,1158 @@
         }
 
 
-            /* ======================================================= */
-            /* CONTROLES TITULO: Posicionamiento y Movimiento Libre    */
-            /* ======================================================= */
+        /* =========================================================
+           TITULO
+           ========================================================= */
 
-    .titulo-tituloweb {
-    font-size: 24px;
-    position: relative;
-    top: -10px;
-    margin-bottom: 10px; 
-}
+        .titulo-tituloweb {
 
-.latido {
-    animation: latidoSuave 2s ease-in-out infinite;
-}
+            font-size: 24px;
 
-@keyframes latidoSuave {
-    0%, 100% {
-        transform: scale(1);
-    }
+            position: relative;
 
-    50% {
-        transform: scale(1.04);
-    }
-}
+            top: -10px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================================
+           ANIMACION LATIDO
+           ========================================================= */
+
+        .latido {
+
+            animation: latidoSuave 2s ease-in-out infinite;
+        }
+
+        @keyframes latidoSuave {
+
+            0%, 100% {
+
+                transform: scale(1);
+            }
+
+            50% {
+
+                transform: scale(1.04);
+            }
+        }
 
 
         /* =========================================================
            ESTILOS GENERALES
            ========================================================= */
+
         * {
+
             box-sizing: border-box;
+
             margin: 0;
+
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            font-family:
+                'Segoe UI',
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
         }
 
+
         body {
-            background: linear-gradient(-45deg, #3bb2ea, #76639c, #95455c, #3bb2ea);
+
+            background:
+                linear-gradient(
+                    -45deg,
+                    #3bb2ea,
+                    #76639c,
+                    #95455c,
+                    #3bb2ea
+                );
+
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+
+            animation:
+                gradientBG 15s ease infinite;
+
             min-height: 100vh;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             color: white;
+
             padding: 20px 10px;
+
             position: relative;
+
             overflow-x: hidden;
         }
 
+
         @keyframes gradientBG {
-            0%   { background-position: 0% 50%; }
-            50%  { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+            0% {
+
+                background-position: 0% 50%;
+            }
+
+            50% {
+
+                background-position: 100% 50%;
+            }
+
+            100% {
+
+                background-position: 0% 50%;
+            }
         }
 
+
         /* =========================================================
-           PARTÍCULAS
+           PARTICULAS
            ========================================================= */
+
         .area-particulas {
+
             position: fixed;
+
             inset: 0;
+
             z-index: 0;
+
             overflow: hidden;
+
             pointer-events: none;
         }
 
+
         .circulos {
+
             position: absolute;
+
             inset: 0;
+
             width: 100%;
+
             height: 100%;
         }
 
+
         .circulos li {
+
             position: absolute;
+
             display: block;
+
             list-style: none;
-            background: rgba(255, 255, 255, 0.12);
-            animation: subirParticulas linear infinite;
+
+            background:
+                rgba(255,255,255,0.12);
+
+            animation:
+                subirParticulas linear infinite;
+
             border-radius: 50%;
+
             bottom: -100px;
         }
 
-        .circulos li:nth-child(1)  { left: 10%; width: 50px; height: 50px; animation-duration: 20s; animation-delay: -5s; }
-        .circulos li:nth-child(2)  { left: 25%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: -8s; }
-        .circulos li:nth-child(3)  { left: 45%; width: 60px; height: 60px; animation-duration: 25s; animation-delay: -12s; }
-        .circulos li:nth-child(4)  { left: 65%; width: 25px; height: 25px; animation-duration: 15s; animation-delay: -3s; }
-        .circulos li:nth-child(5)  { left: 85%; width: 40px; height: 40px; animation-duration: 18s; animation-delay: -15s; }
-        .circulos li:nth-child(6)  { left: 15%; width: 30px; height: 30px; animation-duration: 14s; animation-delay: -7s; }
-        .circulos li:nth-child(7)  { left: 35%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: -2s; }
-        .circulos li:nth-child(8)  { left: 55%; width: 45px; height: 45px; animation-duration: 22s; animation-delay: -18s; }
-        .circulos li:nth-child(9)  { left: 75%; width: 20px; height: 20px; animation-duration: 16s; animation-delay: -9s; }
-        .circulos li:nth-child(10) { left: 90%; width: 35px; height: 35px; animation-duration: 19s; animation-delay: -11s; }
+
+        .circulos li:nth-child(1) {
+
+            left: 10%;
+            width: 50px;
+            height: 50px;
+            animation-duration: 20s;
+            animation-delay: -5s;
+        }
+
+        .circulos li:nth-child(2) {
+
+            left: 25%;
+            width: 20px;
+            height: 20px;
+            animation-duration: 12s;
+            animation-delay: -8s;
+        }
+
+        .circulos li:nth-child(3) {
+
+            left: 45%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 25s;
+            animation-delay: -12s;
+        }
+
+        .circulos li:nth-child(4) {
+
+            left: 65%;
+            width: 25px;
+            height: 25px;
+            animation-duration: 15s;
+            animation-delay: -3s;
+        }
+
+        .circulos li:nth-child(5) {
+
+            left: 85%;
+            width: 40px;
+            height: 40px;
+            animation-duration: 18s;
+            animation-delay: -15s;
+        }
+
+        .circulos li:nth-child(6) {
+
+            left: 15%;
+            width: 30px;
+            height: 30px;
+            animation-duration: 14s;
+            animation-delay: -7s;
+        }
+
+        .circulos li:nth-child(7) {
+
+            left: 35%;
+            width: 15px;
+            height: 15px;
+            animation-duration: 10s;
+            animation-delay: -2s;
+        }
+
+        .circulos li:nth-child(8) {
+
+            left: 55%;
+            width: 45px;
+            height: 45px;
+            animation-duration: 22s;
+            animation-delay: -18s;
+        }
+
+        .circulos li:nth-child(9) {
+
+            left: 75%;
+            width: 20px;
+            height: 20px;
+            animation-duration: 16s;
+            animation-delay: -9s;
+        }
+
+        .circulos li:nth-child(10) {
+
+            left: 90%;
+            width: 35px;
+            height: 35px;
+            animation-duration: 19s;
+            animation-delay: -11s;
+        }
+
 
         @keyframes subirParticulas {
-            0%   { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-120vh)
+                    scale(0.5);
+
+                opacity: 0;
+            }
         }
+
 
         /* =========================================================
            CONTENEDOR PRINCIPAL
            ========================================================= */
+
         .contenido-principal {
+
             z-index: 1;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             width: 100%;
+
             max-width: 500px;
+
             position: relative;
         }
+
 
         /* =========================================================
            LOGO
            ========================================================= */
+
         @keyframes float {
-            0%   { transform: translateY(0); }
-            50%  { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
+
+            0% {
+
+                transform: translateY(0);
+            }
+
+            50% {
+
+                transform: translateY(-6px);
+            }
+
+            100% {
+
+                transform: translateY(0);
+            }
         }
+
 
         .logo {
+
             width: var(--logo-ancho);
-            margin-bottom: var(--logo-margen-abajo);
-            animation: float 3.5s ease-in-out infinite;
+
+            margin-bottom:
+                var(--logo-margen-abajo);
+
+            animation:
+                float 3.5s ease-in-out infinite;
+
             filter:
-                drop-shadow(0 10px 10px rgba(0,0,0,0.3))
-                drop-shadow(0 0 5px rgba(255,255,255,0.4));
+                drop-shadow(
+                    0 10px 10px rgba(0,0,0,0.3)
+                )
+                drop-shadow(
+                    0 0 5px rgba(255,255,255,0.4)
+                );
         }
 
+
         /* =========================================================
-           TITULO
+           TITULO FAQ
            ========================================================= */
+
         .titulo-faq {
-            font-size: var(--titulo-tamano);
+
+            font-size:
+                var(--titulo-tamano);
+
             font-style: italic;
+
             font-weight: 700;
+
             text-align: center;
-            margin-bottom: var(--titulo-margen-abajo);
-            text-shadow: 1px 2px 3px rgba(0,0,0,0.35);
+
+            margin-bottom:
+                var(--titulo-margen-abajo);
+
+            text-shadow:
+                1px 2px 3px rgba(0,0,0,0.35);
         }
+
 
         /* =========================================================
            FAQ
            ========================================================= */
+
         .faq {
-            width: var(--faq-ancho);
+
+            width:
+                var(--faq-ancho);
         }
+
 
         .faq-seccion {
-            margin-bottom: var(--faq-espacio-seccion);
+
+            margin-bottom:
+                var(--faq-espacio-seccion);
         }
 
+
         .faq-seccion-titulo {
+
             font-size: 16px;
+
             font-style: italic;
+
             font-weight: bold;
+
             margin-bottom: 2px;
         }
 
+
         .accordion {
+
             width: 100%;
         }
+
 
         .accordion-item {
+
             width: 100%;
         }
+
 
         .accordion-header {
+
             width: 100%;
+
             border: none;
+
             background: transparent;
+
             color: white;
+
             text-align: left;
+
             cursor: pointer;
-            font-size: var(--faq-tamano);
-            line-height: var(--faq-interlineado);
+
+            font-size:
+                var(--faq-tamano);
+
+            line-height:
+                var(--faq-interlineado);
+
             padding: 1px 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+
+            text-shadow:
+                1px 1px 2px rgba(0,0,0,0.25);
         }
 
+
         .accordion-header:hover {
+
             color: #ffe6f7;
         }
 
-/* Pregunta activa: cambia a amarillo cuando está abierta */
-.accordion-item.open .accordion-header {
-    color: #FFD700;
-}
 
-/* Respuesta activa: también cambia a amarillo */
-.accordion-item.open .accordion-content p {
-    color: #FFD700;
-}
+        /* Pregunta activa */
+
+        .accordion-item.open
+        .accordion-header {
+
+            color: #FFD700;
+        }
+
+
+        /* Respuesta activa */
+
+        .accordion-item.open
+        .accordion-content p {
+
+            color: #FFD700;
+        }
+
 
         .accordion-header .signo {
+
             display: inline-block;
+
             width: 18px;
+
             font-weight: bold;
-            transition: transform 0.25s ease;
+
+            transition:
+                transform 0.25s ease;
         }
 
-.accordion-item.open .accordion-header .signo {
-    transform: none;
-}
+
+        .accordion-item.open
+        .accordion-header
+        .signo {
+
+            transform: none;
+        }
+
 
         .accordion-content {
+
             max-height: 0;
+
             overflow: hidden;
-            transition: max-height 0.4s ease;
-            padding-left: var(--respuesta-margen-izquierdo);
+
+            transition:
+                max-height 0.4s ease;
+
+            padding-left:
+                var(--respuesta-margen-izquierdo);
         }
 
+
         .accordion-content p {
-            font-size: var(--respuesta-tamano);
+
+            font-size:
+                var(--respuesta-tamano);
+
             line-height: 1.35;
-            padding: 5px 10px 7px 0;
+
+            padding:
+                5px 10px 7px 0;
+
             color: #fff;
         }
 
+
         /* =========================================================
-           ZONA CHATBOT
-           La imagen fondo-bot.png contiene al personaje y la
-           pizarra. Encima de la pizarra colocamos el textarea y
-           el botón de enviar.
+           CHATBOT
            ========================================================= */
+
         .chatbot-zona {
+
             position: relative;
+
             width: 100%;
-            max-width: var(--chatbot-ancho-maximo);
+
+            max-width:
+                var(--chatbot-ancho-maximo);
+
             margin-top: 4px;
         }
 
+
         .fondo-ilustracion {
+
             display: block;
+
             width: 100%;
+
             height: auto;
+
             pointer-events: none;
+
             user-select: none;
         }
 
 
-
         .chatbot-panel {
+
             position: absolute;
-            top: var(--pizarra-input-top);
-            left: var(--pizarra-input-left);
-            width: var(--pizarra-input-width);
-            height: var(--pizarra-input-height);
+
+            top:
+                var(--pizarra-input-top);
+
+            left:
+                var(--pizarra-input-left);
+
+            width:
+                var(--pizarra-input-width);
+
+            height:
+                var(--pizarra-input-height);
+
             z-index: 3;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 10px;
         }
 
+
         .chatbot-respuesta {
+
             width: 100%;
+
             flex: 1;
+
             border: none;
+
             outline: none;
+
             resize: none;
+
             background: transparent;
+
             color: #333;
+
             font-size: 15px;
+
             line-height: 1.35;
-            padding: 5px 8px 45px 8px;
+
+            padding:
+                5px 8px 45px 8px;
+
             overflow-y: auto;
         }
 
+
         .chatbot-respuesta::placeholder {
-            color: rgba(80,80,80,0.75);
+
+            color:
+                rgba(80,80,80,0.75);
         }
 
+
         .chatbot-form {
+
             position: absolute;
+
             left: 10px;
+
             right: 10px;
+
             bottom: 8px;
+
             display: flex;
+
             gap: 7px;
+
             justify-content: center;
         }
 
+
         .chatbot-input {
+
             flex: 1;
+
             min-width: 0;
+
             height: 38px;
-            border: 1px solid rgba(70,70,70,0.35);
+
+            border:
+                1px solid rgba(70,70,70,0.35);
+
             border-radius: 18px;
+
             padding: 0 13px;
+
             font-size: 14px;
+
             outline: none;
-            background: rgba(255,255,255,0.94);
+
+            background:
+                rgba(255,255,255,0.94);
+
             color: #333;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+
+            box-shadow:
+                0 2px 5px rgba(0,0,0,0.15);
         }
+
 
         .chatbot-enviar {
-            width: var(--chatbot-boton-ancho);
-            height: var(--chatbot-boton-alto);
+
+            width:
+                var(--chatbot-boton-ancho);
+
+            height:
+                var(--chatbot-boton-alto);
+
             border: none;
+
             border-radius: 20px;
+
             background: #76639c;
+
             color: white;
+
             font-weight: bold;
+
             cursor: pointer;
-            box-shadow: 0 3px 7px rgba(0,0,0,0.25);
-            transition: transform .2s ease, background .2s ease;
+
+            box-shadow:
+                0 3px 7px rgba(0,0,0,0.25);
+
+            transition:
+                transform .2s ease,
+                background .2s ease;
         }
 
+
         .chatbot-enviar:hover {
-            transform: translateY(-2px);
-            background: #d82b98;
+
+            transform:
+                translateY(-2px);
+
+            background:
+                #d82b98;
         }
+
 
         /* =========================================================
            BOTON VOLVER
            ========================================================= */
+
         .btn-volver {
-            margin-top: var(--distancia-volver-arriba);
-            margin-bottom: var(--distancia-volver-abajo);
+
+            margin-top:
+                var(--distancia-volver-arriba);
+
+            margin-bottom:
+                var(--distancia-volver-abajo);
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             gap: 8px;
-            background-color: rgba(255,255,255,0.15);
+
+            background-color:
+                rgba(255,255,255,0.15);
+
             color: white;
-            border: 2px solid rgba(255,255,255,0.6);
+
+            border:
+                2px solid rgba(255,255,255,0.6);
+
             text-decoration: none;
-            padding: 10px 25px;
+
+            padding:
+                10px 25px;
+
             border-radius: 30px;
+
             font-size: 16px;
+
             font-weight: bold;
-            transition: all .3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            backdrop-filter: blur(5px);
+
+            transition:
+                all .3s ease;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.2);
+
+            backdrop-filter:
+                blur(5px);
         }
+
 
         .btn-volver:hover {
+
             background-color: white;
+
             color: #d82b98;
+
             border-color: white;
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
         }
+
 
         .btn-volver i {
+
             font-size: 14px;
-            transition: transform .3s ease;
+
+            transition:
+                transform .3s ease;
         }
 
+
         .btn-volver:hover i {
-            transform: translateX(-4px);
+
+            transform:
+                translateX(-4px);
         }
+
 
         /* =========================================================
            FOOTER
            ========================================================= */
+
         .footer {
-            margin-top: var(--distancia-footer-arriba);
+
+            margin-top:
+                var(--distancia-footer-arriba);
+
             padding-bottom: 20px;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             width: 100%;
         }
 
+
         .fila-inferior {
+
             width: 100%;
+
             display: grid;
-            grid-template-columns: 1fr auto 1fr;
+
+            grid-template-columns:
+                1fr auto 1fr;
+
             align-items: center;
-            padding: 0 var(--footer-padding-lateral);
+
+            padding:
+                0 var(--footer-padding-lateral);
+
             margin-bottom: 10px;
         }
 
+
         .banderas-idioma {
+
             justify-self: start;
+
             display: flex;
-            gap: var(--espacio-entre-idiomas);
+
+            gap:
+                var(--espacio-entre-idiomas);
+
             align-items: center;
         }
+
 
         .btn-bandera {
+
             display: inline-flex;
+
             justify-content: center;
+
             align-items: center;
-            width: var(--tamano-boton-idioma);
-            height: var(--tamano-boton-idioma);
+
+            width:
+                var(--tamano-boton-idioma);
+
+            height:
+                var(--tamano-boton-idioma);
+
             background: transparent;
-            border: var(--grosor-linea-idioma) solid rgba(255,255,255,0.9);
+
+            border:
+                var(--grosor-linea-idioma)
+                solid rgba(255,255,255,0.9);
+
             border-radius: 50%;
+
             cursor: pointer;
-            transition: transform .3s ease, background-color .3s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-            color: rgba(255,255,255,0.9);
-            font-size: var(--tamano-texto-idioma);
+
+            transition:
+                transform .3s ease,
+                background-color .3s ease;
+
+            box-shadow:
+                0 2px 6px rgba(0,0,0,0.4);
+
+            color:
+                rgba(255,255,255,0.9);
+
+            font-size:
+                var(--tamano-texto-idioma);
+
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+
+            text-shadow:
+                1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        .btn-es { position: relative; left: var(--desplazar-es); }
-        .btn-en { position: relative; left: var(--desplazar-en); }
+
+        .btn-es {
+
+            position: relative;
+
+            left:
+                var(--desplazar-es);
+        }
+
+
+        .btn-en {
+
+            position: relative;
+
+            left:
+                var(--desplazar-en);
+        }
+
 
         .btn-bandera:hover {
-            transform: scale(1.15);
-            background-color: rgba(255,255,255,0.2);
+
+            transform:
+                scale(1.15);
+
+            background-color:
+                rgba(255,255,255,0.2);
         }
+
 
         .handle {
+
             justify-self: center;
+
             font-size: 17px;
+
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+
+            text-shadow:
+                1px 1px 2px rgba(0,0,0,0.4);
         }
 
+
         .social-icons {
+
             display: flex;
+
             gap: 18px;
+
             margin-top: -5px;
         }
 
+
         .social-icons a {
+
             color: white;
+
             font-size: 30px;
+
             text-decoration: none;
-            transition: transform .3s ease, color .3s ease;
+
+            transition:
+                transform .3s ease,
+                color .3s ease;
         }
+
 
         .social-icons a:hover {
-            transform: scale(1.15);
+
+            transform:
+                scale(1.15);
         }
 
-        .social-icons .fa-instagram:hover { color: #E1306C; }
-        .social-icons .fa-tiktok:hover { color: #000; text-shadow: 2px 2px 0 #00f2fe, -2px -2px 0 #fe0979; }
-        .social-icons .fa-youtube:hover { color: #FF0000; }
-        .social-icons .fa-pinterest:hover { color: #E60023; }
+
+        .social-icons
+        .fa-instagram:hover {
+
+            color: #E1306C;
+        }
+
+
+        .social-icons
+        .fa-tiktok:hover {
+
+            color: #000;
+
+            text-shadow:
+                2px 2px 0 #00f2fe,
+                -2px -2px 0 #fe0979;
+        }
+
+
+        .social-icons
+        .fa-youtube:hover {
+
+            color: #FF0000;
+        }
+
+
+        .social-icons
+        .fa-pinterest:hover {
+
+            color: #E60023;
+        }
+
 
         /* =========================================================
            RESPONSIVE
            ========================================================= */
+
         @media (max-width: 480px) {
+
             :root {
+
                 --logo-ancho: 150px;
+
                 --titulo-tamano: 23px;
+
                 --faq-tamano: 15px;
+
                 --respuesta-tamano: 14px;
             }
 
+
             body {
-                padding: 15px 10px;
+
+                padding:
+                    15px 10px;
             }
 
+
             .chatbot-titulo {
+
                 font-size: 22px;
             }
 
+
             .chatbot-panel {
+
                 padding: 7px;
             }
 
+
             .chatbot-respuesta {
+
                 font-size: 14px;
             }
 
+
             .chatbot-input {
+
                 font-size: 12px;
             }
 
+
             .chatbot-enviar {
+
                 width: 78px;
+
                 font-size: 12px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
+
     <!-- =========================================================
-         PARTÍCULAS DE FONDO
+         PARTICULAS DE FONDO
          ========================================================= -->
+
     <div class="area-particulas">
+
         <ul class="circulos">
-            <li></li><li></li><li></li><li></li><li></li>
-            <li></li><li></li><li></li><li></li><li></li>
+
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
         </ul>
+
     </div>
 
 
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+         ========================================================= -->
+
     <main class="contenido-principal">
 
-        <!-- LOGO -->
+
+        <!-- =====================================================
+             LOGO
+             ===================================================== -->
+
         <a href="index.html">
-            <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
+
+            <img
+                src="Imagenes/logo.png"
+                alt="ReadMind Logo"
+                class="logo">
+
         </a>
 
 
-        <!-- TITULO -->
+        <!-- =====================================================
+             TITULO
+             ===================================================== -->
 
-        <h1 data-key="tituloweb" data-i18n="tituloweb" class="titulo-tituloweb latido"">Preguntas Frecuentes</h1>
+        <h1
+            id="tituloWeb"
+            data-key="tituloweb"
+            class="titulo-tituloweb latido">
+
+            Preguntas Frecuentes
+
+        </h1>
 
 
         <!-- =====================================================
              FAQ
-             Las preguntas se generan automáticamente desde
-             la variable FAQ en el JavaScript de abajo.
+
+             IMPORTANTE:
+
+             Ahora NO se escriben las preguntas acá.
+
+             Se cargan automáticamente desde:
+
+             json/bot.json
+
+             según el idioma seleccionado.
              ===================================================== -->
-        <section id="faq" class="faq"></section>
+
+        <section
+            id="faq"
+            class="faq">
+        </section>
+
 
         <!-- =====================================================
              CHATBOT
-             La imagen contiene al personaje y la pizarra.
-             El contenido se coloca por encima de la pizarra.
              ===================================================== -->
-        <section class="chatbot-zona" aria-label="ChatBot ReadMind">
 
-            <img src="Imagenes/fondo-bot.png"
-                 alt="Personaje ReadMind sosteniendo una pizarra"
-                 class="fondo-ilustracion">
+        <section
+            class="chatbot-zona"
+            aria-label="ChatBot ReadMind">
+
+
+            <img
+                src="Imagenes/fondo-bot.png"
+                alt="Personaje ReadMind sosteniendo una pizarra"
+                class="fondo-ilustracion">
 
 
             <div class="chatbot-panel">
 
-                <!--
-                    Esta caja muestra la conversación/respuesta.
-                    El usuario NO escribe aquí.
-                    El texto se coloca mediante JavaScript.
-                -->
-                <div id="chatbotRespuesta"
-                     class="chatbot-respuesta"
-                     aria-live="polite">
+
+                <!-- =================================================
+                     RESPUESTA DEL CHATBOT
+                     ================================================= -->
+
+                <div
+                    id="chatbotRespuesta"
+                    class="chatbot-respuesta"
+                    aria-live="polite">
+
                     <span id="mensajeInicial">
                         ¡Hola! ¿Te puedo ayudar en algo?
                     </span>
+
                 </div>
 
-                <!-- Caja donde escribe el usuario -->
-                <form id="chatbotForm" class="chatbot-form">
+
+                <!-- =================================================
+                     FORMULARIO CHATBOT
+                     ================================================= -->
+
+                <form
+                    id="chatbotForm"
+                    class="chatbot-form">
+
+
                     <input
                         id="chatbotInput"
                         class="chatbot-input"
@@ -624,493 +1233,1141 @@
                         placeholder="Escribí tu pregunta..."
                         aria-label="Escribí tu pregunta">
 
-                    <button class="chatbot-enviar" type="submit">
+
+                    <button
+                        id="botonEnviar"
+                        class="chatbot-enviar"
+                        type="submit">
+
                         Enviar
+
                     </button>
+
+
                 </form>
 
+
             </div>
+
+
         </section>
 
-        <!-- BOTON VOLVER -->
-        <a href="index.html" class="btn-volver">
-            <i class="fa-solid fa-chevron-left"></i>
-            <span>Volver al inicio</span>
+
+        <!-- =====================================================
+             BOTON VOLVER
+             ===================================================== -->
+
+        <a
+            href="index.html"
+            class="btn-volver">
+
+
+            <i
+                class="fa-solid fa-chevron-left">
+            </i>
+
+
+            <span id="btnVolver">
+                Volver al inicio
+            </span>
+
+
         </a>
 
-        <!-- FOOTER -->
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
         <footer class="footer">
+
 
             <div class="fila-inferior">
 
-                <div class="banderas-idioma">
-                    <button class="btn-bandera btn-es"
-                            onclick="cambiarIdioma('es')">Es</button>
 
-                    <button class="btn-bandera btn-en"
-                            onclick="cambiarIdioma('en')">En</button>
+                <div class="banderas-idioma">
+
+
+                    <button
+                        class="btn-bandera btn-es"
+                        onclick="cambiarIdioma('es')">
+
+                        Es
+
+                    </button>
+
+
+                    <button
+                        class="btn-bandera btn-en"
+                        onclick="cambiarIdioma('en')">
+
+                        En
+
+                    </button>
+
+
                 </div>
 
-                <div class="handle">@ReadMindBK</div>
+
+                <div class="handle">
+
+                    @ReadMindBK
+
+                </div>
+
+
             </div>
+
 
             <div class="social-icons">
-                <!-- REEMPLAZA CADA LINK POR TU URL REAL -->
-                <a href="LINK_DE_TU_INSTAGRAM" target="_blank" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
+
+
+                <a
+                    href="LINK_DE_TU_INSTAGRAM"
+                    target="_blank"
+                    aria-label="Instagram">
+
+                    <i
+                        class="fa-brands fa-instagram">
+                    </i>
+
                 </a>
 
-                <a href="LINK_DE_TU_TIKTOK" target="_blank" aria-label="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
+
+                <a
+                    href="LINK_DE_TU_TIKTOK"
+                    target="_blank"
+                    aria-label="TikTok">
+
+                    <i
+                        class="fa-brands fa-tiktok">
+                    </i>
+
                 </a>
 
-                <a href="LINK_DE_TU_YOUTUBE" target="_blank" aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
+
+                <a
+                    href="LINK_DE_TU_YOUTUBE"
+                    target="_blank"
+                    aria-label="YouTube">
+
+                    <i
+                        class="fa-brands fa-youtube">
+                    </i>
+
                 </a>
 
-                <a href="LINK_DE_TU_PINTEREST" target="_blank" aria-label="Pinterest">
-                    <i class="fa-brands fa-pinterest"></i>
+
+                <a
+                    href="LINK_DE_TU_PINTEREST"
+                    target="_blank"
+                    aria-label="Pinterest">
+
+                    <i
+                        class="fa-brands fa-pinterest">
+                    </i>
+
                 </a>
+
+
             </div>
+
 
         </footer>
 
+
     </main>
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
     <script>
+
+
         /* =========================================================
-           JAVASCRIPT - PANEL PRINCIPAL DE CONTROL
+           VARIABLES GLOBALES
+           ========================================================= */
+
+        let idiomaActual = "es";
+
+        let datosBot = null;
+
+
+        /* =========================================================
+           CARGAR BOT.JSON
            =========================================================
 
-           IMPORTANTE:
-           ACÁ VAMOS A GUARDAR TODAS LAS PREGUNTAS Y RESPUESTAS.
+           ESTE ARCHIVO ES EL QUE CONTIENE:
 
-           Para completar una respuesta, buscá:
-               respuesta: "ESCRIBÍ AQUÍ LA RESPUESTA"
+           - textos generales
+           - preguntas
+           - respuestas
+           - categorías
+           - español
+           - inglés
 
-           Más adelante podemos ampliar este listado con muchas
-           preguntas y el ChatBot podrá buscar la más parecida.
+           NO CONFUNDIR CON:
+
+           json/preguntas.json
+
+           preguntas.json queda reservado para el ChatBot.
            ========================================================= */
 
-        const FAQ = [
-
-            /* =====================================================
-               SOBRE LOS LIBROS
-               ===================================================== */
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿Para qué edades son los libros?",
-                respuesta: "Generalmente de 4 a 10 años, igualmente cada libro indica un rango especifico."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿De qué tratan los libros?",
-                respuesta: "Mitologías, Dinosaurios, Robots, Animales y muchos personajes más."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿Los libros son educativos?",
-                respuesta: "Si, es la intensión de READMIND, que cada libro aporte conocimiento ademas de diversión."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿Los libros tienen ilustraciones?",
-                respuesta: "Todos los libros cuentan con ilustraciones, algunos más que otros dependiendo de cada categoria."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿Puedo ver algunas páginas antes de comprar?",
-                respuesta: "Desde nuestras redes sociales como @READMINDBK, puedes ver todo lo necesario."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿En qué idiomas están los libros?",
-                respuesta: "Todos nuestros libros cuentan con 2 ediciones, en Español e Ingles."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿Los libros son digitales o impresos?",
-                respuesta: "Todos son impresos por Amazon."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿Qué es el código QR que aparece en algunos libros?",
-                respuesta: "Es opcional, si quieres escuchar la guia, sinopsis de los personajes, e incluso musica, puedes escanear el QR y disfrutar los audios."
-            },
-            {
-                categoria: "Sobre los libros",
-                pregunta: "¿Necesito una aplicación para escuchar los contenidos?",
-                respuesta: "No es necesario, salvo excepciones, con cualquier camara de celular, detecta automaticamente el QR y te direccionará a una web de ReadMind con el audio especifico."
-            },
-
-            /* =====================================================
-               SOBRE LAS APPS
-               ===================================================== */
-            {
-                categoria: "Sobre las apps",
-                pregunta: "¿Para que son las Apps?",
-                respuesta: "Contamos con Apps de utilidad para dispositivos moviles."
-            },
-            {
-                categoria: "Sobre las apps",
-                pregunta: "¿Como obtengo las Apps?",
-                respuesta: "Busca dentro de la web la App que deseas y el link te enviará a PlayStore o AppleStore para iniciar la descarga e instalacion en tu dispositivo movil."
-            },
-            {
-                categoria: "Sobre las apps",
-                pregunta: "¿Son gratis las Apps?",
-                respuesta: "Si son gratis y listas para utilizar."
-            },
-
-            /* =====================================================
-               SOBRE LOS ÁLBUMES MUSICALES
-               ===================================================== */
-            {
-                categoria: "Sobre los álbumes musicales",
-                pregunta: "¿Qué música tienen disponible?",
-                respuesta: "Actualmente son 3 albumes con 10 temas cada uno."
-            },
-            {
-                categoria: "Sobre los álbumes musicales",
-                pregunta: "¿Para qué edades está pensada la música?",
-                respuesta: "Son caciones infantiles que pueden abarcar un amplio rango de edades."
-            },
-            {
-                categoria: "Sobre los álbumes musicales",
-                pregunta: "¿Qué tipo de canciones incluye el álbum?",
-                respuesta: "Son canciones alegres con un proposito de optimismo y superación, sobre las distintas etapas por las que pasan los niños mientras crecen."
-            },
-            {
-                categoria: "Sobre los álbumes musicales",
-                pregunta: "¿Puedo escuchar una muestra?",
-                respuesta: "Puedes escuchar las canciones en una gran cantidad de plataformas, como Spotify, Apple Music, Amazon Music, YouTube Music, etc."
-            },
-            {
-                categoria: "Sobre los álbumes musicales",
-                pregunta: "¿La música está relacionada con los libros?",
-                respuesta: "Los albumes musicales son totalmente independientes de los libros que publicamos."
-            },
-            {
-                categoria: "Sobre los álbumes musicales",
-                pregunta: "¿En qué idiomas están las canciones de los álbumes?",
-                respuesta: "Solo en el caso de los albumes, todas las canciones estan en español."
-            },
-            {
-                categoria: "Sobre los álbumes musicales",
-                pregunta: "¿En qué plataformas está disponible la música?",
-                respuesta: "Spotify, Apple Music, Amazon Music, YouTube Music, SoundCloud, TikTok, Instagram, Facebook, CapCut y más."
-            },
-
-            /* =====================================================
-               COMPRAS
-               ===================================================== */
-            {
-                categoria: "Compras",
-                pregunta: "¿Cómo obtengo el libro?",
-                respuesta: "Todos los enlaces de los libros te dirigirán a Amazon, donde alli puedes realizar la compra."
-            },
-            {
-                categoria: "Compras",
-                pregunta: "¿Cómo puedo pagar?",
-                respuesta: "A travez de los distintos medios de pago que ofrece Amazon en su plataforma."
-            },
-            {
-                categoria: "Compras",
-                pregunta: "¿Cómo recibo mi compra?",
-                respuesta: "Mediante el confiable sistema de envíos de la plataforma de Amazon."
-            },
-
-            /* =====================================================
-               CONTACTO
-               ===================================================== */
-            {
-                categoria: "Contacto",
-                pregunta: "¿Dónde puedo hacer una consulta?",
-                respuesta: "Puedes consultarle a nuestro bot lo que necesites saber."
-            },
-            {
-                categoria: "Contacto",
-                pregunta: "¿Cómo puedo recibir novedades?",
-                respuesta: "Por medio de nuestras redes sociales por Instragam, Tiktok, Youtube y Pinterest."
-            },
-            {
-                categoria: "Contacto",
-                pregunta: "¿Dónde puedo seguirlos?",
-                respuesta: "Buscanos en nuestras redes como @READMINDBK."
-            }
-        ];
-
-
-        /* =========================================================
-           CREAR LAS PREGUNTAS DESPLEGABLES
-           ========================================================= */
-
-        function cargarPreguntasFrecuentes() {
-
-            const contenedor = document.getElementById("faq");
-
-            /*
-              Agrupamos las preguntas por categoría para que aparezcan
-              exactamente como en la imagen.
-            */
-            const categorias = [];
-
-            FAQ.forEach(item => {
-                if (!categorias.includes(item.categoria)) {
-                    categorias.push(item.categoria);
-                }
-            });
-
-            categorias.forEach(categoria => {
-
-                const seccion = document.createElement("div");
-                seccion.className = "faq-seccion";
-
-                const titulo = document.createElement("div");
-                titulo.className = "faq-seccion-titulo";
-                titulo.textContent = categoria;
-
-                const accordion = document.createElement("div");
-                accordion.className = "accordion";
-
-                FAQ
-                    .filter(item => item.categoria === categoria)
-                    .forEach(item => {
-
-                        const elemento = document.createElement("div");
-                        elemento.className = "accordion-item";
-
-                        const boton = document.createElement("button");
-                        boton.className = "accordion-header";
-                        boton.type = "button";
-
-                        /*
-                          El "+" se transforma visualmente cuando
-                          se abre la respuesta.
-                        */
-                        boton.innerHTML = `
-                            <span class="signo">+</span>
-                            <span>${item.pregunta}</span>
-                        `;
-
-                        const respuesta = document.createElement("div");
-                        respuesta.className = "accordion-content";
-
-                        const texto = document.createElement("p");
-                        texto.textContent = item.respuesta;
-
-                        respuesta.appendChild(texto);
-                        elemento.appendChild(boton);
-                        elemento.appendChild(respuesta);
-                        accordion.appendChild(elemento);
-
-                        boton.addEventListener("click", () => {
-
-                            const estabaAbierto =
-                                elemento.classList.contains("open");
-
-                            /*
-                              Cerramos los demás elementos de la misma
-                              categoría.
-                            */
-accordion
-    .querySelectorAll(".accordion-item")
-    .forEach(otro => {
-        otro.classList.remove("open");
-
-        const contenido =
-            otro.querySelector(".accordion-content");
-
-        contenido.style.maxHeight = null;
-
-        // Volver a mostrar "+"
-        otro.querySelector(".signo").textContent = "+";
-    });
-
-                            /*
-                              Si estaba cerrado, lo abrimos.
-                            */
-if (!estabaAbierto) {
-
-    elemento.classList.add("open");
-
-    respuesta.style.maxHeight =
-        respuesta.scrollHeight + "px";
-
-    // Cambiar "+" por "-"
-    boton.querySelector(".signo").textContent = "-";
-
-} else {
-
-    // Volver de "-" a "+"
-    boton.querySelector(".signo").textContent = "+";
-}
-                        });
-                    });
-
-                seccion.appendChild(titulo);
-                seccion.appendChild(accordion);
-                contenedor.appendChild(seccion);
-            });
-        }
-
-        cargarPreguntasFrecuentes();
-
-
-
-        /* =========================================================
-           CHATBOT - CONFIGURACIÓN CON JSON EXTERNO
-           ========================================================= */
-
-        const palabrasIgnoradas = new Set([
-            "el", "la", "los", "las",
-            "un", "una", "unos", "unas",
-            "de", "del", "al",
-            "que", "qué",
-            "para", "por",
-            "en", "con",
-            "y", "o",
-            "es", "son",
-            "se", "me", "mi",
-            "puedo", "puede",
-            "cómo", "como",
-            "donde", "dónde",
-            "está", "estan", "están"
-        ]);
-
-        function normalizarTexto(texto) {
-            return texto
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .replace(/[¿?¡!.,;:()"'"]/g, " ")
-                .replace(/\s+/g, " ")
-                .trim();
-        }
-
-        function obtenerPalabras(texto) {
-            return normalizarTexto(texto)
-                .split(" ")
-                .filter(palabra =>
-                    palabra.length > 2 &&
-                    !palabrasIgnoradas.has(palabra)
-                );
-        }
-
-        /* =========================================================
-           BUSCAR EN EL ARCHIVO JSON EXTERNO
-           ========================================================= */
-        async function buscarRespuesta(preguntaUsuario) {
-            const palabrasUsuario = obtenerPalabras(preguntaUsuario);
-
-            if (palabrasUsuario.length === 0) {
-                return null;
-            }
+        async function cargarBotJSON() {
 
             try {
-                // Petición al archivo preguntas.json
-                const response = await fetch("json/preguntas.json");
+
+                const response =
+                    await fetch("json/bot.json");
+
+
                 if (!response.ok) {
-                    throw new Error("No se pudo cargar el archivo preguntas.json");
-                }
-                const datosJson = await response.json();
 
-                let mejorCoincidencia = null;
-                let mejorPuntaje = 0;
-
-                datosJson.forEach(item => {
-                    const palabrasPregunta = obtenerPalabras(item.pregunta);
-                    let coincidencias = 0;
-
-                    palabrasUsuario.forEach(palabraUsuario => {
-                        if (palabrasPregunta.includes(palabraUsuario)) {
-                            coincidencias++;
-                        } else if (
-                            palabrasPregunta.some(palabra =>
-                                palabra.startsWith(palabraUsuario) ||
-                                palabraUsuario.startsWith(palabra)
-                            )
-                        ) {
-                            coincidencias += 0.7;
-                        }
-                    });
-
-                    const puntaje =
-                        coincidencias /
-                        Math.max(palabrasUsuario.length, palabrasPregunta.length);
-
-                    if (puntaje > mejorPuntaje) {
-                        mejorPuntaje = puntaje;
-                        mejorCoincidencia = item;
-                    }
-                });
-
-                const UMBRAL_COINCIDENCIA = 0.30;
-
-                if (mejorCoincidencia && mejorPuntaje >= UMBRAL_COINCIDENCIA) {
-                    return mejorCoincidencia;
+                    throw new Error(
+                        "No se pudo cargar json/bot.json"
+                    );
                 }
 
-                return null;
+
+                datosBot =
+                    await response.json();
+
+
+                console.log(
+                    "bot.json cargado correctamente:",
+                    datosBot
+                );
+
+
+                aplicarIdioma(idiomaActual);
+
+
             } catch (error) {
-                console.error("Error al buscar en el JSON:", error);
-                return { respuesta: "Error al intentar conectar con la base de preguntas." };
+
+                console.error(
+                    "ERROR cargando bot.json:",
+                    error
+                );
+
+
+                document.getElementById("faq").innerHTML =
+
+                    "<p style='color:#FFD700;text-align:center;'>"+
+                    "No se pudo cargar el archivo bot.json."+
+                    "</p>";
             }
+
         }
 
-        function mostrarRespuesta(texto) {
-            const zona = document.getElementById("chatbotRespuesta");
-            zona.textContent = texto;
-        }
 
-        async function procesarPregunta(pregunta) {
-            const preguntaLimpia = pregunta.trim();
+        /* =========================================================
+           APLICAR IDIOMA
+           ========================================================= */
 
-            if (!preguntaLimpia) {
-                mostrarRespuesta("Escribí una pregunta para que pueda ayudarte.");
+        function aplicarIdioma(idioma) {
+
+
+            if (!datosBot) {
+
                 return;
             }
 
-            mostrarRespuesta("Buscando...");
 
-            const resultado = await buscarRespuesta(preguntaLimpia);
+            if (!datosBot[idioma]) {
 
-            if (resultado) {
-                mostrarRespuesta(resultado.respuesta);
-            } else {
-                mostrarRespuesta(
-                    "Todavía no tengo una respuesta para esa consulta. Probá escribiendo la pregunta de otra manera o elegí una de las frecuentes."
+                console.error(
+                    "No existe el idioma:",
+                    idioma
+                );
+
+                return;
+            }
+
+
+            idiomaActual = idioma;
+
+
+            const traduccion =
+                datosBot[idioma];
+
+
+            /* =====================================================
+               TITULO
+               ===================================================== */
+
+            const titulo =
+                document.getElementById("tituloWeb");
+
+
+            if (titulo) {
+
+                titulo.textContent =
+                    traduccion.tituloweb;
+            }
+
+
+            /* =====================================================
+               MENSAJE INICIAL
+               ===================================================== */
+
+            const mensajeInicial =
+                document.getElementById("mensajeInicial");
+
+
+            if (mensajeInicial) {
+
+                mensajeInicial.textContent =
+                    traduccion.mensajeInicial;
+            }
+
+
+            /* =====================================================
+               PLACEHOLDER
+               ===================================================== */
+
+            const input =
+                document.getElementById("chatbotInput");
+
+
+            if (input) {
+
+                input.placeholder =
+                    traduccion.placeholderInput;
+
+                input.setAttribute(
+                    "aria-label",
+                    traduccion.placeholderInput
                 );
             }
+
+
+            /* =====================================================
+               BOTON ENVIAR
+               ===================================================== */
+
+            const botonEnviar =
+                document.getElementById("botonEnviar");
+
+
+            if (botonEnviar) {
+
+                botonEnviar.textContent =
+                    traduccion.botonEnviar;
+            }
+
+
+            /* =====================================================
+               BOTON VOLVER
+               ===================================================== */
+
+            const btnVolver =
+                document.getElementById("btnVolver");
+
+
+            if (btnVolver) {
+
+                btnVolver.textContent =
+                    traduccion.btnVolver;
+            }
+
+
+            /* =====================================================
+               IDIOMA DEL HTML
+               ===================================================== */
+
+            document.documentElement.lang =
+                idioma;
+
+
+            /* =====================================================
+               CARGAR FAQ
+               ===================================================== */
+
+            cargarPreguntasFrecuentes(
+                traduccion.faqData
+            );
+
         }
-
-        document
-            .getElementById("chatbotForm")
-            .addEventListener("submit", function(event) {
-                event.preventDefault();
-
-                const input = document.getElementById("chatbotInput");
-                procesarPregunta(input.value);
-
-                input.value = "";
-                input.focus();
-            });
 
 
         /* =========================================================
-           IDIOMAS
+           CREAR FAQ DESDE BOT.JSON
            ========================================================= */
-        function cambiarIdioma(idioma) {
 
-            if (idioma === "es") {
-                console.log("Idioma seleccionado: Español");
+        function cargarPreguntasFrecuentes(faqData) {
+
+
+            const contenedor =
+                document.getElementById("faq");
+
+
+            if (!contenedor) {
+
+                return;
             }
 
-            if (idioma === "en") {
-                console.log("Idioma seleccionado: English");
+
+            /* Limpiar contenido anterior */
+
+            contenedor.innerHTML = "";
+
+
+            if (!Array.isArray(faqData)) {
+
+                console.error(
+                    "faqData no es un array válido."
+                );
+
+                return;
+            }
+
+
+            /* =====================================================
+               OBTENER CATEGORIAS
+               ===================================================== */
+
+            const categorias = [];
+
+
+            faqData.forEach(item => {
+
+
+                if (
+                    !categorias.includes(
+                        item.categoria
+                    )
+                ) {
+
+                    categorias.push(
+                        item.categoria
+                    );
+                }
+
+            });
+
+
+            /* =====================================================
+               CREAR CADA CATEGORIA
+               ===================================================== */
+
+            categorias.forEach(categoria => {
+
+
+                const seccion =
+                    document.createElement("div");
+
+
+                seccion.className =
+                    "faq-seccion";
+
+
+                /* =================================================
+                   TITULO DE CATEGORIA
+                   ================================================= */
+
+                const titulo =
+                    document.createElement("div");
+
+
+                titulo.className =
+                    "faq-seccion-titulo";
+
+
+                titulo.textContent =
+                    categoria;
+
+
+                /* =================================================
+                   ACORDEON
+                   ================================================= */
+
+                const accordion =
+                    document.createElement("div");
+
+
+                accordion.className =
+                    "accordion";
+
+
+                /* =================================================
+                   PREGUNTAS DE ESTA CATEGORIA
+                   ================================================= */
+
+                faqData
+
+                    .filter(
+                        item =>
+                            item.categoria ===
+                            categoria
+                    )
+
+                    .forEach(item => {
+
+
+                        const elemento =
+                            document.createElement("div");
+
+
+                        elemento.className =
+                            "accordion-item";
+
+
+                        /* =================================================
+                           BOTON DE PREGUNTA
+                           ================================================= */
+
+                        const boton =
+                            document.createElement("button");
+
+
+                        boton.className =
+                            "accordion-header";
+
+
+                        boton.type =
+                            "button";
+
+
+                        boton.innerHTML = `
+
+                            <span class="signo">
+                                +
+                            </span>
+
+                            <span>
+                                ${item.pregunta}
+                            </span>
+
+                        `;
+
+
+                        /* =================================================
+                           RESPUESTA
+                           ================================================= */
+
+                        const respuesta =
+                            document.createElement("div");
+
+
+                        respuesta.className =
+                            "accordion-content";
+
+
+                        const texto =
+                            document.createElement("p");
+
+
+                        texto.textContent =
+                            item.respuesta;
+
+
+                        respuesta.appendChild(
+                            texto
+                        );
+
+
+                        elemento.appendChild(
+                            boton
+                        );
+
+
+                        elemento.appendChild(
+                            respuesta
+                        );
+
+
+                        accordion.appendChild(
+                            elemento
+                        );
+
+
+                        /* =================================================
+                           ABRIR / CERRAR
+                           ================================================= */
+
+                        boton.addEventListener(
+                            "click",
+                            () => {
+
+
+                                const estabaAbierto =
+                                    elemento.classList.contains(
+                                        "open"
+                                    );
+
+
+                                /* Cerrar los demás */
+
+                                accordion
+
+                                    .querySelectorAll(
+                                        ".accordion-item"
+                                    )
+
+                                    .forEach(
+                                        otro => {
+
+
+                                            otro.classList.remove(
+                                                "open"
+                                            );
+
+
+                                            const contenido =
+                                                otro.querySelector(
+                                                    ".accordion-content"
+                                                );
+
+
+                                            contenido.style.maxHeight =
+                                                null;
+
+
+                                            const signo =
+                                                otro.querySelector(
+                                                    ".signo"
+                                                );
+
+
+                                            if (signo) {
+
+                                                signo.textContent =
+                                                    "+";
+                                            }
+
+                                        }
+                                    );
+
+
+                                /* Abrir el seleccionado */
+
+                                if (!estabaAbierto) {
+
+
+                                    elemento.classList.add(
+                                        "open"
+                                    );
+
+
+                                    respuesta.style.maxHeight =
+                                        respuesta.scrollHeight +
+                                        "px";
+
+
+                                    boton
+                                        .querySelector(
+                                            ".signo"
+                                        )
+                                        .textContent =
+                                        "-";
+
+
+                                }
+
+                            }
+                        );
+
+                    });
+
+
+                /* Agregar categoría */
+
+                seccion.appendChild(
+                    titulo
+                );
+
+
+                seccion.appendChild(
+                    accordion
+                );
+
+
+                contenedor.appendChild(
+                    seccion
+                );
+
+            });
+
+        }
+
+
+        /* =========================================================
+           CHATBOT
+           
+           IMPORTANTE:
+
+           ESTA PARTE SIGUE UTILIZANDO:
+
+           json/preguntas.json
+
+           NO bot.json.
+
+           Esto mantiene separado el sistema de traducción del
+           sistema de búsqueda del ChatBot.
+           ========================================================= */
+
+        const palabrasIgnoradas =
+            new Set([
+
+                "el",
+                "la",
+                "los",
+                "las",
+
+                "un",
+                "una",
+                "unos",
+                "unas",
+
+                "de",
+                "del",
+                "al",
+
+                "que",
+                "qué",
+
+                "para",
+                "por",
+
+                "en",
+                "con",
+
+                "y",
+                "o",
+
+                "es",
+                "son",
+
+                "se",
+                "me",
+                "mi",
+
+                "puedo",
+                "puede",
+
+                "cómo",
+                "como",
+
+                "donde",
+                "dónde",
+
+                "está",
+                "estan",
+                "están"
+            ]);
+
+
+        /* =========================================================
+           NORMALIZAR TEXTO
+           ========================================================= */
+
+        function normalizarTexto(texto) {
+
+            return texto
+
+                .toLowerCase()
+
+                .normalize("NFD")
+
+                .replace(
+                    /[\u0300-\u036f]/g,
+                    ""
+                )
+
+                .replace(
+                    /[¿?¡!.,;:()"'"]/g,
+                    " "
+                )
+
+                .replace(
+                    /\s+/g,
+                    " "
+                )
+
+                .trim();
+        }
+
+
+        /* =========================================================
+           OBTENER PALABRAS
+           ========================================================= */
+
+        function obtenerPalabras(texto) {
+
+            return normalizarTexto(texto)
+
+                .split(" ")
+
+                .filter(
+                    palabra =>
+                        palabra.length > 2 &&
+                        !palabrasIgnoradas.has(
+                            palabra
+                        )
+                );
+        }
+
+
+        /* =========================================================
+           BUSCAR RESPUESTA EN PREGUNTAS.JSON
+           
+           NO MODIFICAMOS ESTE SISTEMA.
+           ========================================================= */
+
+        async function buscarRespuesta(
+            preguntaUsuario
+        ) {
+
+
+            const palabrasUsuario =
+                obtenerPalabras(
+                    preguntaUsuario
+                );
+
+
+            if (
+                palabrasUsuario.length === 0
+            ) {
+
+                return null;
+            }
+
+
+            try {
+
+
+                /* ================================================
+                   ARCHIVO DEL CHATBOT
+
+                   ESTE NO ES bot.json
+
+                   ESTE ES preguntas.json
+                   ================================================ */
+
+                const response =
+                    await fetch(
+                        "json/preguntas.json"
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "No se pudo cargar el archivo preguntas.json"
+                    );
+                }
+
+
+                const datosJson =
+                    await response.json();
+
+
+                let mejorCoincidencia =
+                    null;
+
+
+                let mejorPuntaje =
+                    0;
+
+
+                /* =================================================
+                   BUSCAR COINCIDENCIA
+                   ================================================= */
+
+                datosJson.forEach(item => {
+
+
+                    const palabrasPregunta =
+                        obtenerPalabras(
+                            item.pregunta
+                        );
+
+
+                    let coincidencias =
+                        0;
+
+
+                    palabrasUsuario.forEach(
+                        palabraUsuario => {
+
+
+                            if (
+                                palabrasPregunta.includes(
+                                    palabraUsuario
+                                )
+                            ) {
+
+                                coincidencias++;
+
+
+                            } else if (
+
+
+                                palabrasPregunta.some(
+                                    palabra =>
+
+                                        palabra.startsWith(
+                                            palabraUsuario
+                                        )
+
+                                        ||
+
+                                        palabraUsuario.startsWith(
+                                            palabra
+                                        )
+                                )
+
+                            ) {
+
+                                coincidencias += 0.7;
+                            }
+
+                        }
+                    );
+
+
+                    const puntaje =
+
+                        coincidencias /
+
+                        Math.max(
+                            palabrasUsuario.length,
+                            palabrasPregunta.length
+                        );
+
+
+                    if (
+                        puntaje >
+                        mejorPuntaje
+                    ) {
+
+                        mejorPuntaje =
+                            puntaje;
+
+
+                        mejorCoincidencia =
+                            item;
+                    }
+
+                });
+
+
+                /* =================================================
+                   UMBRAL
+                   ================================================= */
+
+                const UMBRAL_COINCIDENCIA =
+                    0.30;
+
+
+                if (
+
+                    mejorCoincidencia &&
+
+                    mejorPuntaje >=
+                    UMBRAL_COINCIDENCIA
+
+                ) {
+
+                    return mejorCoincidencia;
+                }
+
+
+                return null;
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Error al buscar en preguntas.json:",
+                    error
+                );
+
+
+                return {
+
+                    respuesta:
+                        "Error al intentar conectar con la base de preguntas."
+
+                };
+
             }
 
         }
+
+
+        /* =========================================================
+           MOSTRAR RESPUESTA
+           ========================================================= */
+
+        function mostrarRespuesta(
+            texto
+        ) {
+
+
+            const zona =
+                document.getElementById(
+                    "chatbotRespuesta"
+                );
+
+
+            zona.textContent =
+                texto;
+
+        }
+
+
+        /* =========================================================
+           PROCESAR PREGUNTA
+           ========================================================= */
+
+        async function procesarPregunta(
+            pregunta
+        ) {
+
+
+            const preguntaLimpia =
+                pregunta.trim();
+
+
+            if (
+                !preguntaLimpia
+            ) {
+
+
+                mostrarRespuesta(
+
+                    idiomaActual === "en"
+
+                        ? "Please write a question so I can help you."
+
+                        : "Escribí una pregunta para que pueda ayudarte."
+
+                );
+
+
+                return;
+            }
+
+
+            mostrarRespuesta(
+                idiomaActual === "en"
+                    ? "Searching..."
+                    : "Buscando..."
+            );
+
+
+            const resultado =
+                await buscarRespuesta(
+                    preguntaLimpia
+                );
+
+
+            if (resultado) {
+
+
+                mostrarRespuesta(
+                    resultado.respuesta
+                );
+
+
+            } else {
+
+
+                mostrarRespuesta(
+
+                    idiomaActual === "en"
+
+                        ? "I don't have an answer for that question yet. Try asking it in another way or choose one of the frequently asked questions."
+
+                        : "Todavía no tengo una respuesta para esa consulta. Probá escribiendo la pregunta de otra manera o elegí una de las frecuentes."
+
+                );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           FORMULARIO DEL CHATBOT
+           ========================================================= */
+
+        document
+
+            .getElementById(
+                "chatbotForm"
+            )
+
+            .addEventListener(
+                "submit",
+                function(event) {
+
+
+                    event.preventDefault();
+
+
+                    const input =
+                        document.getElementById(
+                            "chatbotInput"
+                        );
+
+
+                    procesarPregunta(
+                        input.value
+                    );
+
+
+                    input.value =
+                        "";
+
+
+                    input.focus();
+
+                }
+            );
+
+
+        /* =========================================================
+           CAMBIAR IDIOMA
+           ========================================================= */
+
+        function cambiarIdioma(
+            idioma
+        ) {
+
+
+            console.log(
+                "Cambiando idioma a:",
+                idioma
+            );
+
+
+            if (
+                idioma !== "es" &&
+                idioma !== "en"
+            ) {
+
+                return;
+            }
+
+
+            aplicarIdioma(
+                idioma
+            );
+
+        }
+
+
+        /* =========================================================
+           INICIAR LA WEB
+           ========================================================= */
+
+        cargarBotJSON();
+
 
     </script>
 
