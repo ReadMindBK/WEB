@@ -4,19 +4,26 @@
     "btn_volver": "Volver al inicio",
 
     "titulo_col_1": "Easy Calculator",
-    "desc_col_1": "En este descargable, encontrarás hojas para colorear con un QR para escuchar.",
-    "titulo_col_2": "Estructura web en Pdf",
-    "desc_col_2": "Imagenes de la estructura de la web y libros en imagenes, facil de entender.",
+    "desc_col_1": "Calculadora simple para la infancia con contenido extra de valor",
 
+    "titulo_col_2": "Easy Notes",
+    "desc_col_2": "Un anotador práctico para niños y adultos con menú de opciones de anotación interesantes y detalladas",
+
+    "btn_lang_es": "Play Store",
+    "btn_lang_en": "Apple Store"
   },
+
   "en": {
     "tituloweb": "APPS",
     "btn_volver": "Back to home",
 
     "titulo_col_1": "Easy Calculator",
-    "desc_col_1": "Simple calculator for children with added value content.",
-    "titulo_col_2": "Easy Notes",
-    "desc_col_2": "A practical scorekeeper for children and adults, featuring a menu of interesting and detailed scoring options.",
+    "desc_col_1": "Simple calculator for children with valuable extra content",
 
+    "titulo_col_2": "Easy Notes",
+    "desc_col_2": "A practical notebook for children and adults with interesting and detailed note-taking options",
+
+    "btn_lang_es": "Play Store",
+    "btn_lang_en": "Apple Store"
   }
 }
