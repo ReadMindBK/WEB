@@ -5,22 +5,23 @@
 
     "titulo_col_1": "Muestra hojas con QR Audio",
     "desc_col_1": "En este descargable, encontrarás hojas para colorear con un QR para escuchar.",
-    "titulo_col_2": "Estructura web en Pdf",
-    "desc_col_2": "Imagenes de la estructura de la web y libros en imagenes, facil de entender.",
+    "titulo_col_2": "Estructura web en PDF",
+    "desc_col_2": "Imágenes de la estructura de la web y libros en imágenes, fácil de entender.",
 
     "btn_lang_es": "Español",
-    "btn_lang_en": "Inglés",
+    "btn_lang_en": "Inglés"
   },
+
   "en": {
     "tituloweb": "DOWNLOADS",
     "btn_volver": "Back to home",
 
-    "titulo_col_1": "Displays sheets with QR Audio",
-    "desc_col_1": "In this downloadable, you will find coloring pages with a QR code for listening..",
+    "titulo_col_1": "Sample sheets with QR Audio",
+    "desc_col_1": "In this downloadable, you will find coloring pages with a QR code for listening.",
     "titulo_col_2": "Website structure in PDF",
     "desc_col_2": "Images of the website structure and books in image format, easy to understand.",
 
     "btn_lang_es": "Spanish",
-    "btn_lang_en": "English",
+    "btn_lang_en": "English"
   }
 }
