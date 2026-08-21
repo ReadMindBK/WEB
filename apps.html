@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReadMind - ¡Bienvenidos!</title>
+    <title>ReadMind - APPS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -69,7 +68,6 @@
         transform: scale(1.04);
     }
 }
-
 
         /* --- ESTILOS GENERALES Y FONDO --- */
         * {
@@ -184,7 +182,6 @@
             filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.3)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
         }
 
-
         /* --- ACORDEÓN --- */
         .accordion-container {
             width: 100%;
@@ -264,6 +261,10 @@
             background-position: center;
             cursor: pointer;
             transition: transform 0.2s ease;
+        }
+
+        .book-cover:hover {
+            transform: scale(1.05);
         }
 
         .book-info {
@@ -545,42 +546,46 @@
             <img src="Imagenes/logo.png" alt="ReadMind Logo" class="logo">
         </a>
 
-        <h1 data-key="tituloweb" class="titulo-tituloweb latido"">APPS</h1>
+        <h1 data-key="tituloweb" data-i18n="tituloweb" class="titulo-tituloweb latido"">APPS</h1>
 
         <!-- IMAGEN DE FONDO PRINCIPAL -->
-        <img src="Imagenes/fondo-apps.png" alt="" class="fondo-ilustracion">
+        <img src="Imagenes/app.png" alt="" class="fondo-ilustracion">
 
-<div class="accordion-container">
+        <div class="accordion-container">
 
-
-            <!-- SECCIÓN 1: Easy Calculator -->
+            <!-- SECCIÓN 1: DESCARGA1 -->
             <div class="book-item">
-                <!-- CUADRO BLANCO 1 MODIFICADO -->
-                <div class="book-cover" style="background-image: url('Imagenes/app1.jpg');" onclick="abrirLightbox(this)"></div> 
+                <!-- 
+                  MODIFICADO: Se agregó el atributo data-large-img="VOL1-detalle.jpg"
+                  Cambia 'VOL1_DETALLE.jpg' por el nombre real de tu imagen grande para este álbum.
+                -->
+                <div class="book-cover" style="background-image: url('Imagenes/app1.jpg');" data-large-img="Imagenes/app1-detalle.jpg" onclick="abrirLightbox(this)"></div> 
                 <div class="book-info">
                     <div class="book-title" data-i18n="titulo_col_1">Easy Calculator</div>
                     <div class="book-desc" data-i18n="desc_col_1"> Calculadora simple para la infancia con contenido extra de valor</div>
                     <div class="book-buttons">
-                        <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Clic Aqui</a>
-                        <div class="flecha-adquierelo" data-i18n="btn_adquierelo">ADQUIERELO!!</div>
+                        <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Play Store</a>
+                        <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Apple Store</a>
                     </div>
                 </div>
             </div>
 
-            <!-- SECCIÓN 2: Easy Notes -->
+            <!-- SECCIÓN 2: DESCARGA2 -->
             <div class="book-item">
-                <!-- CUADRO BLANCO 2 MODIFICADO -->
-                <div class="book-cover" style="background-image: url('Imagenes/app2.jpg');" onclick="abrirLightbox(this)"></div> 
+                <!-- 
+                  MODIFICADO: Se agregó el atributo data-large-img="deslogo2-detalle.jpg"
+                  Cambia 'VOL2_DETALLE.jpg' por el nombre real de tu imagen grande para este álbum.
+                -->
+                <div class="book-cover" style="background-image: url('Imagenes/app2.jpg');" data-large-img="Imagenes/app2-detalle.jpg" onclick="abrirLightbox(this)"></div> 
                 <div class="book-info">
                     <div class="book-title" data-i18n="titulo_col_2">Easy Notes</div>
                     <div class="book-desc" data-i18n="desc_col_2"> Un anotador practico para niños y adultos con menú de opciones de anotación interesantes y detalladas</div>
                     <div class="book-buttons">
-                        <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Clic Aqui</a>
-                        <div class="flecha-adquierelo" data-i18n="btn_adquierelo">ADQUIERELO!!</div>
+                        <a href="LINK_ESPAÑOL" class="btn-lang" data-i18n="btn_lang_es">Play Store</a>
+                        <a href="LINK_INGLES" class="btn-lang" data-i18n="btn_lang_en">Apple Store</a>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <a href="index.html" class="btn-volver">
@@ -617,7 +622,79 @@
 
     </div>
 
+    <!-- MODAL LIGHTBOX PARA VER ÁLBUM -->
+    <div id="lightboxModal" class="lightbox-modal" onclick="cerrarLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" class="lightbox-content" alt="Álbum Ampliado">
+    </div>
 
+    <!-- SCRIPT PARA EL ACORDEÓN E IDIOMAS -->
+    <script>
+        let traducciones = {};
+
+        fetch('json/apps.json')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                traducciones = datos;
+                let idiomaGuardado = localStorage.getItem('idioma') || 'es';
+                cambiarIdioma(idiomaGuardado);
+            })
+            .catch(error => console.log("Nota: El JSON necesita un servidor/hosting para cargar correctamente.", error));
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem('idioma', idioma); 
+            
+            if(!traducciones[idioma]) return; 
+
+            document.querySelectorAll('[data-i18n]').forEach(elemento => {
+                let clave = elemento.getAttribute('data-i18n');
+                if(traducciones[idioma][clave]) {
+                    elemento.innerHTML = traducciones[idioma][clave];
+                }
+            });
+        }
+
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        }
+
+        /* 
+          MODIFICADO: La función ahora lee el atributo 'data-large-img'
+          en lugar del fondo CSS.
+        */
+        function abrirLightbox(elemento) {
+            // Obtenemos la URL de la imagen grande desde el atributo de datos
+            const urlDetalle = elemento.getAttribute('data-large-img');
+            
+            // Verificamos que exista el atributo y no esté vacío
+            if (urlDetalle) {
+                const modal = document.getElementById('lightboxModal');
+                const img = document.getElementById('lightboxImg');
+                
+                // Asignamos la imagen detallada al src del modal
+                img.src = urlDetalle;
+                modal.style.display = 'flex';
+            } else {
+                console.error("No se definió una imagen detallada (data-large-img) para este elemento.");
+            }
+        }
+
+        function cerrarLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
+            // Opcional: limpiar el src para que no parpadee la imagen anterior al abrir otro
+            document.getElementById('lightboxImg').src = "";
+        }
     </script>
 </body>
 </html>
