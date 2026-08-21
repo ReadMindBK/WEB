@@ -1,0 +1,22 @@
+{
+  "es": {
+    "tituloweb": "APPS",
+    "btn_volver": "Volver al inicio",
+
+    "titulo_col_1": "Easy Calculator",
+    "desc_col_1": "En este descargable, encontrarás hojas para colorear con un QR para escuchar.",
+    "titulo_col_2": "Estructura web en Pdf",
+    "desc_col_2": "Imagenes de la estructura de la web y libros en imagenes, facil de entender.",
+
+  },
+  "en": {
+    "tituloweb": "APPS",
+    "btn_volver": "Back to home",
+
+    "titulo_col_1": "Easy Calculator",
+    "desc_col_1": "Simple calculator for children with added value content.",
+    "titulo_col_2": "Easy Notes",
+    "desc_col_2": "A practical scorekeeper for children and adults, featuring a menu of interesting and detailed scoring options.",
+
+  }
+}
