@@ -42,13 +42,13 @@
             --logo-amazon-tamanio: 42px;
 
             /* POSICIÓN HORIZONTAL DE SPOTIFY */
-            --logo-spotify-izquierda: 50px;
+            --logo-spotify-izquierda: 120px;
 
             /* POSICIÓN VERTICAL DE SPOTIFY */
             --logo-spotify-arriba: 50%;
 
             /* POSICIÓN HORIZONTAL DE AMAZON */
-            --logo-amazon-derecha: 50px;
+            --logo-amazon-derecha: 120px;
 
             /* POSICIÓN VERTICAL DE AMAZON */
             --logo-amazon-arriba: 50%;
@@ -109,6 +109,10 @@
         }
 
 
+/* =======================================================
+   ANIMACIÓN DE BIENVENIDOS
+   ======================================================= */
+
         .latido {
             animation: latidoSuave 2s ease-in-out infinite;
         }
@@ -122,6 +126,107 @@
                 transform: scale(1.04);
             }
         }
+
+/* =======================================================
+   ANIMACIÓN ASINCRÓNICA DE LOGOS SPOTIFY Y AMAZON
+   ======================================================= */
+
+/* -------------------------------------------------------
+   PARÁMETROS EDITABLES DE LA ANIMACIÓN
+   ------------------------------------------------------- */
+
+/* Duración de un ciclo completo */
+:root {
+    --logos-latido-duracion: 2.5s;
+
+    /* Tamaño normal */
+    --logos-latido-normal: 1;
+
+    /* Tamaño cuando CRECE */
+    --logos-latido-grande: 1.06;
+
+    /* Tamaño cuando se ACHICA */
+    --logos-latido-pequeno: 0.94;
+}
+
+
+/* -------------------------------------------------------
+   SPOTIFY
+   ------------------------------------------------------- */
+
+.logo-spotify-bienvenidos {
+    animation: latidoSpotify var(--logos-latido-duracion) ease-in-out infinite;
+}
+
+
+/* -------------------------------------------------------
+   AMAZON
+   ------------------------------------------------------- */
+
+.logo-amazon-bienvenidos {
+    animation: latidoAmazon var(--logos-latido-duracion) ease-in-out infinite;
+}
+
+
+/* =======================================================
+   ANIMACIÓN SPOTIFY
+
+   Cuando Spotify CRECE → Amazon se ACHICA
+   Cuando Spotify se ACHICA → Amazon CRECE
+   ======================================================= */
+
+@keyframes latidoSpotify {
+
+    0% {
+        transform: translateY(-50%) scale(var(--logos-latido-normal));
+    }
+
+    25% {
+        transform: translateY(-50%) scale(var(--logos-latido-grande));
+    }
+
+    50% {
+        transform: translateY(-50%) scale(var(--logos-latido-normal));
+    }
+
+    75% {
+        transform: translateY(-50%) scale(var(--logos-latido-pequeno));
+    }
+
+    100% {
+        transform: translateY(-50%) scale(var(--logos-latido-normal));
+    }
+}
+
+
+/* =======================================================
+   ANIMACIÓN AMAZON
+
+   Es exactamente inversa a Spotify
+   ======================================================= */
+
+@keyframes latidoAmazon {
+
+    0% {
+        transform: translateY(-50%) scale(var(--logos-latido-normal));
+    }
+
+    25% {
+        transform: translateY(-50%) scale(var(--logos-latido-pequeno));
+    }
+
+    50% {
+        transform: translateY(-50%) scale(var(--logos-latido-normal));
+    }
+
+    75% {
+        transform: translateY(-50%) scale(var(--logos-latido-grande));
+    }
+
+    100% {
+        transform: translateY(-50%) scale(var(--logos-latido-normal));
+    }
+}
 
 
         /* --- ESTILOS GENERALES --- */
